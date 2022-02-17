@@ -1,12 +1,13 @@
 [
  {
   "id": 1,
-  "name": "Old PRCI",
-  "price": "",
+  "name": "Old Price",
+  "price": "1500",
   "discount": "77",
-  "category": "",
-  "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price."
- },
+  "category": "Alimento para Perros",
+  "description": "Cafetera Dolce Gusto Lumio. La cafetera Dolce Gusto Lumio es de variedad automática que ha llegado con un diseño radical al que nos tenía acostumbrados Dolce Gusto.En este post te contamos todo lo que necesitas saber sobre ella, desde sus características técnicas hasta la calidad de las cápsulas o price.",
+  "image": "alimentosPerros1.jpg" 
+},
  {
   "id": 2,
   "name": "Purina Pro-plan",
