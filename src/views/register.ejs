@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- head Start-->
+  <%- include("./partials/head") %>
+  <!-- head end-->          
+  <style>.container {padding-right: 20px;padding-left: 20px;}</style>
+
+  
+<!-- Body Start-->
+<body>
+  <!-- header Start-->
+  <%- include("./partials/header") %>
+  <!-- Header End-->
+<!-- Jumbotron -->
+<div class="banner">
+  <div class="container">
+    <div>
+        <h1>Bienvenido</h1>
+    </div>
+  </div>
+</div>
+<!-- Jumbotron End -->
+
+<!-- Product Section Start -->
+<section id="product">
+  <div class="container">
+   <div class="inner-content">
+    <h2>Registrate</h2>
+
+
+<!-- Register Section Start -->
+    <main class="register">
+      <form action="/" method="POST">
+          <input type="text" name="name" placeholder="Nombre y apellido">
+          <input type="text" name="user" placeholder="Nombre de usuario">
+          <input type="email" name="email" placeholder="E-mail">
+          <br>
+          <label for="birth_date"><b>Fecha de nacimiento</b></label>
+          <br>
+          <input type="date" name="birth_date" id="birth_date">
+          <br>
+          <input type="text" name="addres" placeholder="Domicilio">
+
+
+          
+          <h4>Elegí tu foto de usuario</h4>
+          <input type="file" name="avatar">
+          <br>
+          <br>
+          <input type="password" name="pass" placeholder="Elegí tu contraseña">
+          <input type="password" name="pass_confirm" placeholder="Confirmá tu contraseña">
+          <br>
+          <br>
+          <input class="submit" type="submit" value="Enviar">
+          <input class="reset" type="reset" value="Borrar">
+          <br>
+          <br>
+      </form>
+  </main>
+
+
+    <div class="products-display">
+      <a href="login.html" class="previous">Logueate</a>
+   </div>
+
+
+<!-- Register Section End -->
+
+  
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+ <div class="container">
+  <div class="row">
+   <div class="inner-content">
+    <div class="col-sm-6"  data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500">
+     <h2 class="left">Contacto</h2>
+      <form>
+      <div class="row">
+        <div class="col-sm-6 form-group">
+          <input class="form-control" name="nombre" placeholder="Nombre" type="text" required>
+        </div>
+        <div class="col-sm-6 form-group">
+          <input class="form-control" name="email" placeholder="Email" type="email" required>
+        </div>
+      </div>
+      <textarea class="form-control" name="comentario" placeholder="Comentario" rows="8"></textarea><br>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <button class="btn btn-default pull-left" type="submit">Enviar</button>
+        </div>
+      </div> 
+      </form>
+    </div>
+    <div class="col-sm-5 address"  data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500">
+      <h2>Donde estamos</h2>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five </p>
+      <ul class="social-icon">
+         <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+         <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+    </div>
+    <!-- Footer Start -->
+    <%- include("./partials/footer") %>
+    <!-- Footer End -->
+</section>
+<!-- Contact Section End -->
+   
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- js -->
+    <script src="/js/animate.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script>
+
+    </body>
+  <!-- Body Ended -->
+</html>

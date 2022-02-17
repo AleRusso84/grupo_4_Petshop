@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Inicio del head -->
+
+<%- include("./partials/head") %>
+
+    <!-- Fin del head -->
+
+<body>
+    <!-- Inicio del Header -->
+    
+    <%- include("./partials/header") %>
+    
+    <!-- Fin del Header -->
+    <body class="body222">
+        <div class='contenedor'>
+            <form class="form3" action="/products" method="POST" enctype="multipart/form-data">
+                <div class="form-header">
+                    <h2 class='form-title'>F<span class="span2">ormulario de creacion de producto</span></h2>
+                </div>
+                    
+                    <label for='name' class="form-label" >Nombre del producto:</label>
+                    <input class='form-input'  type="text" name="name" id="name" placeholder="Ej:Collar para perro"><br>
+            
+                    <label for="price" class="form-label" >Precio del Producto:</label>
+                    <input class='form-input' type="number" name="price" id="price" placeholder="Ej:$350"><br>
+            
+                    <label for="discount" class="form-label" >Descuento:</label>
+                    <input class="form-input" type="number" name="discount" id="discount" placeholder="Ej:%15"><br>
+            
+                    <label for="category" class="form-label">Categoría:</label>
+                    <select name="category" id="category" class="form-input">
+                        <option value="">Elegí</option>
+                        <option value="in-sale">En oferta</option>
+                        <option value="visited">Últimos agregados</option>
+                        </select> <br>
+                        
+                    <label for="image" class="form-label" >Imagen:</label>
+                    <input class="form-input" type="file" name="image" id="image"><br>
+    
+    
+                    <label for="description" class="form-label">Descripcion</label>
+                    <textarea name="description" id="description" class="form-input"></textarea>
+            
+                    <input type="submit" class="btn-submit" value="Guardar Producto">
+                
+            </form>
+            
+        </div>
+    
+            </form>
+
+</body>
+</html>
