@@ -40,6 +40,6 @@ router.get('/products',productsControllers.product)
 router.get('/services',productsControllers.servicios)
 
 router.get("/blog", productsControllers.blog)
-
+router.get("/blog_single", productsControllers.blog_single)
 
 module.exports=router

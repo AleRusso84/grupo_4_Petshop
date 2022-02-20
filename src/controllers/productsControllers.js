@@ -32,6 +32,10 @@ const productsControllers={
         res.render('blog')
      },
 
+     blog_single:(req,res)=>{
+        res.render('blog_single')
+     },
+
     create:(req,res)=>{
          res.render('productsCreate')
      },
