@@ -6,7 +6,6 @@ const methodOverride= require('method-override')
 const homeRouter = require("./routes/homeRoutes")
 const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes')
-const userLoggedMiddleware = require ('./middleware/userLoggedMiddleware'); //Middleware para poder mostrar registro y login segun si esta o no logueado
 
 const port= 3030
 

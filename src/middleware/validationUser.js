@@ -3,7 +3,6 @@ const { body } = require ('express-validator');// Requerimos Express Validator p
 const path = require("path");
 
 
-
 const validations = [
     body('name').notEmpty().withMessage('Debes poner un nombre Completo'),
     body('email')
@@ -13,26 +12,26 @@ const validations = [
     body('phone')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
         .isLength({ min: 5, max: 10 }).withMessage('Escribí un número válido'),
-        body('password')
-            .notEmpty().withMessage('El campo no puede estar vacío').bail()
-            .isLength({ min: 5}).withMessage('La contraseña debe tener mas de 5 caracteres'),
-            body('imagePerfil').custom((value, { req }) => {
-                let file = req.file;
-                let acceptedExtensions = ['.jpg', '.png'];
-                
+    body('password')
+        .notEmpty().withMessage('El campo no puede estar vacío').bail()
+        .isLength({ min: 5}).withMessage('La contraseña debe tener mas de 5 caracteres'),
+    body('imagePerfil').custom((value, { req }) => {
+             let file = req.file;
+             let acceptedExtensions = ['.jpg', '.png'];
+               
                 if (!file) {
-                    throw new Error('Tenés que subir una imagen');
+                   throw new Error('Tenés que subir una imagen');
                 } else {
-                    let fileExtension = path.extname(file.originalname);
-                    if (!acceptedExtensions.includes(fileExtension)) {
-                    throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-                    }
-                }
-                
-                return true;
+                   let fileExtension = path.extname(file.originalname);
+                   if (!acceptedExtensions.includes(fileExtension)) {
+                   throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+                   }
+               }
+              
+               return true;
             })
     
 ];
 
 
-module.exports = validations ;
+module.exports = validations;
