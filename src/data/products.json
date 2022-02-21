@@ -1,7 +1,7 @@
 [
  {
   "id": 1,
-  "name": "Old Price",
+  "name": "Old Prince",
   "price": "1500",
   "discount": "77",
   "category": "Alimento para Perros",
@@ -33,6 +33,46 @@
   "price": 1750,
   "discount": 10,
   "image": "alimentosGatos2.jpg",
+  "category": "Alimentos para gatos"
+ },
+
+ {
+  "id": 5,
+  "name": "Old Prince",
+  "description": "INGREDIENTES: Harina de cordero, arroz integral, arveja, gluten de maíz, germen de maíz desgrasado, grasa animal (pollo), aceite de salmón (fuente de omega 3 y 6), hidrolizado proteico de menudencias vacunas, porcinas y aviares, pulpa de remolacha (fuente de fructo-oligosacáridos- FOS), levadura de cerveza, zeolita, sal, extracto de yucca schidigera, manano-oligosacáridos – MOS, nucleótidos de levadura, carbonato de calcio, dipropionato de amonio, ácido propiónico, acetato de zinc, pirofosfato ácido de sodio, glucosamina, condroitin sulfato, colágeno hidrolizado, ascorbato de manganeso, metionina, antioxidantes naturales: extracto de romero, vitamina C, betacaroteno, ácido cítrico, tocoferoles, licopeno, luteína, polifenoles, taurina, vitaminas: A, D3, E, K, B1, B2, B6, B12, ácido fólico, ácido nicotínico, ácido pantoténico, biotina, colina, minerales: zinc, hierro, cobre, yodo, selenio.",
+  "price": 2000,
+  "discount": 10,
+  "image": "alimentosPerros3.webp",
+  "category": "Alimentos para perros"
+ },
+
+ {
+  "id": 6,
+  "name": "Old Prince",
+  "description": "INGREDIENTES: Harina de pollo, arroz, gluten de maíz, germen de maíz desgrasado, aceite de pollo , aceite de pescado (fuente de omega), hidrolizado de menudencias porcinas y aviares, pulpa de remolacha (fuente de fructo-oligosacáridos – FOS), fibra insoluble (celulosa), levadura de cerveza, zeolita, extracto de yucca schidigera, manano- oligosacáridos – MOS, dipropionato de calcio, ácido propínico, pirofosfato ácido de sodio, glucosamina, condroitin sulfato, metionina, antioxidantes naturales: extracto de romero, ácido cítrico, vitamina C, betacaroteno, licopeno, luteína, polifenoles, vitaminas: A, D3, E, K, B1, B2, B6, B12, ácido fólico, ácido nicotínico, pantotenato de calcio, biotina, colina, minerales: zinc, hierro, cobre, manganeso, yodo, selenio.",
+  "price": 1900,
+  "discount": 10,
+  "image": "alimentosPerros4.jpg",
+  "category": "Alimentos para perros"
+ },
+
+ {
+  "id": 7,
+  "name": "Old Prince",
+  "description": "INGREDIENTES: Harina de subproductos de pollo, arroz, gluten de maíz, plasma bovino en polvo, huevo en polvo, grasa animal (pollo – cerdo), aceite de pescado (fuente de omega 3) hidrolizado proteico de pollo y cerdo, pulpa de remolacha (fuente de fructo-oligosacáridos – FOS) levadura de cerveza, zeoliota, sal, fuente de fibra insoluble, acidificante en polvo, extracto de yucca schidigera, manano-oligosacáridos – MOS, nucleótidos de levadura, carbonato de calcio, dipropionato de amonio, ácido propiónico, pirofosfato ácido de sodio, bisulfato de sodio, condroitin sulfato, ascorbato de manganeso, metionina, BHT, BHA, carnitina, antioxidantes naturales: extracto de romero, vitamina C, licopeno, luteína, polifenoles, taurina, vitaminas: A, D3, E, K, B1, B2, B6, B12, ácido fólico, ácido nicotínico, pantotenato de calcio, biotina, colina, minerales: zinc, hierro, cobre, yodo, selenio.",
+  "price": 1800,
+  "discount": 10,
+  "image": "alimentosGatos3.webp",
+  "category": "Alimentos para gatos"
+ },
+
+ {
+  "id": 8,
+  "name": "Old Prince",
+  "description": "INGREDIENTES: Harina de subproductos de pollo, arroz, gluten de maíz, albúmina en polvo, trigo, grasa animal (pollo – cerdo), aceite de pescado (fuente de omega 3), hidrolizado proteico de pollo y cerdo, pulpa de remolacha (fuente de fructo-oligosacáridos – FOS), levadura de cerveza, zeolita, sal, fuente de fibra insoluble, acidificante en polvo, extracto de yucca schidigera, manano- oligosacáridos – MOS, nucleótidos de levadura, carbonato de calcio, dipropionato de amonio, ácido propiónico, pirofosfato ácido de sodio, bisulfato de sodio, condroitin sulfato, ascorbato de manganeso, metionina, BHT, BHA, carnitina, antioxidantes naturales: extracto de romero, vitamina C, licopeno, luteína, polifenoles, taurina, vitaminas: A, D3, E, K, B1, B2, B6, B12, ácido fólico, ácido nicotínico, pantotenato de calcio, biotina, colina, minerales: zinc, hierro, cobre, yodo, selenio.",
+  "price": 1600,
+  "discount": 15,
+  "image": "alimentosGatos4.png",
   "category": "Alimentos para gatos"
  }
 ]
