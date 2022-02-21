@@ -1672,3 +1672,243 @@ main.register form .submit, main.register form .reset {
     color: white;
     text-align: center;
 }
+
+/*FORMULARIO LOGIN Y REGISTER*/
+
+
+.contenedor-formularios{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+
+}
+
+.contenedor-formularios p{
+    font-size: 14px;
+    color: black;
+}
+
+
+
+.create-form{
+    padding: 10px 15px ;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+
+}
+
+.titulo-form{
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    border-bottom: 4px solid #ebebeb;
+
+
+}
+
+.titulo-form h3{
+    font-size: 20px;
+    color: red;
+}
+
+.titulo-form .title-bar{
+    color: black;
+}
+
+.titulo-form .reg-pop{
+    color: black;
+    text-decoration: underline;
+}
+
+.titulo-form .reg-pop:hover{
+    color: #666666;
+}
+
+.control-formulario{
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.control-formulario .label-title{
+    margin-bottom: 15px;
+    font-weight: bold;
+    display: block;
+
+}
+
+.control-formulario .selector-radio{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 250px;
+}
+
+
+.control-formulario .elecciones{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}
+
+.control-formulario .elecciones label{
+    margin-bottom: 20px;
+}
+
+.control-formulario-date{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.label-title-date{
+    width: 70%;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.control{
+    width: 70%;
+    padding: 8px 8px;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+}
+
+.control-payment{
+    width: 70%;
+    border: 1px solid #bebebe;
+    border-radius: 5px;
+    display: flex;
+    font-weight: 500;
+    font-size: 18px;
+    color: gray;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.control-form-select{
+    width: 100%;
+    padding: 8px 2px;
+    font-weight: 500;
+    font-size: 18px;
+    color: gray;
+    border: none;
+    margin: 0;
+}
+
+div.form-remember{
+    margin: 10px auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 15px;
+}
+
+div.form-remember .rem-check{
+    margin-left: 25px;
+}
+
+.boton-centrado{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.boton-formulario{
+    background-color: #ff9700;
+    width: 50%;
+    border: none;
+    font-size: 17px;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 10px;
+
+}
+
+.boton-registro,
+.boton-borrado{
+    border: none;
+    font-size: 20px;
+    color: white;
+    padding: 7px 20px;
+    border-radius: 5px;
+    margin: 10px;
+    text-align: right;
+}
+
+.boton-registro{
+    background-color: #ff9700;
+
+}
+
+
+.boton-borrado{
+    background-color: #ff9700;
+}
+
+.boton-formulario:hover,
+.boton-registro:hover{
+    background-color: #ff8800;
+    cursor: pointer;
+}
+
+.boton-borrado:hover{
+    background-color: #ff8800;
+    cursor: pointer;
+}
+
+.botones{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.no-user{
+    text-align: center;
+}
+
+.no-user a{
+    color: #ff9700;
+    font-weight: bold;
+}
+
+
+@media screen and (min-width:769px){
+
+    .menu{
+        display: flex;
+    }
+
+    #icon-menu{
+        display: none;
+    }
+
+    .contenedor-formularios{
+        max-width: 769px;
+    }
+    .main-header .container-header {
+        justify-content: space-around;
+    }
+}

@@ -30,17 +30,53 @@
 <!-- Login Start -->
 
     <main class="login">
-      <form action="/" method="POST">
-          <input type="text" name="user" placeholder="Nombre de usuario">
-          <input type="password" name="pass" placeholder="Contraseña">
-          <input class="submitlogin" type="submit" value="Enviar">
-      </form>
+      <form action="/users/login" method="POST" class="create-form">
+
+
+        <div class="control-formulario">
+            <input type="email" name="email" placeholder="Ingresá tu e-mail" class="control"
+                value="<%= locals.oldData ? oldData.email : null %> ">
+        </div>
+        <% if (locals.errors && errors.email) { %>
+
+        <div class="text-danger">
+            <%= errors.email.msg  %>
+        </div>
+
+        <% } %>
+
+        <div class="control-formulario passconteiner">
+            
+            <input type="password" name="password" placeholder="Ingresá tu contraseña" class="control" id="inputP">
+            
+        
+        </div>
+        <% if (locals.errors && errors.password) { %>
+
+        <div class="text-danger">
+            <%= errors.password.msg  %>
+        </div>
+
+        <% } %>
+
+        <div class="form-remember">
+            <label class="remember">Recordame </label>
+            <input type="checkbox" name="remember" class="rem-check">
+        </div>
+
+        <div class="boton-centrado">
+            <button type="submit" class="boton-formulario">Ingresá a tu cuenta</button>
+
+
+        </div>
+
+        <div class="no-user">
+            <p>¿No tenés una cuenta? Creala <a href="./register">aquí</a></p>
+        </div>
+
+    </form>
     </main>
 
-
-    <div class="products-display">
-      <a href="register" class="previous">Registrate</a>
-   </div>
 
 <!-- Login end -->
 
