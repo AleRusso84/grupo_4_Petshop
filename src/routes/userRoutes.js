@@ -1,7 +1,13 @@
-const express = require("express")
-const router = express.Router()
+const express = require('express'); //requerimos express
+const router = express.Router();
+//const path = require('path');
+//const validations = require('../middleware/validationUser');
+const userController = require ('../controllers/userController');
+const guestMiddleware = require ('../middleware/guestMiddleware');
+const authMiddleware = require ('../middleware/authMiddleware');
 
-const userController=require('../controllers/userController')
+//const uploadFile = require('../middleware/multerPerfil');
+
 
 router.get('/register',userController.registro)
 

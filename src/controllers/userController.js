@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-
-
+//const { validationResult} = require('express-validator');
+//const bcrypt = require('bcryptjs');
 
 const userController={
     registro: (req,res)=>{
