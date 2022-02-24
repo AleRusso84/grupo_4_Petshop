@@ -8,7 +8,7 @@ const userLoginInfoFilePath = path.join(__dirname, '../data/userLoginInfo.json')
 const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginInfoFilePath, 'utf-8'));
 
 
-function authMiddleware(req, res, next) {
+function authMiddleware (req, res, next) {
     // Por defecto el usuario no está logueado
     res.locals.user = false;
     

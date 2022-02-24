@@ -28,10 +28,10 @@ router.get('/register',guestMiddleware,userController.registro)
 //Procesar el registro
 router.post('/',guestMiddleware,upload.single('imagesPerfil'), userController.store)
 
-router.get('/login',userController.login);
+//router.get('/login',userMiddleware,userController.login);
 
 //Procesar el login
-//router.post('/login',userController);
+//router.post('/login',userMiddleware,userController.authenticate);
 
 //router.get("/list",userController.list);
 //router.post("/list",userController.list);

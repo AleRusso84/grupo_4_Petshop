@@ -6,6 +6,7 @@ function userMiddleware(req, res, next) {
     } else {
         res.redirect('/');
     }
+    next();
 }
 
 module.exports = userMiddleware;
