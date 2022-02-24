@@ -2,10 +2,10 @@ const express = require('express'); //requerimos express
 const router = express.Router();
 const path = require('path');
 const multer=require('multer')
-const validations = require('../middleware/validationUser');
+//const validations = require('../middleware/validationUser');
 const userController = require ('../controllers/userController');
 const guestMiddleware = require ('../middleware/guestMiddleware');
-const authMiddleware = require ('../middleware/authMiddleware');
+const userMiddleware = require ('../middleware/userMiddleware');
 
 const uploadFile = require('../middleware/multerPerfil');
 
@@ -22,18 +22,30 @@ let storage=multer.diskStorage({
 
 let upload=multer({storage:storage});
 
-
-router.get('/register',userController.registro)
+//Mostrar el formulario de registro
+router.get('/register',guestMiddleware,userController.registro)
 
 //Procesar el registro
-//router.post('/register', uploadFile.single('imagesPerfil'), validations,userController);
+router.post('/',guestMiddleware,upload.single('imagesPerfil'), userController.store)
 
 router.get('/login',userController.login);
 
 //Procesar el login
 //router.post('/login',userController);
 
-router.get("/list",userController.list);
-router.post("/list",userController.list);
+//router.get("/list",userController.list);
+//router.post("/list",userController.list);
+
+
+
+//Mostramos el formulario de login
+router.get('/login',guestMiddleware,userController.login)
+//hacer el post de formulario de login
+router.post('/login',guestMiddleware,userController.authenticate)
+
+//logout
+router.post('/logout',userMiddleware,userController.logout)
+
+router.get('/profile', userMiddleware,userController.profile);
 
 module.exports=router
