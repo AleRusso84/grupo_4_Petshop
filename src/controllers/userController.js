@@ -4,6 +4,9 @@ const crypto = require('crypto');
 //const { validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 
+const userFilePath = path.join(__dirname, '../data/users.json');
+const users = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
+
 const userLoginInfoFilePath = path.join(__dirname, '../data/userLoginInfo.json');
 const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginInfoFilePath, 'utf-8'));
 

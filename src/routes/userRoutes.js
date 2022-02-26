@@ -7,7 +7,6 @@ const userController = require ('../controllers/userController');
 const guestMiddleware = require ('../middleware/guestMiddleware');
 const userMiddleware = require ('../middleware/userMiddleware');
 
-const uploadFile = require('../middleware/multerPerfil');
 
 let storage=multer.diskStorage({
     destination:(req,file,callback)=>{
@@ -26,7 +25,7 @@ let upload=multer({storage:storage});
 router.get('/register',guestMiddleware,userController.registro)
 
 //Procesar el registro
-router.post('/',guestMiddleware,upload.single('imagesPerfil'), userController.store)
+router.post('/',guestMiddleware,upload.single('imagesPerfil'),userController.store)
 
 //router.get('/login',userMiddleware,userController.login);
 

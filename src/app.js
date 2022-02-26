@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 const homeRouter = require("./routes/homeRoutes")
 const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes')
-//const authMiddleware = require('./middlewares/authMiddleware');
+//const authMiddleware = require('./middleware/authMiddleware');
  
 
 
