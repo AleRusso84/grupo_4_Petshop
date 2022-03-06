@@ -1,5 +1,4 @@
-[
-    {"id":1,"first_name":"Shannah","last_name":"Winchcomb","email":"swinchcomb0@fastcompany.com","address":"109 Briar Crest Trail","phone":"5874766179","password":"PSlvFgDuN","image":"user_1.jpg","category": "user"},
+[   {"id":1,"first_name":"Shannah","last_name":"Winchcomb","email":"swinchcomb0@fastcompany.com","address":"109 Briar Crest Trail","phone":"5874766179","password":"PSlvFgDuN","image":"user_1.jpg","category": "user"},
     {"id":2,"first_name":"Bearnard","last_name":"Bootell","email":"bbootell1@wikia.com","address":"997 Oxford Parkway","phone":"2431347996","password":"eFVYozyzRa","image":"user_2.jpg","category": "user"},
     {"id":3,"first_name":"Dena","last_name":"Murfill","email":"dmurfill2@imdb.com","address":"82287 Northwestern Drive","phone":"6255767485","password":"l5CgQ8LdlK","image":"user_3.jpg","category": "user"},
     {"id":4,"first_name":"Vanya","last_name":"Wildgoose","email":"vwildgoose3@google.ru","address":"316 Tennyson Street","phone":"3271650555","password":"Fqu0HF1rA27R","image":"user_4.jpg","category": "user"},
@@ -18,5 +17,4 @@
     {"id":17,"first_name":"Austin","last_name":"Ledwith","email":"aledwithg@usnews.com","address":"7 Thierer Place","phone":"5853109856","password":"6exYj6AK","image":"user_17.jpg","category": "user"},
     {"id":18,"first_name":"Devon","last_name":"Hamshar","email":"dhamsharh@boston.com","address":"2449 Schurz Court","phone":"9704304823","password":"5bX6kIN4","image":"user_18.jpg","category": "user"},
     {"id":19,"first_name":"Damiano","last_name":"Galvin","email":"dgalvini@shop-pro.jp","address":"0299 Nelson Trail","phone":"9229725054","password":"MdNFdhIth4v","image":"user_19.jpg","category": "user"},
-    {"id":20,"first_name":"Francois","last_name":"Eales","email":"fealesj@wiley.com","address":"9709 Forest Dale Parkway","phone":"7838583569","password":"ERrMdh","image":"user_20.jpg","category": "user"}
-]
+    {"id":20,"first_name":"Francois","last_name":"Eales","email":"fealesj@wiley.com","address":"9709 Forest Dale Parkway","phone":"7838583569","password":"ERrMdh","image":"user_20.jpg","category": "user"}]

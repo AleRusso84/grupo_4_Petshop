@@ -1,16 +1,18 @@
-const express = require('express'); //requerimos express
+// ************ Require's ************
+const express = require('express');
 const router = express.Router();
-const path = require('path');
-const multer=require('multer')
-//const validations = require('../middleware/validationUser');
-const userController = require ('../controllers/userController');
-const guestMiddleware = require ('../middleware/guestMiddleware');
-const userMiddleware = require ('../middleware/userMiddleware');
+const multer = require('multer');
+const path = require('path')
 
+// ************ Controller Require ************
 
-let storage=multer.diskStorage({
+const userController = require('../controllers/userController');
+const guestRoute = require('../middleware/guestRoute');
+const userRoute = require('../middleware/userRoute');
+// ************ Multer ************
+let storage2=multer.diskStorage({
     destination:(req,file,callback)=>{
-        let folder=path.join(__dirname,'../../public/images/imagesPerfil');
+        let folder=path.join(__dirname,'../../public/images/users');
         callback(null,folder);
     },
     filename:(req, file, callback)=>{
@@ -18,33 +20,22 @@ let storage=multer.diskStorage({
         callback(null, imageName);
     }
 })
+let upload2 = multer({storage2});
 
-let upload=multer({storage:storage});
+//Mostrar el formulario para hacer el registro
+router.get('/register',guestRoute,userController.register)
 
-//Mostrar el formulario de registro
-router.get('/register',guestMiddleware,userController.registro)
-
-//Procesar el registro
-router.post('/',guestMiddleware,upload.single('imagesPerfil'),userController.store)
-
-//router.get('/login',userMiddleware,userController.login);
-
-//Procesar el login
-//router.post('/login',userMiddleware,userController.authenticate);
-
-//router.get("/list",userController.list);
-//router.post("/list",userController.list);
-
-
+//hacer post del formulario de registro
+router.post('/register',upload2.single('image'),guestRoute,userController.store)
 
 //Mostramos el formulario de login
-router.get('/login',guestMiddleware,userController.login)
+router.get('/login',guestRoute,userController.login)
 //hacer el post de formulario de login
-router.post('/login',guestMiddleware,userController.authenticate)
+router.post('/profile',guestRoute,userController.authenticate)
 
 //logout
-router.post('/logout',userMiddleware,userController.logout)
+router.post('/logout',userRoute,userController.logout)
 
-router.get('/profile', userMiddleware,userController.profile);
+router.get('/profile',userRoute, userController.profile);
 
-module.exports=router
+module.exports = router;

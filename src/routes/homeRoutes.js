@@ -3,7 +3,7 @@ const router = express.Router()
 
 const homeControler = require("../controllers/homeControllers")
 
-router.get("/home",homeControler.index)
+router.get("/",homeControler.index)
 router.get("/about",homeControler.nosotros)
 
 // falta el maincontroler . lo que sea 

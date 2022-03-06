@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!-- head Start-->
+  <!-- head -->
   <%- include("./partials/head") %>
-  <!-- head end-->          
+  <!-- fin head -->          
   <style>.container {padding-right: 20px;padding-left: 20px;}</style>
 
   
-<!-- Body Start-->
+<!--  Body -->
 <body>
-  <!-- header Start-->
+  <!--   header fin -->
   <%- include("./partials/header") %>
-  <!-- Header End-->
+  <!--   Header fin  -->
 <!-- Jumbotron -->
 <div class="banner">
   <div class="container">
@@ -19,16 +19,16 @@
     </div>
   </div>
 </div>
-<!-- Jumbotron End -->
+<!-- Jumbotron fin  -->
 
-<!-- Product Section Start -->
+<!-- seccion Product -->
 <section id="product">
   <div class="container">
    <div class="inner-content">
     <h2>Registrate</h2>
 
 
-<!-- Register Section Start -->
+<!-- empieza seccion registro -->
     <main class="register">
       <form action="/users/register" method="POST" id="formRegister"class="create-form"enctype="multipart/form-data">
         <ul class="errors"></ul>
@@ -83,13 +83,13 @@
             <%} %> 
         
         <div class="control-formulario">
-            <label for="imagePerfil" class="foto"><i class="fas fa-camera"></i> Subí una imagen de perfil
-            <input type="file" name="imagePerfil" id="imagePerfil" accept="image/.jpg, image/.png" class="control-foto <%= locals.errors && errors.imagePerfil ? 'is-invalid' : null %>"></label>   
+            <label for="users" class="foto"><i class="fas fa-camera"></i> Subí una imagen de perfil
+            <input type="file" name="users" id="users" accept="image/.jpg, image/.png" class="control-foto <%= locals.errors && errors.imagePerfil ? 'is-invalid' : null %>"></label>   
         </div>   
 
-        <% if(locals.errors && errors.imagePerfil) {%>
+        <% if(locals.errors && errors.users) {%>
             <div class="text-danger">
-                <%= errors.imagePerfil.msg  %> 
+                <%= errors.users.msg  %> 
             </div>
             <%} %> 
 
@@ -115,13 +115,13 @@
 
 
 
-<!-- Register Section End -->
+<!-- termina seccion registro -->
 
   
 </section>
 
 
-<!-- Contact Section -->
+<!-- seccion contacto -->
 <section id="contact" class="contact">
  <div class="container">
   <div class="row">
@@ -158,11 +158,12 @@
   </div>
   </div>
     </div>
-    <!-- Footer Start -->
+
+    <!-- empieza Footer  -->
     <%- include("./partials/footer") %>
-    <!-- Footer End -->
+    <!-- termina Footer -->
 </section>
-<!-- Contact Section End -->
+<!-- termina seccion contacto -->
    
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -172,5 +173,5 @@
     <script src="/js/custom.js"></script>
 
     </body>
-  <!-- Body Ended -->
+  <!-- termina Body  -->
 </html>

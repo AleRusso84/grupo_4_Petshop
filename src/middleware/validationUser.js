@@ -3,7 +3,7 @@ const { body } = require ('express-validator');// Requerimos Express Validator p
 const path = require("path");
 
 
-const validations = [
+const validationsUser = [
     body('name').notEmpty().withMessage('Debes poner un nombre Completo'),
     body('email')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
@@ -15,7 +15,7 @@ const validations = [
     body('password')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
         .isLength({ min: 5}).withMessage('La contraseña debe tener mas de 5 caracteres'),
-    body('imagePerfil').custom((value, { req }) => {
+    body('users').custom((value, { req }) => {
              let file = req.file;
              let acceptedExtensions = ['.jpg', '.png'];
                
@@ -34,4 +34,4 @@ const validations = [
 ];
 
 
-module.exports = validations;
+module.exports = validationsUser;
