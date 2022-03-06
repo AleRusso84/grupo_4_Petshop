@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 const homeRouter = require("./routes/homeRoutes")
 const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes')
-const auth = require('./middleware/auth'); 
+//const auth = require('./middleware/auth'); 
 
 
 const port= 3030
@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,'../public')));
 app.use(methodOverride('_method'));
 app.use(logger('dev'));
-app.use(auth);
+//app.use(auth);
 
 
 app.use (session({ 

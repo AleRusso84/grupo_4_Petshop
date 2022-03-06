@@ -9,6 +9,7 @@ const path = require('path')
 const userController = require('../controllers/userController');
 const guestRoute = require('../middleware/guestRoute');
 const userRoute = require('../middleware/userRoute');
+const validationsUser = require('../middleware/validationUser');
 // ************ Multer ************
 let storage2=multer.diskStorage({
     destination:(req,file,callback)=>{
@@ -26,7 +27,7 @@ let upload2 = multer({storage2});
 router.get('/register',guestRoute,userController.register)
 
 //hacer post del formulario de registro
-router.post('/register',upload2.single('image'),guestRoute,userController.store)
+router.post('/',upload2.single('image'),validationsUser,userController.store)
 
 //Mostramos el formulario de login
 router.get('/login',guestRoute,userController.login)
