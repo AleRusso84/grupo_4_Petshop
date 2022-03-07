@@ -9,7 +9,7 @@ const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginInfoFilePath, 'utf-8'
 
 
 module.exports = (req, res, next) => {
-    // Por defecto el usuario no está logeado
+    // Por defecto el usuario no está logueado
     res.locals.user = false;
     
     
