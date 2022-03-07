@@ -1,4 +1,4 @@
-//Requiriendo la funcionalidad path que resuelve rutas
+/*//Requiriendo la funcionalidad path que resuelve rutas
 const path = require('path');
 
 //Requiriendo la funcionalidad multer
@@ -18,4 +18,4 @@ const upload = multer({storage});
 
 
 //Exportando al router
-module.exports = upload;
+module.exports = upload;*/
