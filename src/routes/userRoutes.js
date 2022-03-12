@@ -1,42 +1,40 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
-const path = require('path')
+const multer = require('multer')
+const path = require('path');
 
 // ************ Controller Require ************
 
-const userController = require('../controllers/userController');
+const controller = require('../controllers/userController');
 const guestRoute = require('../middleware/guestRoute');
-const userRoute = require('../middleware/userRoute');
-const validationsUser = require('../middleware/validationUser');
+const userRoute = require('../middleware/userRoute')
 // ************ Multer ************
-let storage2=multer.diskStorage({
-    destination:(req,file,callback)=>{
-        let folder=path.join(__dirname,'../../public/images/users');
-        callback(null,folder);
+let storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null, 'public/images/users')
     },
-    filename:(req, file, callback)=>{
-        let imageName= "user-"+Date.now()+path.extname(file.originalname);
-        callback(null, imageName);
+    filename: function(req,file,cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
     }
 })
-let upload2 = multer({storage2});
+let upload = multer({storage});
 
-//Mostrar el formulario para hacer el registro
-router.get('/register',guestRoute,userController.register)
+//Mostrar el formulario para hacer el regsitro
+router.get('/register',guestRoute,controller.register)
 
 //hacer post del formulario de registro
-router.post('/',upload2.single('image'),validationsUser,userController.store)
+router.post('/',guestRoute,upload.single('image'), controller.store)
 
 //Mostramos el formulario de login
-router.get('/login',guestRoute,userController.login)
+router.get('/login',guestRoute,controller.login)
 //hacer el post de formulario de login
-router.post('/profile',guestRoute,userController.authenticate)
+router.post('/login',guestRoute,controller.authenticate)
 
 //logout
-router.post('/logout',userRoute,userController.logout)
+router.post('/logout',userRoute,controller.logout)
 
-router.get('/profile',userRoute, userController.profile);
+router.get('/profile', userRoute, controller.profile);
+
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { body } = require ('express-validator');// Requerimos Express Validator para realizar las validaciones de registro
+/*const { body } = require ('express-validator');// Requerimos Express Validator para realizar las validaciones de registro
 //Procesamos las validaciones requeridas para el POST
 const path = require("path");
 
@@ -15,7 +15,7 @@ const validationsUser = [
     body('password')
         .notEmpty().withMessage('El campo no puede estar vacío').bail()
         .isLength({ min: 5}).withMessage('La contraseña debe tener mas de 5 caracteres'),
-    body('users').custom((value, { req }) => {
+    body('user').custom((value, { req }) => {
              let file = req.file;
              let acceptedExtensions = ['.jpg', '.png'];
                
@@ -34,4 +34,4 @@ const validationsUser = [
 ];
 
 
-module.exports = validationsUser;
+module.exports = validationsUser;*/

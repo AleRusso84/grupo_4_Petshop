@@ -30,56 +30,43 @@
 <!-- Login Start -->
 
     <main class="login">
-      <form action="/users/login" method="POST" class="create-form">
+            <form action="/users/login" method="POST">
+                <div class="control-formulario">
+                    <label for="email" class="form-label">Email</label>
+                    <div class="control">
+                        <input class="control" type="text" name="email" id="email" placeholder="Ingresá tu e-mail" class="<%=locals.errors && errors.email ? 'is-danger' : '' %> " value="<%= locals.old && old.email %> ">
+                    </div>
+                    <% if(locals.errors && errors.email) { %>
+                        <p class="text-danger"><%= errors.email %> </p>
+                    <% } %> 
+                </div>
+                <div class="control-formulario passconteiner">
+                    <label for="password" class="form-label">Contraseña</label>
+                    <div class="control">
+                        <input class="control"type="password" name="password" id="password" placeholder="Ingresá tu contraseña">
+                    </div>
+                    <p class="text-danger"></p>
+                </div>
+                <div class="form-remember">
+                    <label for="remember" class="remember">Recordame </label>
+                    <div class="rem-check">
+                        <input  class="rem-check"type="checkbox" name="remember" id="remember">
+                    </div>
+                </div>
+                <div class="boton-centrado">
+                  <button class="boton-formulario"type="submit">Ingresar</button>
+                </div> 
+                <div class="no-user">
+                  <p>¿No tenés una cuenta? Creala <a href="/users/register">aquí</a></p>
+              </div>
+            </form>  
+
+  </main>
 
 
-        <div class="control-formulario">
-            <input type="email" name="email" placeholder="Ingresá tu e-mail" class="control"
-                value="<%= locals.oldData ? oldData.email : null %> ">
-        </div>
-        <% if (locals.errors && errors.email) { %>
-
-        <div class="text-danger">
-            <%= errors.email.msg  %>
-        </div>
-
-        <% } %>
-
-        <div class="control-formulario passconteiner">
-            
-            <input type="password" name="password" placeholder="Ingresá tu contraseña" class="control" id="inputP">
-            
-        
-        </div>
-        <% if (locals.errors && errors.password) { %>
-
-        <div class="text-danger">
-            <%= errors.password.msg  %>
-        </div>
-
-        <% } %>
-        <div class="form-remember">
-          <label class="remember">Recordame </label>
-          <input type="checkbox" name="remember" class="rem-check">
-        </div>
-
-        <div class="boton-centrado">
-            <button type="submit" class="boton-formulario">Ingresá a tu cuenta</button>
-
-
-        </div>
-
-        <div class="no-user">
-            <p>¿No tenés una cuenta? Creala <a href="/users/register">aquí</a></p>
-        </div>
-
-    </form>
-    </main>
-
-
-<!-- Login end -->
-
-
+ <!-- Login end -->
+   </div>
+</div>
   <!-- Container End -->
 </section>
 <!-- Product Section End -->

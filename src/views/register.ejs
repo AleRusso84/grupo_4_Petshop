@@ -30,86 +30,68 @@
 
 <!-- empieza seccion registro -->
     <main class="register">
-      <form action="/users/register" method="POST" id="formRegister"class="create-form"enctype="multipart/form-data">
-        <ul class="errors"></ul>
-        <div class="control-formulario" >
-            <input type="text" name="name" placeholder="Nombre completo" id="nameRegister" class="control <%= locals.oldData ? oldData.name : null %>" value="<%=locals.oldData ? oldData.name: null %>">
+      <div class="columns is-centered">
+        <div class="column is-6">
+            <h1>Registro</h1>
+            <form action="/users" method="POST" enctype="multipart/form-data">
+                <div class="columns">
+                    <div class="column is-6">
+                        <div class="field">
+                            <label for="name" class="form-label">Nombre:</label>
+                            <div class="control">
+                                <input type="text" name="firstName" class="form-input" >
+                            </div>
+                            <p class="feedback"></p>
+                        </div>
+                    </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <label for="lastName"  class="form-label">Apellido</label>
+                            <div class="control">
+                                <input type="text" name="lastName" class="form-input">
+                            </div>
+                            <p class="feedback"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="email"  class="form-label">Email</label>
+                    <div class="control">
+                        <input type="text" name="email" class="form-input">
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+                <div class="field">
+                    <label for="image"  class="form-label">Imagen</label>
+                    <div class="control">
+                        <input   type="file" name="image" id="image"  class="<%= locals.errors && errors.image ? 'is-danger' : '' %> ">
+                    </div>
+                    <% if(locals.errors && errors.image) { %>
+                        <p class="feedback is-danger"><%= errors.image %> </p>
+                    <% } %> 
+                </div>
+                <div class="field">
+                    <label for="email"  class="form-label" >Contraseña</label>
+                    <div class="control">
+                        <input type="password" name="password"  class="form-input">
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+                <div class="field">
+                    <label for="email"  class="form-label">Repetir Contraseña</label>
+                    <div class="control">
+                        <input type="password" name="repassword"  class="form-input">
+                    </div>
+                    <p class="feedback"></p>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button type="submit">Registrarme</button>
+                    </div>
+                </div> 
+            </form>  
         </div>
-
-        <% if(locals.errors && errors.name) {%>
-            <div class="text-danger">
-                <%= errors.name.msg  %> 
-            </div>
-            <%} %> 
-
-        <div class="control-formulario">
-            <input type="email" name="email" placeholder="Ingresá tu e-mail" id="emailRegister" class="control <%= locals.oldData ? oldData.email : null %>" value="<%=locals.oldData ? oldData.email: null %>">
-        </div> 
-
-        <% if(locals.errors && errors.email) {%>
-            <div class="text-danger">
-                <%= errors.email.msg  %> 
-            </div>
-            <%} %> 
-
-        <div class="control-formulario">
-            <input type="text" name="address" placeholder="Dirección" id="addressRegister"  class="control <%= locals.oldData ? oldData.address : null %>" value="<%=locals.oldData ? oldData.address: null %>" >
-        </div>
-
-        <% if(locals.errors && errors.address) {%>
-            <div class="text-danger">
-                <%= errors.address.msg  %> 
-            </div>
-            <%} %> 
-
-        <div class="control-formulario">
-            <input type="text" name="phone" placeholder="Ingresá tu número de celular" id="phoneRegister" class="control <%= locals.oldData ? oldData.phone : null %>" value="<%=locals.oldData ? oldData.phone: null %>" >
-        </div> 
-
-        <% if(locals.errors && errors.phone) {%>
-            <div class="text-danger">
-                <%= errors.phone.msg  %> 
-            </div>
-            <%} %> 
-
-        <div class="control-formulario">
-            <input type="password" name="password" placeholder="Elegí tu contraseña" id="passRegister" class="control <%= locals.oldData ? oldData.password : null %>" value="<%=locals.oldData ? oldData.password: null %>">
-        </div>
-
-        <% if(locals.errors && errors.password) {%>
-            <div class="text-danger">
-                <%= errors.password.msg  %> 
-            </div>
-            <%} %> 
-        
-        <div class="control-formulario">
-            <label for="users" class="foto"><i class="fas fa-camera"></i> Subí una imagen de perfil
-            <input type="file" name="users" id="users" accept="image/.jpg, image/.png" class="control-foto <%= locals.errors && errors.imagePerfil ? 'is-invalid' : null %>"></label>   
-        </div>   
-
-        <% if(locals.errors && errors.users) {%>
-            <div class="text-danger">
-                <%= errors.users.msg  %> 
-            </div>
-            <%} %> 
-
-        <div class="control-formulario">
-            <div class="control-payment">
-
-
-
-        </div>
-        </div>   
-
-        <div class="boton-centrado">
-            <button type="submit" class="boton-formulario">Registrate</button>
-        </div>
-
-        <div class="no-user">
-            <p>¿Ya tenés una cuenta? ¡Hacé clic <a href="/users/login">aquí</a>!</p>
-        </div>
-    
-    </form>
+    </div>
   </main>
 
 

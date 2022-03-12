@@ -10,23 +10,34 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="home">Mark<span>Pet</span></a>
+          <a class="navbar-brand" href="/">Mark<span>Pet</span></a>
         </div>
     
         <!-- nav links -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="home"><i class="fa fa-home" aria-hidden="true"></i> <span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/"><i class="fa fa-home" aria-hidden="true"></i> <span class="sr-only">(current)</span></a></li>
             <li><a href="about">Nosotros </a></li>
             <li><a href="shop">Shop </a></li>
             <li><a href="services">Servicios </a></li>
             <li><a href="blog">Blog </a></li>
             <li><a href="#contact">Contacto </a></li>
+            <% if (!user) { %>
             <li><a href="/users/login">Ingresá </a></li>
+            <% } %>
+            <li>
+              <form action="/users/logout" method="POST" class="form is-inline">
+                <a class="menu-logout" onclick="this.closest('form').submit();return false;"><i class="fa fa-sign-out"></i></a>
+              </form>
+            </li>
+            <% if (user) { %>
             <li><a href="/users/profile"> <i class="fas fa-user"></i></a></li>
+            <% } %>
             <li><a href="productCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="sr-only">(current)</span></a></li>
+          
           </ul>
-        </div><!-- /.navbar-collapse -->
+
+          </div><!-- /.navbar-collapse -->
       </div><!-- /.container-->
     </nav>
     <!-- nav End-->

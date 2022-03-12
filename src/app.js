@@ -1,38 +1,39 @@
 // --------------Modulos
-const path=require('path');
-const express = require("express")
-const app = express()
-const methodOverride= require('method-override')
 const createError = require('http-errors');
-const session = require ('express-session');
-const logger = require('morgan');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
+const express = require('express');
+const logger = require('morgan');
+const path = require('path');
+const methodOverride =  require('method-override'); // Pasar poder usar los métodos PUT y DELETE
+const auth = require('./middleware/auth');
 
+// -------------- express
+const app = express();
 
 const homeRouter = require("./routes/homeRoutes")
 const productsRouter= require('./routes/productsRoutes')
-const userRoutes= require('./routes/userRoutes')
-//const auth = require('./middleware/auth'); 
+const userRoutes= require('./routes/userRoutes');
 
 
 const port= 3030
 
+// ---------- Middlewares 
+app.use(express.static(path.join(__dirname, '../public')));  // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(express.static(path.join(__dirname,'../public')));
-app.use(methodOverride('_method'));
-app.use(logger('dev'));
-//app.use(auth);
+app.use(logger('dev'))
+app.use(express.json())
 
 
-app.use (session({ 
-    secret: 'esto es secreto',
-    resave: false,
-    saveUninitialized:false
-}));
-
-//middleware  de aplicacion  --cookies
+// ---------Sesiones y cookies
+app.use(session({
+  secret: 'sticker wizzard',
+  resave: false,
+  saveUninitialized: true,
+}))
 app.use(cookieParser());
+app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
+app.use(auth);
 
 app.listen(process.env.PORT||port ,()=>{
     console.log("El servidor esta corriendo en "+ port)
@@ -44,7 +45,7 @@ app.set('views', path.join(__dirname,'./views'))
 
 app.use("/",homeRouter)
 app.use("/",productsRouter )
-app.use("/users",userRoutes)
+app.use('/users', userRoutes);
 
 // ************ catch 404 and forward to error handler ************
 app.use((req, res, next) => next(createError(404)));
@@ -60,3 +61,5 @@ app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error');
 });
+
+module.exports = app;
