@@ -25,15 +25,21 @@
             <% if (!user) { %>
             <li><a href="/users/login">Ingresá </a></li>
             <% } %>
-            <li>
-              <form action="/users/logout" method="POST" class="form is-inline">
-                <a class="menu-logout" onclick="this.closest('form').submit();return false;"><i class="fa fa-sign-out"></i></a>
-              </form>
-            </li>
+
+            <li><a href="productCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="sr-only">(current)</span></a></li>
+            
             <% if (user) { %>
             <li><a href="/users/profile"> <i class="fas fa-user"></i></a></li>
             <% } %>
-            <li><a href="productCart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <span class="sr-only">(current)</span></a></li>
+
+            <% if (user) { %>
+            <li><form action="/users/logout" method="POST">
+                  <a onclick="this.closest('form').submit();return false;"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> </a>
+                </form>
+              </li>
+                
+            <% } %>
+            
           
           </ul>
 

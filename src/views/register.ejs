@@ -34,34 +34,29 @@
         <div class="column is-6">
             <h1>Registro</h1>
             <form action="/users" method="POST" enctype="multipart/form-data">
-                <div class="columns">
-                    <div class="column is-6">
-                        <div class="field">
+                    <div class="control-formulario">
                             <label for="name" class="form-label">Nombre:</label>
                             <div class="control">
                                 <input type="text" name="firstName" class="form-input" >
                             </div>
-                            <p class="feedback"></p>
-                        </div>
+                            <p class="feed"></p>
                     </div>
-                    <div class="column is-6">
-                        <div class="field">
+                    <div class="control-formulario">
                             <label for="lastName"  class="form-label">Apellido</label>
                             <div class="control">
                                 <input type="text" name="lastName" class="form-input">
                             </div>
                             <p class="feedback"></p>
-                        </div>
                     </div>
-                </div>
-                <div class="field">
+                
+                <div class="control-formulario">
                     <label for="email"  class="form-label">Email</label>
                     <div class="control">
                         <input type="text" name="email" class="form-input">
                     </div>
                     <p class="feedback"></p>
                 </div>
-                <div class="field">
+                <div class="control-formulario">
                     <label for="image"  class="form-label">Imagen</label>
                     <div class="control">
                         <input   type="file" name="image" id="image"  class="<%= locals.errors && errors.image ? 'is-danger' : '' %> ">
@@ -70,25 +65,26 @@
                         <p class="feedback is-danger"><%= errors.image %> </p>
                     <% } %> 
                 </div>
-                <div class="field">
+                <div class="control-formulario">
                     <label for="email"  class="form-label" >Contraseña</label>
                     <div class="control">
                         <input type="password" name="password"  class="form-input">
                     </div>
                     <p class="feedback"></p>
                 </div>
-                <div class="field">
+                <div class="control-formulario">
                     <label for="email"  class="form-label">Repetir Contraseña</label>
                     <div class="control">
                         <input type="password" name="repassword"  class="form-input">
                     </div>
                     <p class="feedback"></p>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <button type="submit">Registrarme</button>
-                    </div>
+                <div class="boton-centrado">
+                  <button class="boton-formulario"type="submit">Registrate</button>
                 </div> 
+                <div class="no-user">
+                  <p>¿Ya tenés una cuenta? ¡Hacé clic <a href="/users/login">aquí</a>!</p>
+              </div>
             </form>  
         </div>
     </div>
