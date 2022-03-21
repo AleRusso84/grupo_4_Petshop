@@ -35,7 +35,33 @@
       document.addEventListener('DOMContentLoaded', () => {
 
           // Variables
-          const baseDeDatos = './data/products.json');
+          const baseDeDatos = [
+              {
+                  id: 1,
+                  nombre: 'Collar negro perro',
+                  precio: 23,
+                  imagen: '../public/images/product-2.jpg'
+              },
+              {
+                  id: 2,
+                  nombre: 'Collar perro negro',
+                  precio: 23,
+                  imagen: '../public/images/product-3.jpg'
+              },
+              {
+                  id: 3,
+                  nombre: 'Collar perro',
+                  precio: 23,
+                  imagen: '../public/images/product-1.jpg'
+              },
+              {
+                  id: 4,
+                  nombre: 'Collar negro',
+                  precio: 23,
+                  imagen: '../public/images/product-4.jpg'
+              }
+
+          ];
 
           let carrito = [];
           const divisa = '$';
