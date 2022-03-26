@@ -1618,7 +1618,7 @@ footer ul>li>a {font-size: 12px;}
 /*====== Login Register ======*/
 
 
-.login input[type='submit']:hover,
+/* .login input[type='submit']:hover,
 .register input[type='submit']:hover{
     background-color: #0022AA;
     transition: all 1s;
@@ -1690,12 +1690,12 @@ main.register form .submit, main.register form .reset {
     background-color: #1259c3;
     color: white;
     text-align: center;
-}
+} */
 
 /*FORMULARIO LOGIN Y REGISTER*/
 
 
-.contenedor-formularios{
+/* .contenedor-formularios{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -1930,9 +1930,9 @@ div.form-remember .rem-check{
     .main-header .container-header {
         justify-content: space-around;
     }
-}
+} */
 
-*{
+/* *{
     margin: 0px;
     padding: 0px;
 	box-sizing: border-box;
@@ -1960,4 +1960,4 @@ body{
     width: 80px;
     height: 80px;
     border-radius: 10%;
-}
+} */

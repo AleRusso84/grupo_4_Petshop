@@ -23,76 +23,31 @@
 
 <!-- Product Section Start -->
 <section id="product">
-  <% users.forEach(function(users){
-      %>
   <div class="container">
    <div class="inner-content">
     <h2>Productos Destacados</h2>
      <div class="row" data-aos="fade-up" data-aos-duration="500">
+      <% users.forEach(function(product){ 
+      %>
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail"><img src="/images/productos/<%=product.image%>" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail"><%=product.name%></a></h3>
+             <p><%=product.description %></p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span><%=product.price%></span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.ejs" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
        </div>
-       <!-- col End -->
-       <div class="col-sm-6 col-md-3 col">
-         <div class="thumbnail">
-          <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
-          </figure>
-           <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
-            <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
-            </div>
-           </div>
-         </div>
-       </div>
-       <!-- col End -->
-       <div class="col-sm-6 col-md-3 col">
-         <div class="thumbnail">
-          <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
-          </figure>
-           <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
-            <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
-            </div>
-           </div>
-           
-         </div>
-       </div>
-       <!-- col End -->
-       <div class="col-sm-6 col-md-3 col">
-         <div class="thumbnail">
-          <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
-          </figure>
-           <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
-            <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
-            </div>
-           </div>
-         </div>
-       </div>
+       <%})%>
+       
+       
+       
        <!-- col End -->
      </div>
      <!-- 1st Row End -->
@@ -103,14 +58,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-2.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -119,14 +74,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-3.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -135,14 +90,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-1.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -151,14 +106,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-4.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -170,14 +125,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-2.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -186,14 +141,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-3.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -202,14 +157,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-1.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -218,14 +173,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-4.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -238,14 +193,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-2.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -254,14 +209,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-3.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -270,14 +225,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-1.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -286,14 +241,14 @@
        <div class="col-sm-6 col-md-3 col">
          <div class="thumbnail">
           <figure class="image one">
-              <a href="/products/<%= users.id %>"><img src="/images/productos/<%= users.image %>" class="img-responsive" alt="Responsive image"></a>
+              <a href="productDetail.html"><img src="/images/product-4.jpg" class="img-responsive" alt="Responsive image"></a>
           </figure>
            <div class="caption">
-             <h3><a href="<%= users.name %>"></a></h3>
-             <p><%= users.descripcion %></p>
+             <h3><a href="productDetail.html">Collar negro perro</a></h3>
+             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy </p>
             <div class="box">
-               <p><span><%= users.price %></span> Only</p>
-               <span class="cart"><a class="fa fa-shopping-cart" href="productCart" aria-hidden="true"></a> </span>
+               <p><span>$ 23 </span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.html" aria-hidden="true"></a> </span>
             </div>
            </div>
          </div>
@@ -307,8 +262,7 @@
      </div>
      </div>
      
-  </div><% }) %>
-      
+  </div>
   <!-- Container End -->
 </section>
 <!-- Product Section End -->
@@ -362,7 +316,7 @@
     <script src="/js/animate.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/custom.js"></script>
-
+    <script src="/js/menu.js"></script>
     </body>
   <!-- Body Ended -->
 </html>
