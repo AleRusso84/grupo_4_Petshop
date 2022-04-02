@@ -26,10 +26,11 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.STRING,
         allowNull: false,
     },
-      category: {
-        type: dataTypes.STRING,
+      roles_id: {
+        type: dataTypes.INTEGER,
         allowNull: false,
-      },
+        
+    }
     };
   
     let config = {
@@ -40,6 +41,14 @@ module.exports = (sequelize, dataTypes) => {
       deletedAt: false,
     };
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        
+        User.belongsTo(models.Role, {
+            as: "roles",
+            foreignKey: "roles_id"
+        })
+    }
   
     return User;
   };
