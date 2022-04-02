@@ -8,8 +8,18 @@
           </div>
 
           <div class="cuenta-carrito">
+            <% if (!user) { %>
             <a class="ingresar" href="/login">Ingresar</a>
               <a class="registro" href="/register">Registro</a>
+              <% } %>
+              <% if (user) { %>
+              <a class="registro" href="/profile"> <i class="fas fa-user"></i></a>
+                <% } %>
+                <% if (user) { %>
+                    <form action="/logout" method="POST">
+                          <a onclick="this.closest('form').submit();return false;"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> </a>
+                        </form>
+                    <% } %>
               <a class="carrito" href="/productCart"> <i class="fa-solid fa-cart-shopping"></i></a>
               <a class="casa" href='/'> <i class="fas fa-home"></i></a>
           </div>
