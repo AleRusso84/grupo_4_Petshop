@@ -20,7 +20,7 @@ let storage = multer.diskStorage({
 })
 let upload = multer({storage});
 
-//Mostrar el formulario para hacer el regsitro
+//Mostrar el formulario para hacer el registro
 router.get('/register',guestRoute,controller.register)
 
 //hacer post del formulario de registro

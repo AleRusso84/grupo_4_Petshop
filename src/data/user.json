@@ -236,5 +236,14 @@
   "password": "$2a$10$MDnOD1NAV6tDZkIlJl8iE.gT.ya5yqcbCoplWyzkM7gT4esMVwuem",
   "image": "image-1647059539995.png",
   "category": "user"
+ },
+ {
+  "id": 23,
+  "firstName": "ale4",
+  "lastName": "russo4",
+  "email": "alerusso@gmail.com",
+  "password": "$2a$10$ODCZO82k5veBGkp3W0Far.XrskZsUCTWACWbleh0VI.eb40y4Hdx2",
+  "image": "image-1648941035451.jpg",
+  "category": "user"
  }
 ]
