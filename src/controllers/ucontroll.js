@@ -1,6 +1,6 @@
-const fs = require('fs');
-const path = require('path');
 const db = require("../database/models");
+const fs = require("fs");
+const path = require("path");
 const { Op } = require("sequelize");
 const {validationResult}=require('express-validator');
 
@@ -18,16 +18,16 @@ const productsControllers={
         let categories = db.Category.findAll()
 
         Promise
-        .all([categories])
+        .all([categories, sizes])
         .then(
             function(responses){
                 let category = responses[0];
-                return res.render('productsCreate',{category})
+                return res.render('creacionProducto',{category})
             })
             .catch(error=>console.log(error))
     },
     
-    store: async  (req,res)=>{
+    storage: async  (req,res)=>{
         let category = await db.Category.findAll();
         
         let imageUpload;
@@ -41,7 +41,7 @@ const productsControllers={
             
             if(validation.errors.length > 0){
     
-                return res.render('productsCreate',
+                return res.render('creacionProducto',
                 {
                     errors: validation.mapped(),
                     oldData: req.body,
@@ -51,14 +51,15 @@ const productsControllers={
             db.Product.create({                                    
                     name: req.body.name,
                     price: req.body.price,
-                    discount:req.body.discount,
-                    category_id: req.body.category_id, 
+                    description:req.body.description,
                     image: imageUpload,
-                    description:req.body.description
-                                 
+                    stock: req.body.stock,
+                    brand: req.body.brand,
+                    category_id: req.body.category_id, 
+                    size_id:req.body.size_id               
                 })
                 .then(()=>
-                {res.redirect ("/productDetail")
+                {res.redirect ("/product/detail")
     
                 })
                 .catch(e=>console.log(e))
@@ -99,18 +100,48 @@ const productsControllers={
             .catch(error=>console.log(error))
     },
 
-    productDetail: (req,res)=>{
+     /*******metodo para listar y mostrar todos los productos*** */
+    detail: (req,res)=>{
+
+    if(req.query.category){
+        db.Product.findAll({
+            include:[{association: 'category'}],
+            where: {category_id: req.query.category}
+        })
+        .then(products=>{
+            let queryExists = 1;
+            res.render('listadoProductosSQL',{products:products,queryExists:queryExists})
+        } )      
+            .catch(error=>console.log(error));
+    } else {
+        db.Product.findAll({
+            include:[{association: 'category'}]
+            
+        })
+        .then(products=>{
+            let queryExists = 0;
+            res.render('listadoProductosSQL',{products:products,queryExists:queryExists})
+            } )      
+            .catch(error=>console.log(error));
+    }
+    
+
+        
+        
+    },
+
+    view: (req,res)=>{
 
     db.Product.findByPk(req.params.id,{include:[{association: 'category'}]})
         
         .then(product=>{
-            res.render('productDetail',{product:product})
+            res.render('detalleSQL',{product:product})
         } )      
         .catch(error=>console.log(error));
             
     },
 
-    edicion: (req,res)=>{
+    edit: (req,res)=>{
 
         let categories = db.Category.findAll()
         let products = db.Product.findByPk(
@@ -127,13 +158,13 @@ const productsControllers={
             function(responses){
                 let category = responses[0];
                 let product = responses[1];
-                return res.render('productEdit',{category,product})
+                return res.render('editProduct',{category,product})
             }
         )
         .catch(error=>console.log(error))       
     },
 
-    update: function (req,res){
+    editPost: function (req,res){
 
         db.Product.findByPk(
             req.params.id,
@@ -157,16 +188,17 @@ const productsControllers={
                 {                                    
                     name: req.body.name,
                     price: req.body.price,
-                    discount:req.body.discount,
-                    category_id: req.body.category_id, 
+                    description: req.body.description,
                     image: imageUpload,
-                    description:req.body.description          
+                    stock: req.body.stock,
+                    brand: req.body.brand,
+                    category_id: req.body.category_id          
                 },
                 {
                     where: {id : req.params.id}
                 })
                 .then(()=>
-                {res.redirect ("/detail/"+req.params.id)}
+                {res.redirect ("/product/detail/"+req.params.id)}
                 )
                 .catch(error=>console.log(error))
         })
@@ -177,89 +209,3 @@ const productsControllers={
     }
 }
 module.exports=productsControllers;
-
-
-
-
-/*const productsFilePath = path.join(__dirname, '../data/products.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
-
-const productsControllers={
-    productCart: (req,res)=>{
-        res.render('productCart')
-    },
-    productDetalle: (req,res)=>{
-        let id = req.params.id
-		let product = products.find(product => product.id == id)
-		res.render('productDetail', {product})
-    
-    },
-    product:(req,res)=>{
-        res.render('products')
-    },
-    servicios:(req,res)=>{
-        res.render('services')
-    },
-    tienda:(req,res)=>{
-        let users=products;
-    
-        
-        res.render('shop',{'users':users});
-    },
-    
-    blog:(req,res)=>{
-        res.render('blog')
-     },
-
-     blog_single:(req,res)=>{
-        res.render('blog_single')
-     },
-
-    create:(req,res)=>{
-         res.render('productsCreate')
-     },
-     store:(req,res)=>{
-        let newProduct = {
-            id: products[products.length - 1].id + 1,
-            ...req.body,
-            image :req.file.filename
-        };
-         let productsNews = [...products, newProduct]
-        fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
-        res.redirect('/shop');
-
-     },
-
-     edicion:(req,res)=>{
-        let id = req.params.id
-		let edit = products.find(product => product.id == id)
-        res.render('productEdit',{edit})
-     },
-     
-     update: (req, res) => {
-		let id = req.params.id;
-		let productToEdit = products.find(product => product.id == id)
-     
-        productToEdit = {
-			id: productToEdit.id,
-			...req.body,
-			image:req.filename
-		};
-
-
-     let newProducts = products.map(product => {
-        if (product.id == productToEdit.id) {
-            return product = {...productToEdit};
-        }
-        return product;
-    })
-
-    fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-    res.redirect('/shop');
-},
-
-}
-
-
-module.exports=productsControllers*/

@@ -3,17 +3,179 @@ const path = require('path');
 const crypto = require('crypto');
 const bcrypt = require('bcryptjs')
 const db = require('../database/models')
+const { validationResult} = require('express-validator');
 
-const userFilePath = path.join(__dirname, '../data/user.json');
-const users = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 
-const userLoginInfoFilePath = path.join(__dirname, '../data/userLoginInfo.json');
-const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginInfoFilePath, 'utf-8'));
 
-const controller = {
+
+const controller ={
+    register: function(req,res){
+        //res.render('register')
+
+        db.Role.findAll()
+            .then(function(roles){
+                return res.render ("register", {roles})
+            })
+            .catch(error=>console.log(error))
+        },  
+        store: async function (req,res){
+            let roles = await db.Role.findAll();
+            // valida el mail
+            try{
+                const validation = validationResult(req);
+                if(validation.errors.length > 0){
+                        return res.render("register",
+                            {
+                            errors:validation.mapped(),
+                            oldData: req.body,
+                            roles
+                            }
+                        );
+                };
+                db.User.findOne({
+                    where:{
+                        email:req.body.email,
+                    } 
+                })
+                .then((user)=>{
+                    if(user){
+                            return res.render("register",{
+                                errors:{
+                                    email:{
+                                        msg:   "este email ya esta registrado",
+                                    },
+                                },
+                                oldData: req.body,
+                                roles
+                        })
+                    }else{
+                        db.User.create({                                    
+                            name: req.body.name,
+                            lastName: req.body.lastName,
+                            email: req.body.email,
+                            password: bcrypt.hashSync(req.body.password, 10),
+                            repassword: bcrypt.hashSync(req.body.repassword, 10),
+                            image:req.image.filename,
+                            roles_id: req.body.roles_id,                
+                        })
+                        .then(()=>
+                        {res.redirect ("/login")
+                    })
+                    .catch(error=>console.log(error))
+    
+                    }
+                }).catch(error=>console.log(error))
+
+
+                
+            }catch(error ){
+                console.log(error)
+            }
+
+
+    },
+
+    login: function (req,res){
+        return res.render ("login")
+    },
+
+    authenticate: function (req, res) {
+        
+    db.User.findOne({
+            where: {
+                email: req.body.email
+            }
+        
+        })
+        .then (userToLogin => {
+            if (userToLogin) {
+                let passwordUser = bcrypt.compareSync(req.body.password, userToLogin.password);
+                if (passwordUser) {
+    
+                    req.session.userLogged = userToLogin
+
+                    if(req.body.remember){
+                        res.cookie('rememberToken',req.body.email,{maxAge:1000*300})
+                    }
+    
+                    return res.redirect('detail/'+ userToLogin.id);
+                }
+                return res.render('login', {
+                    errors: {
+                        password: {
+                            msg: 'La contraseña no coincide',
+                        }
+                    }
+                })
+                .catch(error=>console.log(error))
+    
+            }
+            return res.render('login', {
+                errors: {
+                    email: {
+                        msg: 'No se encuentra este Email',
+                    }
+                }
+            })
+        })
+        
+},
+    
+    
+    detail: (req,res)=>{
+
+        db.User.findAll()
+        .then(users=>
+            res.render('listadoUsers',{users})
+            .catch(error=>console.log(error))
+        )},
+
+
+    profile:(req,res)=>{
+
+        let id = req.params.id;
+
+        db.User.findByPk(
+            id, 
+            {include:["roles"]}
+            )
+        .then(user=>
+            res.render('profile',{user}))
+        .catch(error=>console.log(error))
+        
+    
+    },
+    logout: (req,res)=>{
+        res.clearCookie('rememberToken')
+        req.session.destroy();
+        return res.redirect('/')
+    }
+}
+
+
+
+module.exports = controller;
+
+
+
+
+
+
+
+
+
+
+//const userFilePath = path.join(__dirname, '../data/user.json');
+//const users = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
+
+//const userLoginInfoFilePath = path.join(__dirname, '../data/userLoginInfo.json');
+//const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginInfoFilePath, 'utf-8'));
+
+/*const controller = {
 
 	register: (req,res)=> {
 		res.render('register')
+
 	},
 	
 	store: (req, res) => {
@@ -122,4 +284,4 @@ const controller = {
 	
 };
 
-module.exports = controller;
+module.exports = controller;*/
