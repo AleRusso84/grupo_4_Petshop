@@ -78,7 +78,7 @@ const productsControllers={
             // Usamos try para poder verificar que la ruta funcione correctamente para la eliminación del archivo de imagen del producto
             try { 
                 // Elimina la imagen y luego continúa la secuencia para borrar el producto de la db con destroy()
-                fs.unlinkSync(path.resolve(__dirname+'../../../public/images/products')+'/'+producto.image)
+                fs.unlinkSync(path.resolve(__dirname+'../../public/images/products')+'/'+producto.image)
             }
             catch(e){
                 console.log(e)
