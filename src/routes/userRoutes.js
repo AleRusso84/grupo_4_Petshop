@@ -1,15 +1,15 @@
-// ************ Require's ************
+// // ************ Require's ************
 const express = require('express');
 const router = express.Router();
 const multer = require('multer')
 const path = require('path');
 
-// ************ Controller Require ************
+// // ************ Controller Require ************
 
 const controller = require('../controllers/userController');
 const guestRoute = require('../middleware/guestRoute');
 const userRoute = require('../middleware/userRoute')
-// ************ Multer ************
+// // ************ Multer ************
 let storage = multer.diskStorage({
     destination:function(req,file,cb){
         cb(null, 'public/images/users')
@@ -23,18 +23,20 @@ let upload = multer({storage});
 //Mostrar el formulario para hacer el registro
 router.get('/register',guestRoute,controller.register)
 
-//hacer post del formulario de registro
-router.post('/',guestRoute,upload.single('image'), controller.store)
+// //hacer post del formulario de registro
+// router.post('/',guestRoute,upload.single('image'), controller.store)
 
-//Mostramos el formulario de login
-router.get('/login',guestRoute,controller.login)
-//hacer el post de formulario de login
-router.post('/login',guestRoute,controller.authenticate)
+// //Mostramos el formulario de login
 
-//logout
-router.post('/logout',userRoute,controller.logout)
+//router.get('/login',guestRoute, controller.login) //es este 
 
-router.get('/profile', userRoute, controller.profile);
+// //hacer el post de formulario de login
+// router.post('/login',guestRoute,controller.authenticate)
+ 
+// //logout
+// router.post('/logout',userRoute,controller.logout)
+
+// router.get('/profile', userRoute, controller.profile);
 
 
 module.exports = router;

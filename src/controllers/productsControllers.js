@@ -12,6 +12,18 @@ const productsControllers={
         res.render('productCart');
     },
 
+    productDetalle: (req,res)=>{
+        let id = req.params.id
+		let product = products.find(product => product.id == id)
+		res.render('productDetail', {product})
+    
+    },
+
+    tienda:(req,res)=>{db.Product.findAll()
+        .then(products=>res.render('shop',{products}))
+        
+    },
+
 
     create:function (req,res){
 
@@ -174,7 +186,8 @@ const productsControllers={
     
         
 
-    }
+    },
+    
 }
 module.exports=productsControllers;
 

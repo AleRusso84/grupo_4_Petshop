@@ -27,19 +27,19 @@ router.get('/shop', productsControllers.tienda)
 router.get('/products/create',productsControllers.create)
 router.post('/products',upload.single('image'),productsControllers.store)
 
-// Detalle del Producto
+// // Detalle del Producto
 router.get('/products/:id',productsControllers.productDetalle)
 
-// Edicion del Producto
+// // Edicion del Producto
 
 router.get('/products/:id/edit', productsControllers.edicion)
 router.put('/products/:id',upload.single('image'),productsControllers.update)
 
 
-router.get('/products',productsControllers.product)
-router.get('/services',productsControllers.servicios)
+// router.get('/products',productsControllers.product)
+// router.get('/services',productsControllers.servicios)
 
-router.get("/blog", productsControllers.blog)
-router.get("/blog_single", productsControllers.blog_single)
+// router.get("/blog", productsControllers.blog)
+// router.get("/blog_single", productsControllers.blog_single)
 
 module.exports=router
