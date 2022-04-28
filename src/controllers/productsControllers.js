@@ -8,6 +8,11 @@ const {validationResult}=require('express-validator');
 const productsControllers={
 
 
+    servicios:(req,res)=>{
+        res.render('services')
+    },
+
+
     productCart: function(req,res){
         res.render('productCart');
     },
