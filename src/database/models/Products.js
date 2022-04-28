@@ -7,7 +7,7 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
     },
     name: {
-      type: dataTypes.STRING(150),
+      type: dataTypes.STRING,
       // allowNull: false,
     },
     description: {
@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
       // allowNull: false,
     },
     price: {
-      type: dataTypes.DECIMAL,
+      type: dataTypes.INTEGER,
       // allowNull: false,
     },
     discount: {
@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
       // allowNull: false,
     },
     imagen: {
-      type: dataTypes.TEXT,
+      type: dataTypes.STRING,
       // allowNull: false,
     },
 
@@ -42,12 +42,22 @@ module.exports = (sequelize, dataTypes) => {
   };
   const Product = sequelize.define(alias, cols, config);
 
-  // Product.associate = function (models) {
-  //   Product.belongsTo(models.Category, {
-  //     as: "category",
-  //     foreignKey: "category_id",
-  //   });
-  // };
+   Product.associate = function (models) {
+
+     Product.belongsTo(models.Category, {
+       as: "categoryss",
+       foreignKey: "category_id",
+     });
+     Product.belongsToMany(models.User,{
+       as:'users',
+       through:'products_users',
+       foreignKey:'products_id',
+       otherKey:'user_id',
+       timestamps:false
+     })
+
+     
+   };
 
   return Product;
 };

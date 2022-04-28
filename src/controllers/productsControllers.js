@@ -13,9 +13,12 @@ const productsControllers={
     },
 
     productDetalle: (req,res)=>{
-        let id = req.params.id
-		let product = products.find(product => product.id == id)
-		res.render('productDetail', {product})
+         db.Product.findByPk(req.params.id)
+                
+            .then(product=>{
+                res.render('productDetail',{product:product})
+            } )      
+            .catch(error=>console.log(error));
     
     },
 
@@ -27,59 +30,80 @@ const productsControllers={
 
     create:function (req,res){
 
-        let categories = db.Category.findAll()
-
-        Promise
-        .all([categories])
-        .then(
-            function(responses){
-                let category = responses[0];
-                return res.render('productsCreate',{category})
-            })
+        db.Category.findAll()
+        .then(function(categorys){ 
+            return res.render('productsCreate',{categorys})})
             .catch(error=>console.log(error))
+
+        // let categories = db.Category.findAll()
+
+        // Promise
+        // .all([categories])
+        // .then(
+        //     function(responses){
+        //         let category = responses[0];
+        //         return res.render('productsCreate',{category})
+        //     })
+        //     .catch(error=>console.log(error))
     },
+
+    store:function(req,res){
+           db.Product.create({
+            name: req.body.name,
+            price: req.body.price,
+            discount:req.body.discount,
+            description:req.body.description,
+            category_id:req.body.category,
+            imagen:req.file.filename
+           })
+           .catch(error=>console.log(error))
+
+           res.redirect('/shop')
+
+    },
+
     
-    store: async  (req,res)=>{
-        let category = await db.Category.findAll();
+    // store: async  (req,res)=>{
+    //     let category = await db.Category.findAll();
         
-        let imageUpload;
-        if(!req.file){
-            imageUpload = 'noImage.jpg'
-        } else {
-            imageUpload = req.file.filename
-        }
-        try{
-            const validation = validationResult(req);
+    //     let imageUpload;
+    //     if(!req.file){
+    //         imageUpload = 'noImage.jpg'
+    //     } else {
+    //         imageUpload = req.file.filename
+    //     }
+    //     try{
+    //         const validation = validationResult(req);
             
-            if(validation.errors.length > 0){
+    //         if(validation.errors.length > 0){
     
-                return res.render('productsCreate',
-                {
-                    errors: validation.mapped(),
-                    oldData: req.body,
-                    category,
-                });
-            }; 
-            db.Product.create({                                    
-                    name: req.body.name,
-                    price: req.body.price,
-                    discount:req.body.discount,
-                    category_id: req.body.category_id, 
-                    image: imageUpload,
-                    description:req.body.description
+    //             return res.render('productsCreate',
+    //             {
+    //                 errors: validation.mapped(),
+    //                 oldData: req.body,
+    //                 category,
+    //             });
+    //         }; 
+    //         db.Product.create({                                    
+    //                 name: req.body.name,
+    //                 price: req.body.price,
+    //                 discount:req.body.discount,
+    //                 category_id: req.body.category_id, 
+    //                 image: imageUpload,
+    //                 description:req.body.description
                                  
-                })
-                .then(()=>
-                {res.redirect ("/productDetail")
+    //             })
+    //             .then(()=>
+    //             {res.redirect ("/productDetail")
     
-                })
-                .catch(e=>console.log(e))
+    //             })
+    //             .catch(e=>console.log(e))
             
-        }catch(e){
-            console.log(e)
-        }
+    //     }catch(e){
+    //         console.log(e)
+    //     }
        
-    },
+    // },
 
     destroy: function(req,res){
 
@@ -111,16 +135,9 @@ const productsControllers={
             .catch(error=>console.log(error))
     },
 
-    productDetail: (req,res)=>{
-
-    db.Product.findByPk(req.params.id,{include:[{association: 'category'}]})
-        
-        .then(product=>{
-            res.render('productDetail',{product:product})
-        } )      
-        .catch(error=>console.log(error));
+    
             
-    },
+    
 
     edicion: (req,res)=>{
 

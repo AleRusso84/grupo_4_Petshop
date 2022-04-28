@@ -13,42 +13,66 @@
     
     <!-- Fin del Header -->
     <body class="body222">
-        <div class='contenedor'>
-            <form class="form3" action="/products" method="POST" enctype="multipart/form-data">
-                <div class="form-header">
-                    <h2 class='form-title'>F<span class="span2">ormulario de creacion de producto</span></h2>
+        <form class="form3" action="/products" method="POST" enctype="multipart/form-data">
+            <div class="form-header">
+                <h2 class='form-title'>C<span class="span2">reacion de Producto</span></h2>
+            </div>
+            
+            <div class='contenedor11'>
+                <div class="class1">
+                
+                    <img class="imagen" src="/images/blog-img1-(4).jpg" alt="">
+
+                    <input class="form-input" type="file" name="image" id="image" style="display:none;"> <br>
+
+                    <input
+                    type="button"
+                    class="btn-submit"
+                    value="CARGAR IMAGEN"
+                    onclick="document.getElementById('image').click();"
+                  />
                 </div>
+                
+                
+                <div class="class">
+                    
                     
                     <label for='name' class="form-label" >Nombre del producto:</label>
                     <input class='form-input'  type="text" name="name" id="name" placeholder="Ej:Collar para perro"><br>
-            
-                    <label for="price" class="form-label" >Precio del Producto:</label>
-                    <input class='form-input' type="number" name="price" id="price" placeholder="Ej:$350"><br>
-            
-                    <label for="discount" class="form-label" >Descuento:</label>
-                    <input class="form-input" type="number" name="discount" id="discount" placeholder="Ej:%15"><br>
-            
-                    <label for="category" class="form-label">Categoría:</label>
-                    <select name="category" id="category" class="form-input">
-                        <option value="">Elegí</option>
-                        <option value="in-sale">En oferta</option>
-                        <option value="visited">Últimos agregados</option>
-                        </select> <br>
-                        
-                    <label for="image" class="form-label" >Imagen:</label>
-                    <input class="form-input" type="file" name="image" id="image"><br>
-    
-    
+
                     <label for="description" class="form-label">Descripcion</label>
                     <textarea name="description" id="description" class="form-input"></textarea>
             
-                    <input type="submit" class="btn-submit" value="Guardar Producto">
+                    <label for="price" class="form-label" >Precio del Producto:</label>
+                    <input class='form-input' type="number" name="price" id="price" placeholder="Ej:$350"><br>
+                    <div class="contenedor2">
+                        <div class="stock">
+                            <label for="" class="form-label" >Stock:</label>
+                            <input class="form-input" type="number" name="" id="discount" placeholder="Ej:%15">
+                        </div>
+                        <div>
+                            <label for="discount" class="form-label" >Descuento:</label>
+                            <input class="form-input" type="number" name="discount" id="discount" placeholder="Ej:%15"><br>
+                        </div>
+                    </div>
+                    <label for="category" class="form-label">Categoría:</label>
+                    <select name="category"  class="form-input">
+                        <option value="">Elegí</option>
+                        <%categorys.forEach(function(category){%>
+                        <option value="<%=category.id%>"><%=category.name%></option>
+                        <%})%>
+                        </select> 
+                </div>
+                    
+
+
                 
-            </form>
+
+            </div>
+        
+                <input type="submit" class="btn-submit" value="Guardar Producto">
             
-        </div>
-    
-            </form>
+        </form>
 
 </body>
 </html>
