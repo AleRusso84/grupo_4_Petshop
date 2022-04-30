@@ -47,21 +47,29 @@
                     <input class='form-input' type="number" name="price" id="price" placeholder="Ej:$350"><br>
                     <div class="contenedor2">
                         <div class="stock">
-                            <label for="" class="form-label" >Stock:</label>
-                            <input class="form-input" type="number" name="" id="discount" placeholder="Ej:%15">
+                            <label for="stock" class="form-label" >Stock:</label>
+                            <input class="form-input" type="number" name="stock" id="stock" placeholder="Ej:120">
                         </div>
                         <div>
                             <label for="discount" class="form-label" >Descuento:</label>
                             <input class="form-input" type="number" name="discount" id="discount" placeholder="Ej:%15"><br>
                         </div>
                     </div>
-                    <label for="category" class="form-label">Categoría:</label>
+                    <label for="category" class="form-label">Categoría de Mascotas:</label>
                     <select name="category"  class="form-input">
                         <option value="">Elegí</option>
                         <%categorys.forEach(function(category){%>
-                        <option value="<%=category.id%>"><%=category.name%></option>
+                        <option value="<%=category.id%>"><%=category.nameMascota%></option>
                         <%})%>
                         </select> 
+
+                        <label for="category1" class="form-label">Categoría de Producto:</label>
+                        <select name="category1"  class="form-input">
+                            <option value="">Elegí</option>
+                            <%categorys.forEach(function(category){%>
+                            <option value="<%=category.id%>"><%=category.nameProduct%></option>
+                            <%})%>
+                            </select> 
                 </div>
                     
 

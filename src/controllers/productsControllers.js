@@ -6,7 +6,8 @@ const {validationResult}=require('express-validator');
 
 
 const productsControllers={
-
+    servicios:(req,res)=>{
+        res.render('services')},
 
     servicios:(req,res)=>{
         res.render('services')
@@ -59,7 +60,9 @@ const productsControllers={
             discount:req.body.discount,
             description:req.body.description,
             category_id:req.body.category,
-            imagen:req.file.filename
+            imagen:req.file.filename,
+            stock:req.body.stock,
+            category_id:req.body.category1
            })
            .catch(error=>console.log(error))
 
@@ -144,67 +147,103 @@ const productsControllers={
             
     
 
-    edicion: (req,res)=>{
+    edicion: function(req,res){
 
-        let categories = db.Category.findAll()
-        let products = db.Product.findByPk(
-            req.params.id,
-            {include:
-                [
-                    {association: 'category'}, 
-                ]
-            })
-
+        let productsId= req.params.id;
+        let pushProducts= db.Product.findByPk(productsId,{include:["categorys"]})
+        let pushCategory= db.Category.findAll();
         Promise
-        .all([categories, products])
-        .then(
-            function(responses){
-                let category = responses[0];
-                let product = responses[1];
-                return res.render('productEdit',{category,product})
-            }
-        )
-        .catch(error=>console.log(error))       
+        .all([pushProducts, pushCategory])
+        .then(([products, category]) => {
+            return res.render( 'productEdit', { products, category})
+        })
+        .catch(error => res.send(error)) 
+        
     },
+
+            
+        // let categories = db.Category.findAll()
+        // let products = db.Product.findByPk(
+        //     req.params.id,
+        //     {include:
+        //         [
+        //             {association: 'category'}, 
+        //         ]
+        //     })
+
+        // Promise
+        // .all([categories, products])
+        // .then(
+        //     function(responses){
+        //         let category = responses[0];
+        //         let product = responses[1];
+        //         return res.render('productEdit',{category,product})
+        //     }
+        // )
+        // .catch(error=>console.log(error))       
+    
 
     update: function (req,res){
 
-        db.Product.findByPk(
-            req.params.id,
-            {include:
-                [
-                    {association: 'category'}, 
-                ]
-            })
-
-        .then(product =>
+        let productId = req.params.id;
+        db.Product
+        .update(
             {
-                let imageUpload
+            name: req.body.name,
+            price: req.body.price,
+            discount:req.body.discount,
+            description:req.body.description,
+            category_id:req.body.category,
+            imagen:req.file.filename,
+            stock:req.body.stock,
+            category_id:req.body.category1
+            },
+            {
+                where: {id: productId}
+            })
+        .then(()=> {
+            return res.redirect('/shop')})            
+        .catch(error => res.send(error))
 
-                if(!req.file || !product.image){
-                    imageUpload = 'noImage.jpg'
-                } else {
-                    imageUpload = req.file.filename
-                }
+
+
+
+        // db.Product.findByPk(
+        //     req.params.id,
+        //     {include:
+        //         [
+        //             {association: 'category'}, 
+        //         ]
+        //     })
+
+        // .then(product =>
+        //     {
+        //         let imageUpload
+
+        //         if(!req.file || !product.image){
+        //             imageUpload = 'noImage.jpg'
+        //         } else {
+        //             imageUpload = req.file.filename
+        //         }
                 
-                db.Product.update(
-                {                                    
-                    name: req.body.name,
-                    price: req.body.price,
-                    discount:req.body.discount,
-                    category_id: req.body.category_id, 
-                    image: imageUpload,
-                    description:req.body.description          
-                },
-                {
-                    where: {id : req.params.id}
-                })
-                .then(()=>
-                {res.redirect ("/detail/"+req.params.id)}
-                )
-                .catch(error=>console.log(error))
-        })
-        .catch(error=>console.log(error))
+        //         db.Product.update(
+        //         {                                    
+        //             name: req.body.name,
+        //             price: req.body.price,
+        //             discount:req.body.discount,
+        //             category_id: req.body.category_id, 
+        //             imagen: imageUpload,
+        //             description:req.body.description          
+        //         },
+        //         {
+        //             where: {id : req.params.id}
+        //         })
+        //         .then(()=>
+        //         {res.redirect ("/detail/"+req.params.id)}
+        //         )
+        //         .catch(error=>console.log(error))
+        // })
+        // .catch(error=>console.log(error))
     
         
 

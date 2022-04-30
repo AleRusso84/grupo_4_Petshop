@@ -14,6 +14,7 @@ const app = express();
 const homeRouter = require("./routes/homeRoutes")
 const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes');
+const { render } = require('ejs');
 
 
 const port= 3030
@@ -28,7 +29,6 @@ app.use(express.json())
   //next()
 //})
 
-
 // ---------Sesiones y cookies
 app.use(session({
   secret: 'sticker wizzard',
@@ -40,7 +40,7 @@ app.use(methodOverride('_method')); // Pasar poder pisar el method="POST" en el 
 app.use(auth);
 
 app.listen(process.env.PORT||port ,()=>{
-    console.log("El servidor esta corriendo en "+ port)
+  console.log("El servidor esta corriendo en "+ port)
 }
 )
 
@@ -52,7 +52,8 @@ app.use("/",productsRouter )
 app.use("/", userRoutes);
 
 // ************ catch 404 and forward to error handler ************
-app.use((req, res, next) => next(createError(404)));
+app.use(function(req,res,next){ res.status(404).render("404-page"); next()})
+//app.use((req, res, next) => next(createError(404)));
 
 // ************ error handler ************
 app.use((err, req, res, next) => {
@@ -60,7 +61,7 @@ app.use((err, req, res, next) => {
   res.locals.message = err.message;
   res.locals.path = req.path;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
+  
   // render the error page
   res.status(err.status || 500);
   res.render('error');

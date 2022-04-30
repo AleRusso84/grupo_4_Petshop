@@ -8,11 +8,14 @@ module.exports = (sequelize, dataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    nameMascota: {
       type: dataTypes.STRING,
       // allowNull: false,
     },
-    
+    nameProduct: {
+      type: dataTypes.STRING,
+      // allowNull: false,
+    }
   };
   let config = {
     tableName: "category",

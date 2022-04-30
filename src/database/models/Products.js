@@ -30,7 +30,11 @@ module.exports = (sequelize, dataTypes) => {
     category_id: {
     type: dataTypes.INTEGER,
   //   allowNull: false,
-    },
+    }, 
+    stock: {
+      type: dataTypes.INTEGER,
+      // allowNull: false,
+    }
   };
   let config = {
     tableName : "products",
@@ -45,7 +49,7 @@ module.exports = (sequelize, dataTypes) => {
    Product.associate = function (models) {
 
      Product.belongsTo(models.Category, {
-       as: "categoryss",
+       as: "categorys",
        foreignKey: "category_id",
      });
      Product.belongsToMany(models.User,{
