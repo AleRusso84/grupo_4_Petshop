@@ -6,7 +6,8 @@ const {validationResult}=require('express-validator');
 
 
 const productsControllers={
-
+    servicios:(req,res)=>{
+        res.render('services')},
 
     productCart: function(req,res){
         res.render('productCart');
@@ -54,7 +55,9 @@ const productsControllers={
             discount:req.body.discount,
             description:req.body.description,
             category_id:req.body.category,
-            imagen:req.file.filename
+            imagen:req.file.filename,
+            stock:req.body.stock,
+            category_id:req.body.category1
            })
            .catch(error=>console.log(error))
 
