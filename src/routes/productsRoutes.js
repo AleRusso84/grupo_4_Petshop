@@ -35,6 +35,8 @@ router.get('/products/:id',productsControllers.productDetalle)
 router.get('/products/:id/edit', productsControllers.edicion)
 router.put('/products/:id',upload.single('image'),productsControllers.update)
 
+//Borrar Producto
+router.post("/products/:id/destroy", productsControllers.destroy)
 
 // router.get('/products',productsControllers.product)
 router.get('/services',productsControllers.servicios)

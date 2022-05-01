@@ -28,10 +28,10 @@ const productsControllers={
     
     },
 
-    tienda:(req,res)=>{db.Product.findAll()
-        .then(products=>res.render('shop',{products}))
-        
-    },
+    tienda:(req,res)=>{db.Product.findAll({order:[["name","DESC"]]})
+    .then(products=>res.render('shop',{products}))
+    
+},
 
 
     create:function (req,res){
@@ -113,40 +113,56 @@ const productsControllers={
        
     // },
 
-    destroy: function(req,res){
+    // destroy: function(req,res){
 
-        db.Product.findByPk(req.params.id,{include:[{association: 'category'}]})
-        .then((producto)=>{
+    //     db.Product.findByPk(req.params.id)
+    //     .then((producto)=>{     
+    //         if(producto.imagen != 'noImage.jpg'){
+    //         // Usamos try para poder verificar que la ruta funcione correctamente para la eliminación del archivo de imagen del producto
+    //         try { 
+    //             // Elimina la imagen y luego continúa la secuencia para borrar el producto de la db con destroy()
+    //             fs.unlinkSync(path.resolve(__dirname+'../../public/images/productos')+'/'+producto.imagen)
+    //         }
+    //         catch(e){
+    //             console.log(e)
+    //         }
+    //          }
+    //     })
+    //     .catch(e=>{
+    //         console.log(e)
+    //     })  
+
+    //     db.Product.destroy({   
+    //         where:{id : req.params.id}  
+    //     })
+    //     .then(()=>
+    //         {res.redirect ("/shop")}
+    //         )
+    //         .catch(error=>console.log(error))
+    // },
+
+    // //codigo profesor 
+    // destroy: function (req, res) {
+    //     let movieId = req.params.id;
+    //     db.Movie
+    //     .destroy({where: {id: movieId}, force: true}) // force: true es para asegurar que se ejecute la acción
+    //     .then(()=>{
+    //         return res.redirect('/movies')})
+    //     .catch(error => res.send(error)) 
+    // }
             
-            if(producto.image != 'noImage.jpg'){
-            // Usamos try para poder verificar que la ruta funcione correctamente para la eliminación del archivo de imagen del producto
-            try { 
-                // Elimina la imagen y luego continúa la secuencia para borrar el producto de la db con destroy()
-                fs.unlinkSync(path.resolve(__dirname+'../../public/images/products')+'/'+producto.image)
-            }
-            catch(e){
-                console.log(e)
-            }
-        }
-        })
-        .catch(e=>{
-            console.log(e)
-        })  
+    // Codigo milagroso 
 
-        db.Product.destroy({   
-            include:[{association: 'category'}],
-            where:{id : req.params.id}  
-        })
-        .then(()=>
-            {res.redirect ("/product/detail")}
-            )
-            .catch(error=>console.log(error))
+    destroy:function(req, res) {
+        let productoId = req.params.id;
+        db.Product.destroy({where:{id:productoId}, force: true})
+        .then (()=>{ return res.redirect('/shop')})
+        .catch(error => res.send(error))
     },
 
-    
-            
-    
 
+
+        //edicion
     edicion: function(req,res){
 
         let productsId= req.params.id;
