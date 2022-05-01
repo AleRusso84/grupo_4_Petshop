@@ -24,7 +24,7 @@ let upload = multer({storage});
 router.get('/register',guestRoute,controller.register)
 
 // //hacer post del formulario de registro
-// router.post('/',guestRoute,upload.single('image'), controller.store)
+router.post('/register',guestRoute,upload.single('image'), controller.store)
 
 // //Mostramos el formulario de login
 
