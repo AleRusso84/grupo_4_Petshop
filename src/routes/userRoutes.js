@@ -28,7 +28,7 @@ router.get('/register',guestRoute,controller.register)
 
 // //Mostramos el formulario de login
 
-//router.get('/login',guestRoute, controller.login) //es este 
+router.get('/login',guestRoute, controller.login) //es este 
 
 // //hacer el post de formulario de login
 // router.post('/login',guestRoute,controller.authenticate)

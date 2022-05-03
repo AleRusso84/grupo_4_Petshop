@@ -7,122 +7,72 @@
   
   
 <!-- Body Start-->
-<body>
-  <!-- Header Start -->
-  <%- include("./partials/header") %>
-  <!-- Header End -->
-<!-- Jumbotron -->
-<div class="banner">
-  <div class="container">
-    <div>
-        <h1>Bienvenido</h1>
-    </div>
-  </div>
-</div>
-<!-- Jumbotron End -->
+<body >
 
-<!-- Product Section Start -->
-<section id="product">
-  <div class="container">
-   <div class="inner-content">
-    <h2>Logueate</h2>
+    
+        
+  <div class="login-password">
 
-<!-- Login Start -->
+      <div class="login-contenedor">
+          
 
-    <main class="login">
-            <form action="/login" method="POST">
-                <div class="control-formulario">
-                    <label for="email" class="form-label">Email</label>
-                    <div class="control">
-                        <input class="control" type="text" name="email" id="email" placeholder="Ingresá tu e-mail" class="<%=locals.errors && errors.email ? 'is-danger' : '' %> " value="<%= locals.old && old.email %> ">
-                    </div>
-                    <% if(locals.errors && errors.email) { %>
-                        <p class="text-danger"><%= errors.email %> </p>
-                    <% } %> 
-                </div>
-                <div class="control-formulario passconteiner">
-                    <label for="password" class="form-label">Contraseña</label>
-                    <div class="control">
-                        <input class="control"type="password" name="password" id="password" placeholder="Ingresá tu contraseña">
-                    </div>
-                    <p class="text-danger"></p>
-                </div>
-                <div class="form-remember">
-                    <label for="remember" class="remember">Recordame </label>
-                    <div class="rem-check">
-                        <input  class="rem-check"type="checkbox" name="remember" id="remember">
-                    </div>
-                </div>
-                <div class="boton-centrado">
-                  <button class="boton-formulario"type="submit">Ingresar</button>
-                </div> 
-                <div class="no-user">
-                  <p>¿No tenés una cuenta? Creala <a href="/register">aquí</a></p>
+          
+          <h2 class='login-titulo'>M<span class="login-span">arketPet</span></h2>
+
+          <h2 class='login-titulo2'>B<span class="login-span">ienvenido!!</span></h2>
+          
+
+          <form action="">
+
+              <label for='name' class="label-perfil-contraseña" >Ingrese su E-mail:</label><br>
+              
+              <div class="icon"> 
+                  <div class="perfil-login">
+                      <i class="fa-solid fa-user"></i>
+                  </div>    
+              
+                  <input class='input-perfil-contraseña '  type="text" name="name" id="name" placeholder="Usuario">
               </div>
-            </form>  
-
-  </main>
 
 
- <!-- Login end -->
-   </div>
-</div>
-  <!-- Container End -->
-</section>
-<!-- Product Section End -->
 
-<!-- Contact Section -->
-<section id="contact" class="contact">
- <div class="container">
-  <div class="row">
-   <div class="inner-content">
-    <div class="col-sm-6"  data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500">
-     <h2 class="left">Contacto</h2>
-      <form>
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" name="nombre" placeholder="Nombre" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" name="email" placeholder="Email" type="email" required>
-        </div>
+              <label for='name' class="label-perfil-contraseña" >Ingrese su Contraseña:</label><br>
+              
+              
+              <div class="icon"> 
+                  <div class= llave>
+                      <i class="fa-solid fa-key "></i>
+                  </div>    
+              
+                  <input class='input-perfil-contraseña '  type="text" name="name" id="name" placeholder="Contraseña">
+              </div>
+      
+              <input type="submit" class="btn-ingresar" value="Ingresar">
+
+          </form>
+
+          
+              <div class="registrate-login"><a href="/register"><i class="fa-solid fa-user"></i>¿No tienes cuenta? Registrate</a></div> 
+          
+              <div class="home-login"><a href="/"><i class="fa-solid fa-house-chimney"></i>Volver al Home</a></div>
+              
+
+          
+
+
       </div>
-      <textarea class="form-control" name="comentario" placeholder="Comentario" rows="8"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-left" type="submit">Enviar</button>
-        </div>
-      </div> 
-      </form>
-    </div>
-    <div class="col-sm-5 address"  data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500">
-      <h2>Donde estamos</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five </p>
-      <ul class="social-icon">
-         <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  </div>
-  </div>
-    </div>
- <!-- start footer -->
-   <%- include("./partials/footer") %>
-    <!-- end footer -->
 
-</section>
-<!-- Contact Section End -->
-   
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- js -->
-    <script src="/js/animate.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/custom.js"></script>
-    <script src="/js/menu.js"></script>
+  </div>
 
-    </body>
+
+
+<script src="https://kit.fontawesome.com/b1ee9d91d2.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
   <!-- Body Ended -->
 </html>
