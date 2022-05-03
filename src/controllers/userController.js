@@ -10,71 +10,82 @@ const { validationResult} = require('express-validator');
 
 const controller ={
     register: function(req,res){
-        res.render('register')
+        res.render('register') 
+    },
     
+       store :function(req,res){
+           db.User.create({                                                              
+               firstname: req.body.firstName,
+               lastname: req.body.lastName,
+               email: req.body.email,
+               password: bcrypt.hashSync(req.body.password, 10),
+            //    repassword: bcrypt.hashSync(req.body.repassword, 10),
+                profileImage:req.image,
+                           //category_id: req.body.roles_id,                
+                      }) 
+                      .catch(error=>console.log(error))
+                       res.redirect ("/shop")
 
-         db.Role.findAll()
-             .then(function(roles){
-                 return res.render ("register", {roles})
-             })
-             .catch(error=>console.log(error))
-         },  
-         store: async function (req,res){
-             let roles = await db.Role.findAll();
-             // valida el mail
-             try{
-                 const validation = validationResult(req);
-                 if(validation.errors.length > 0){
-                         return res.render("register",
-                             {
-                             errors:validation.mapped(),
-                             oldData: req.body,
-                             roles
-                             }
-                         );
-                 };
-                 db.User.findOne({
-                     where:{
-                         email:req.body.email,
-                     } 
-                 })
-                 .then((user)=>{
-                     if(user){
-                             return res.render("register",{
-                                 errors:{
-                                     email:{
-                                         msg:   "este email ya esta registrado",
-                                     },
-                                 },
-                                 oldData: req.body,
-                                 roles
-                         })
-                     }else{
-                         db.User.create({                                    
-                             name: req.body.name,
-                             lastName: req.body.lastName,
-                             email: req.body.email,
-                             password: bcrypt.hashSync(req.body.password, 10),
-                             repassword: bcrypt.hashSync(req.body.repassword, 10),
-                             image:req.image.filename,
-                             roles_id: req.body.roles_id,                
-                         })
-                         .then(()=>
-                         {res.redirect ("/login")
-                     })
-                     .catch(error=>console.log(error))
+           
+
+       }
+        //category_id: req.body.roles_id, 
+    //   store: async function (req,res){
+    //           let Usercategory = await db.Usercategory.findAll();
+    //           // valida el mail
+    //           try{
+    //               const validation = validationResult(req);
+    //               if(validation.errors.length > 0){
+    //                       return res.render("register",
+    //                           {
+    //                           errors:validation.mapped(),
+    //                           oldData: req.body,
+    //                           Usercategory
+    //                           }
+    //                       );
+    //               };
+    //               db.User.findOne({
+    //                   where:{
+    //                       email:req.body.email,
+    //                   } 
+    //               })
+    //               .then((user)=>{
+    //                   if(user){
+    //                           return res.render("register",{
+    //                               errors:{
+    //                                   email:{
+    //                                       msg:   "este email ya esta registrado",
+    //                                   },
+    //                              },
+    //                               oldData: req.body,
+    //                               Usercategory
+    //                       })
+    //                   }else{
+    //                       db.UserUsercategory.create({                                    
+    //                           firstname: req.body.firstName,
+    //                           lastname: req.body.lastName,
+    //                           email: req.body.email,
+    //                           password: bcrypt.hashSync(req.body.password, 10),
+    //                         //   repassword: bcrypt.hashSync(req.body.repassword, 10),
+    //                           profileImage:req.image.filename,
+    //                           //category_id: req.body.roles_id,                
+    //                       })
+    //                       .then(()=>
+    //                       {res.redirect ("/login")
+    //                  })
+    //               .catch(error=>console.log(error))
     
-                     }
-                 }).catch(error=>console.log(error))
+    //                   }
+    //               }).catch(error=>console.log(error))
 
 
                 
-             }catch(error ){
-                 console.log(error)
-             }
+    //           }catch(error ){
+    //               console.log(error)
+    //           }
 
             
-     }
+    //  }
 
   ,login: function (req,res){
        return res.render ("login")
