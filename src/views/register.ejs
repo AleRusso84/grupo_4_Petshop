@@ -11,131 +11,111 @@
   <!--   header fin -->
   <%- include("./partials/header") %>
   <!--   Header fin  -->
-<!-- Jumbotron -->
+<!-- Jumbotron -
 <div class="banner">
   <div class="container">
     <div>
-        <h1>Bienvenido</h1>
+        <h1>Registrate</h1>
     </div>
   </div>
 </div>
 <!-- Jumbotron fin  -->
 
 <!-- seccion Product -->
-<section id="product">
-  <div class="container">
-   <div class="inner-content">
-    <h2>Registrate</h2>
 
 
-<!-- empieza seccion registro -->
-    <main class="register">
-      <div class="columns is-centered">
-        <div class="column is-6">
-            <h1>Registro</h1>
-            <form action="/register" method="POST" enctype="multipart/form-data">
-                    <div class="control-formulario">
-                            <label for="name" class="form-label">Nombre:</label>
-                            <div class="control">
-                                <input type="text" name="firstName" class="form-input" >
-                            </div>
-                            <p class="feed"></p>
-                    </div>
-                    <div class="control-formulario">
-                            <label for="lastName"  class="form-label">Apellido</label>
-                            <div class="control">
-                                <input type="text" name="lastName" class="form-input">
-                            </div>
-                            <p class="feedback"></p>
-                    </div>
-                
-                <div class="control-formulario">
-                    <label for="email"  class="form-label">Email</label>
-                    <div class="control">
-                        <input type="text" name="email" class="form-input">
-                    </div>
-                    <p class="feedback"></p>
-                </div>
-                <div class="control-formulario">
-                    <label for="image"  class="form-label">Imagen</label>
-                    <div class="control">
-                        <input   type="file" name="image" id="image"  class="<%= locals.errors && errors.image ? 'is-danger' : '' %> ">
-                    </div>
-                    <% if(locals.errors && errors.image) { %>
-                        <p class="feedback is-danger"><%= errors.image %> </p>
-                    <% } %> 
-                </div>
-                <div class="control-formulario">
-                    <label for="password"  class="form-label" >Contraseña</label>
-                    <div class="control">
-                        <input type="password" name="password"  class="form-input">
-                    </div>
-                    <p class="feedback"></p>
-                </div>
-                <div class="control-formulario">
-                    <label for="password"  class="form-label">Repetir Contraseña</label>
-                    <div class="control">
-                        <input type="password" name="repassword"  class="form-input">
-                    </div>
-                    <p class="feedback"></p>
-                </div>
-                <div class="boton-centrado">
-                  <button class="boton-formulario"type="submit">Registrate</button>
-                </div> 
-                <div class="no-user">
-                  <p>¿Ya tenés una cuenta? ¡Hacé clic <a href="/login">aquí</a>!</p>
-              </div>
-            </form>  
-        </div>
-    </div>
-  </main>
-
-
-
-
-<!-- termina seccion registro -->
-
+  <!--<style>.container {padding-right: 20px;padding-left: 20px;}</style>
   
-</section>
+  
+    <!-- Body Start-->
+    <body >
+    
+        
+            
+      <div class="login-password">
+    
+          <div class="login-contenedor">
+              
+    
+              
+              <h2 class='login-titulo'>M<span class="login-span">arketPet</span></h2>
+    
+              <h2 class='login-titulo2'>B<span class="login-span">ienvenido!!</span></h2>
+              
+    
+              <form action="/register" method="POST" enctype="multipart/form-data">
+    
+                  <label for='name' class="label-perfil-contraseña" >Ingrese su Nombre:</label><br>
+                  
+                  <div class="icon"> 
+                      <div class="perfil-login">
+                          <i class="fa-solid fa-user"></i>
+                      </div>    
+                  
+                      <input class='input-perfil-contraseña '  type="text" name="firstName" placeholder="Usuario">
+                  </div>
 
-
-<!-- seccion contacto -->
-<section id="contact" class="contact">
- <div class="container">
-  <div class="row">
-   <div class="inner-content">
-    <div class="col-sm-6"  data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500">
-     <h2 class="left">Contacto</h2>
-      <form>
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" name="nombre" placeholder="Nombre" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" name="email" placeholder="Email" type="email" required>
-        </div>
+                  <label for='apellido' class="label-perfil-contraseña" >Ingrese su Apellido:</label><br>
+                  
+                  <div class="icon"> 
+                      <div class="perfil-login">
+                          <i class="fa-solid fa-user"></i>
+                      </div>    
+                  
+                      <input class='input-perfil-contraseña '  type="text" for="lastName"  id="name" placeholder="Apellido">
+                  </div>
+                  
+    
+                  <label for='E-mail' class="label-perfil-contraseña" >Ingrese su E-mail:</label><br>
+                  
+                  <div class="icon"> 
+                      <div class="perfil-login">
+                          <i class="fa-solid fa-user"></i>
+                      </div>    
+                  
+                      <input class='input-perfil-contraseña'  type="text" for="email"  id="name" placeholder="Email">
+                  </div>
+                  
+    
+    
+                  <label for='password' class="label-perfil-contraseña" >Ingrese su Contraseña:</label><br>
+                  
+                  
+                  <div class="icon"> 
+                      <div class= llave>
+                          <i class="fa-solid fa-key "></i>
+                      </div>    
+                  
+                      <input class='input-perfil-contraseña '  type="password" name="password" id="name" placeholder="Contraseña">
+                  </div>
+          
+                  <input type="submit" class="btn-ingresar" value="Registrarme">
+    
+              </form>
+    
+              
+                  <div class="registrate-login"><a href="/login"><i class="fa-solid fa-user"></i>¿Ya tienes cuenta? Vamos al login</a></div> 
+              
+                  <div class="home-login"><a href="/"><i class="fa-solid fa-house-chimney"></i>Volver al Home</a></div>
+                  
+    
+              
+    
+    
+          </div>
+    
       </div>
-      <textarea class="form-control" name="comentario" placeholder="Comentario" rows="8"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-left" type="submit">Enviar</button>
-        </div>
-      </div> 
-      </form>
-    </div>
-    <div class="col-sm-5 address"  data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="500">
-      <h2>Donde estamos</h2>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five </p>
-      <ul class="social-icon">
-         <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-         <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-      </ul>
-    </div>
-  </div>
-  </div>
-    </div>
+    
+    
+    
+    <script src="https://kit.fontawesome.com/b1ee9d91d2.js" crossorigin="anonymous"></script>
+    
+    
+    
+    
+    
+    
+    
 
     <!-- empieza Footer  -->
     <%- include("./partials/footer") %>
