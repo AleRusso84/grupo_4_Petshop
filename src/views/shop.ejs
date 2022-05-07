@@ -21,8 +21,81 @@
 </div>
 <!-- Jumbotron End -->
 <!-- prueba de codigo prestado -->
+<div class="contedor-productos">
 
-<main>
+  <% products.forEach(function(product){ 
+    %>
+    <a href="/products/<%=product.id%>">
+
+  <div class="productos-contenedor">
+          <div class='imagen-producto'>
+              <div class="imagen">
+              <img  class="imagen-producto1" src="images/productos/<%=product.imagen%>">
+              </div>
+
+              <div class="icono2">
+                  <i class="fa-solid fa-paw fa-10x icono"></i>
+              </div>
+          </div>
+          
+
+
+      <div class="titulo-descripcion">
+
+          <div class="titulo">
+
+              <h1><%=product.name%></h1>
+
+          </div>
+      
+          <div class="descripcion">
+
+              <p><%=product.description%></p>
+      
+          </div>
+
+      </div>
+
+      <div class="producto-carrito-precio">
+
+          <div class="productos-precio">
+              <h1>
+                  $<%=product.price%>
+              </h1>
+
+          </div>
+
+          
+          <div class="producto-carrito">
+              <div class="producto-icono">
+
+                  <i class="fa-solid fa-cart-shopping"></i>
+
+              </div>
+          </div>
+
+      </div>
+
+  
+
+  </div>
+  </a>
+
+  <%})%>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <main>
   <section class="last-visit">
       <h3>Basado en tu última visita</h3>
       <div class="productos">
@@ -42,7 +115,7 @@
           <%})%>
         </div> 
   </section>
-</main>
+</main> -->
 
 <!-- Contact Section -->
 <section id="contact" class="contact">

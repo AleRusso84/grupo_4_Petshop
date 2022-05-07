@@ -1,0 +1,151 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box ;
+}
+.imagen-producto{
+    height:50%;
+    width: 100%;
+    
+}
+
+.imagen{
+    height: 100%;
+}
+
+.imagen-producto1{
+    width: 100%;
+    height: 100%;
+
+
+}
+
+.icono2{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 100%;
+    /* height: 100%; */
+    color: orange;
+
+}
+
+
+
+.icono{
+    position: relative;
+    bottom: 100%;
+    z-index: -1000;
+    
+}
+
+
+
+.productos-contenedor {
+
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    
+    width: 250px;
+    height: 400px;
+
+    margin: 15px;
+}
+
+
+.titulo-descripcion{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 35%;
+}
+
+.titulo-descripcion .titulo h1{
+    font-size: 15px;
+    text-align: center;
+}
+
+.titulo-descripcion .descripcion p{
+    text-align: center;
+
+    font-size: 12px;
+}
+
+.titulo{
+    height: 30%;
+    
+    text-align: center;
+    overflow-y: hidden;
+
+}
+
+.descripcion{
+    height: 70%;
+    overflow-y: hidden;
+    text-align: center;
+    color: gray;
+    padding: 15px;
+    
+}
+
+.producto-carrito-precio{
+    display: flex;
+    justify-content: space-between;
+    border-top: gray solid 2px;
+    height: 15%;
+    
+}
+
+.producto-carrito{
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.productos-precio{
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: solid 2px gray;
+    
+
+}
+
+
+
+.productos-contenedor .producto-carrito-precio .productos-precio h1{
+
+    font-size: 20px;
+
+}
+
+
+
+.imagen-producto:hover .icono{
+    color:rgba(228, 160, 13, 0.8);
+    z-index: 1000;
+    
+}
+
+
+
+
+/* .icono2:hover{
+    z-index: 1000;
+    
+    color: orange;
+
+} */
+
+/* .icono2:hover .icono{
+    color: orange;
+} */
+.contedor-productos{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
