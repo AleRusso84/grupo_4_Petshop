@@ -41,31 +41,28 @@ module.exports = (sequelize, dataTypes) => {
   };
 
   let config = {
-    tableName: "users",  
-    timestamps: false,
-    // createdAt: "created_at",
-    // updatedAt: "updated_at",
-    // deletedAt: false,
-  };
-  const User = sequelize.define(alias, cols, config);
-
-   User.associate = function(models){
-      
-       User.belongsTo(models.Usercategory, {
-           as: "Usercategory",
-           foreignKey: "userCategory_id"
-       });
-       User.belongsToMany(models.Product,{
-        as:'products',
-        through:'products_users',
-        foreignKey:'user_id',
-        otherKey:'products_id',
-        timestamps:false
-      })
-   }
-
-  return User;
+    tableName: 'users',
+    timestamps: false
 };
+
+const User = sequelize.define(alias, cols, config);
+
+User.associate =  (models) => {
+    User.belongsTo(models.UserCategory, {
+        as: "UserCategory",
+        foreignKey: "categoryId"
+    })
+
+    
+    User.hasMany(models.UserLog, {
+        as: "UserLog",
+        foreignKey: "userId"
+    })
+}
+
+
+return User
+}
 
 
 //module.exports = (sequelize, dataTypes) => {
