@@ -3,6 +3,8 @@ const router = express.Router();
 const multer = require("multer");
 const path = require("path");
 
+
+
 const userController = require("../controllers/userController");
 const registerValidation = require("../middleware/registerValidation");
 
@@ -10,27 +12,28 @@ const userRoute = require("../middleware/userRoute");
 const guestRoute = require("../middleware/guestRoute");
 
 // multer user
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "public/images/users");
+let storage=multer.diskStorage({
+  destination:(req,file,callback)=>{
+      let folder=path.join(__dirname,'../../public/images/users');
+      callback(null,folder);
   },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
+  filename:(req, file, callback)=>{
+      let imageName= "usuario-"+Date.now()+path.extname(file.originalname);
+      callback(null, imageName);
+  }
+})
 
-const upload = multer({ storage });
+let upload=multer({storage:storage});
+
+const validation=require('../middleware/validation')
 
 // login
-router.get("/login", guestRoute, userController.login);
+router.get("/login", userController.login);
 router.post("/login", guestRoute, userController.authenticate);
 router.post("/logout", userRoute, userController.logout);
 // register
-router.get("/register", guestRoute, userController.register);
-router.post("/", guestRoute, upload.single("image"), registerValidation, userController.saveUser);
+router.get("/register", guestRoute, userController.mostrarRegister);
+router.post("/register/user", upload.single("avatar"), validation, userController.saveRegister);
 // profile
 router.get("/profile", userRoute, userController.userProfile);
 //router.get("/editProfile", userRoute, userController.editProfile);

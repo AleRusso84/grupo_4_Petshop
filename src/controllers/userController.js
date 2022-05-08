@@ -92,36 +92,42 @@ const user = {
       console.log(error);
     }
   },
-  register: (req, res) => {
-    res.render("register");
-  },
-  saveUser: async (req, res) => {
-    let errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.render("register", {
-        errors: errors.mapped(),
-        old: req.body,
-      });
-    } else {
-      try {
-        let newUser = {
-          ...req.body,
-          profileImage: req.file
+    mostrarRegister: (req, res) => {
+      return res.render('register');
+    },
+    
+    saveRegister: async (req, res) => {
+      const resultValidation = validationResult(req);
+      
+      
+      if(resultValidation.errors.length > 0){
+        return res.render('register',{
+           errors:resultValidation.mapped(),
+           oldData:req.body
+         })
+       } else
+       {
+         try{
+           const newUser={
+            firstname: req.body.firstName,
+            lastname: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            profileImage:req.file
             ? req.file.filename
-            : req.body.profileImage,
-          categoryId: 1,
-        };
-        newUser.password = bcrypt.hashSync(req.body.password, 10);
-        delete newUser.rePassword;
+            : req.body.avatar
+           };
+           newUser.password=bcrypt.hashSync(req.body.password,10);
 
-        await db.User.create(newUser);
+           await db.User.create(newUser);
 
-        res.redirect("login");
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  },
+           res.redirect('/login');
+         } catch (error) {
+
+          console.log(error)
+         }
+        }
+    },
   userProfile: (req, res) => {
     res.render("profile");
   },
