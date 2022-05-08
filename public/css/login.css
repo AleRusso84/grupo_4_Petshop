@@ -4,7 +4,22 @@
     box-sizing: border-box ;
 }
 
+.invalido{
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    border: none;
+    border: red solid 2px ;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: white;
 
+    
+}
+
+.alarm{
+    color: red;
+}
 
 .login-password{
     

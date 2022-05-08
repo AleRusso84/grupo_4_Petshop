@@ -41,19 +41,33 @@
               <h2 class='login-titulo'>M<span class="login-span">arketPet</span></h2>
     
               <h2 class='login-titulo2'>B<span class="login-span">ienvenido!!</span></h2>
+
               
+              <form action="/register/user" method="POST" enctype="multipart/form-data">
     
-              <form action="/register" method="POST" enctype="multipart/form-data">
-    
-                  <label for='name' class="label-perfil-contraseña" >Ingrese su Nombre:</label><br>
+                  <label for='firstName' class="label-perfil-contraseña" >Ingrese su Nombre:</label><br>
                   
                   <div class="icon"> 
                       <div class="perfil-login">
                           <i class="fa-solid fa-user"></i>
                       </div>    
-                  
-                      <input class='input-perfil-contraseña '  type="text" name="firstName" placeholder="Nombre">
+                      
+                      <input class="<%= locals.errors && errors.firstName ? 'invalido' : 'input-perfil-contraseña' %>" 
+                      type="text" 
+                      name="firstName" 
+                      value="<%= locals.oldData ? oldData.firstName : null %>"
+                      placeholder="Nombre"
+                      >
                   </div>
+
+                  <%if (locals.errors && errors.firstName){%>
+
+                    <div class="alarm">
+                      <%=errors.firstName.msg%>
+                    </div>
+                  <%}%>
+
+
 
                   <label for='apellido' class="label-perfil-contraseña" >Ingrese su Apellido:</label><br>
 
@@ -61,20 +75,25 @@
                       <div class="perfil-login">
                           <i class="fa-solid fa-user"></i>
                       </div>    
-
-                      <input class='input-perfil-contraseña '  type="text" for="lastName"  id="name" placeholder="Apellido">
+                  
+                      <input 
+                      class="<%= locals.errors && errors.lastName ? 'invalido' : 'input-perfil-contraseña' %>"
+                      type="text" 
+                      for="lastName" 
+                      name="lastName" 
+                      id="lastName" 
+                      value="<%= locals.oldData ? oldData.lastName : null %>"
+                      placeholder="Apellido"
+                      >
                   </div>
 
+                  <%if (locals.errors && errors.lastName){%>
 
-                  <label for='image' class="label-perfil-contraseña" >Avatar:</label><br>
-
-                  <div class="icon"> 
-                      <div class="perfil-login">
-                          <i class="fa-solid fa-user"></i>
-                      </div>    
-
-                      <input class='input-perfil-contraseña '  type="file" name="image" id="image" placeholder="Avatar">
-                  </div>
+                    <div class="alarm">
+                      <%=errors.lastName.msg%>
+                    </div>
+                  <%}%>
+                  
     
                   <label for='email' class="label-perfil-contraseña" >Ingrese su E-mail:</label><br>
                   
@@ -83,9 +102,21 @@
                           <i class="fa-solid fa-user"></i>
                       </div>    
                   
-                      <input class='input-perfil-contraseña'  type="text" for="email"  id="name" placeholder="Email">
+                      <input 
+                      class="<%= locals.errors && errors.email ? 'invalido' : 'input-perfil-contraseña' %>"
+                      type="text" 
+                      for="email" 
+                      name="email" 
+                      value="<%= locals.oldData ? oldData.email : null %>"
+                      placeholder="E-mail">
                   </div>
                   
+                  <%if (locals.errors && errors.email){%>
+
+                    <div class="alarm">
+                      <%=errors.email.msg%>
+                    </div>
+                  <%}%>
     
     
                   <label for='password' class="label-perfil-contraseña" >Ingrese su Contraseña:</label><br>
@@ -96,8 +127,26 @@
                           <i class="fa-solid fa-key "></i>
                       </div>    
                   
-                      <input class='input-perfil-contraseña '  type="password" name="password" id="password" placeholder="Contraseña">
+                      <input 
+                      class="<%= locals.errors && errors.password ? 'invalido' : 'input-perfil-contraseña' %>"
+                      type="password" 
+                      name="password" 
+                      id="password" 
+                      value="<%= locals.oldData ? oldData.password : null %>"
+                      placeholder="Contraseña">
                   </div>
+
+                  <%if (locals.errors && errors.firstName){%>
+
+                    <div class="alarm">
+                      <%=errors.password.msg%>
+                    </div>
+                  <%}%>
+
+                
+
+                  <label for="imagen"> Ingrese una imagen</label>
+                  <input type="file" name="avatar" id="image" >
           
                   <input type="submit" class="btn-ingresar" value="Registrarme">
     
@@ -127,9 +176,7 @@
     
     
 
-    <!-- empieza Footer  -->
-    <%- include("./partials/footer") %>
-    <!-- termina Footer -->
+   
 </section>
 <!-- termina seccion contacto -->
    
