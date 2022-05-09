@@ -114,8 +114,7 @@ const user = {
             email: req.body.email,
             password: req.body.password,
             profileImage:req.file
-            ? req.file.filename
-            : req.body.avatar
+            ? req.file.filename : "default-image.png",
            };
            newUser.password=bcrypt.hashSync(req.body.password,10);
 

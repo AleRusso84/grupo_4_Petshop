@@ -11,7 +11,7 @@ module.exports = (sequelize, dataTypes) => {
         }
     };
     let config = {
-        tableName: 'userslog',
+        tableName: 'userlog',
         timestamps: false
     };
     
@@ -20,7 +20,7 @@ module.exports = (sequelize, dataTypes) => {
     UserLog.associate = (models)=> {
         UserLog.belongsTo(models.User, { 
             as: "User", 
-            foreignKey: "userId"
+            foreignKey: "user_id"
         })
     }
     return UserLog;

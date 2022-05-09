@@ -115,4 +115,4 @@ function quantityChanged(event) {
 function comprarButtonClicked() {
   shoppingCartItemsContainer.innerHTML = '';
   updateShoppingCartTotal();
-};
+}

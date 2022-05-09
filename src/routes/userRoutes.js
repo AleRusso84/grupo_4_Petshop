@@ -6,7 +6,6 @@ const path = require("path");
 
 
 const userController = require("../controllers/userController");
-const registerValidation = require("../middleware/registerValidation");
 
 const userRoute = require("../middleware/userRoute");
 const guestRoute = require("../middleware/guestRoute");
