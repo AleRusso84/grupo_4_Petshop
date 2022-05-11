@@ -8,10 +8,14 @@ module.exports = (sequelize, dataTypes) => {
         },
         token: {
             type: dataTypes.STRING(200)
+        },
+        user_id:{
+            type: dataTypes.INTEGER
         }
+
     };
     let config = {
-        tableName: 'userslog',
+        tableName: 'userlog',
         timestamps: false
     };
     
@@ -20,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
     UserLog.associate = (models)=> {
         UserLog.belongsTo(models.User, { 
             as: "User", 
-            foreignKey: "userId"
+            foreignKey: "user_id"
         })
     }
     return UserLog;

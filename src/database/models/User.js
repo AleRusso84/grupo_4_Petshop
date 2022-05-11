@@ -50,13 +50,13 @@ const User = sequelize.define(alias, cols, config);
 User.associate =  (models) => {
     User.belongsTo(models.UserCategory, {
         as: "UserCategory",
-        foreignKey: "categoryId"
+        foreignKey: "userCategory_id"
     })
 
     
     User.hasMany(models.UserLog, {
         as: "UserLog",
-        foreignKey: "userId"
+        foreignKey: "user_id"
     })
 }
 

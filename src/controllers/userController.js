@@ -7,68 +7,134 @@ const user = {
   login: (req, res) => {
     res.render("login");
   },
-  authenticate: async (req, res) => {
-    try {
-      //recuperamos los datos ingresados por el usuario
-      const { email, password } = req.body;
-      // buscamos el email ingresado en la db
-      let user = await db.User.findOne({ where: { email: email } });
-      //si lo encuentra
-      if (user) {
-        // check la password
-        if (bcrypt.compareSync(password, user.password)) {
-          // Eliminamos la contraseña
-          delete user.password;
-          //Guardamos el usuario en session
-          req.session.user = user;
-          // Si clickea el remember
-          if (req.body.remember) {
-            // Generamos un token seguro, eso para que no pueda entrar cualquiera --> https://stackoverflow.com/questions/8855687/secure-random-token-in-node-js
+  enviarLogin: async (req, res) => {
+    try{
+      const {email, password} = req.body;
 
-            const token = crypto.randomBytes(64).toString("base64");
+      let user= await db.User.findOne({where:{email:email}});
+
+      
+
+      if (user){
+        if (bcrypt.compareSync(password, user.password)){
+          delete user.password;
+
+          req.session.user=user;
+
+          if(req.body.remember){
+
+            const token = crypto.randomBytes(64).toString('base64');
             user.token = token;
 
-            // Lo guardamos en db 
-            let userLoginInfo = {
+            let userLoginInfo={
               token: user.token,
-              userId: user.id,
+              user_id: user.id
             };
             await db.UserLog.create(userLoginInfo);
 
-            // Recordamos al usuario por 3 meses       
-            res.cookie("rememberToken", token, {
-              maxAge: 1000 * 60 * 60 * 24 * 90,
-            });
+            res.cookie("recordameToken",token,{maxAge:1000 * 60 * 60 * 24 * 90,})
+          }
+          if (req.session.user.userCategory_id=1){
+            return res.redirect("/")
+          }else{
+            return res.redirect('/')
           }
 
-          // Finalmente lo mandamos al perfil o a la pagina de administrador si es un admin
-          if (req.session.user.categoryId == 2) {
-            return res.redirect("admin");
-          } else {
-            return res.redirect("/profile");
-          }
-        } else {
-          // Si la contraseña esta mal
+        } else{
           return res.render("login", {
-            old: req.body,
-            errors: {
-              email: "La constraseña es incorrecta",
-            },
-          });
+
+            errors:{
+              password:{
+                msg:"La contraseña es incorrecta"
+              }
+            }
+          })
+
+
         }
-      } else {
-        // Si el email no existe
-        return res.render("login", {
-          old: req.body,
-          errors: {
-            email: "El email no existe, ingrese nuevamente su email",
-          },
-        });
-      }
-    } catch (error) {
-      console.log(error);
+        
+      }else{
+
+      return res.render("login", {
+        
+        errors:{
+          email:{
+            msg:"Usuario no registrado"
+          }
+        }
+      })
     }
-  },
+      
+      
+    }catch (error) {
+
+      console.log(error)
+     }
+    },
+    
+    
+
+    // try {
+    //   //recuperamos los datos ingresados por el usuario
+    //   const { email, password } = req.body;
+    //   // buscamos el email ingresado en la db
+    //   let user = await db.User.findOne({ where: { email: email } });
+    //   //si lo encuentra
+    //   if (user) {
+    //     // check la password
+    //     if (bcrypt.compareSync(password, user.password)) {
+    //       // Eliminamos la contraseña
+    //       delete user.password;
+    //       //Guardamos el usuario en session
+    //       req.session.user = user;
+    //       // Si clickea el remember
+    //       if (req.body.remember) {
+    //         // Generamos un token seguro, eso para que no pueda entrar cualquiera --> https://stackoverflow.com/questions/8855687/secure-random-token-in-node-js
+
+    //         const token = crypto.randomBytes(64).toString("base64");
+    //         user.token = token;
+
+    //         // Lo guardamos en db 
+    //         let userLoginInfo = {
+    //           token: user.token,
+    //           userId: user.id,
+    //         };
+    //         await db.UserLog.create(userLoginInfo);
+
+    //         // Recordamos al usuario por 3 meses       
+    //         res.cookie("rememberToken", token, {
+    //           maxAge: 1000 * 60 * 60 * 24 * 90,
+    //         });
+    //       }
+
+    //       // Finalmente lo mandamos al perfil o a la pagina de administrador si es un admin
+    //       if (req.session.user.categoryId == 2) {
+    //         return res.redirect("admin");
+    //       } else {
+    //         return res.redirect("/profile");
+    //       }
+    //     } else {
+    //       // Si la contraseña esta mal
+    //       return res.render("login", {
+    //         old: req.body,
+    //         errors: {
+    //           email: "La constraseña es incorrecta",
+    //         },
+    //       });
+    //     }
+    //   } else {
+    //     // Si el email no existe
+    //     return res.render("login", {
+    //       old: req.body,
+    //       errors: {
+    //         email: "El email no existe, ingrese nuevamente su email",
+    //       },
+    //     });
+    //   }
+    // } catch (error) {
+    //   console.log(error);
+    // }
+  
   logout: async (req, res) => {
     // Nos fijamos si en la base de datos tenemos un usuario con el token
     //si existe el token en cookie existe en la db
@@ -113,9 +179,11 @@ const user = {
             lastname: req.body.lastName,
             email: req.body.email,
             password: req.body.password,
+            userCategory_id: 1,
             profileImage:req.file
             ? req.file.filename
             : req.body.avatar
+            
            };
            newUser.password=bcrypt.hashSync(req.body.password,10);
 

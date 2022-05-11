@@ -43,17 +43,32 @@
               <h2 class='login-titulo2'>B<span class="login-span">ienvenido!!</span></h2>
               
     
-              <form action="/login" method="POST">
+              <form action="/login/users" method="POST">
     
-                  <label for='email' class="label-perfil-contraseña" >Ingrese su E-mail:</label><br>
+                  <label for="email" class="label-perfil-contraseña" >Ingrese su E-mail:</label><br>
                   
                   <div class="icon"> 
                       <div class="perfil-login">
                           <i class="fa-solid fa-user"></i>
                       </div>    
                   
-                      <input class='input-perfil-contraseña '  type="text" name="email" id="email" placeholder="Email">
+                      <input 
+                      class="<%= locals.errors && errors.email ? 'invalido' : 'input-perfil-contraseña' %>"
+                      type="text" 
+                      for="email" 
+                      name="email"
+                      value="<%= locals.old ? old.email : null %>" 
+                      placeholder="E-mail">
                   </div>
+                  <%if (locals.errors && errors.email){%>
+
+                    <div class="alarm">
+                      <%=errors.email.msg%>
+                    </div>
+                  <%}%>
+
+                    
+                  
 
                   
     
@@ -67,8 +82,15 @@
                           <i class="fa-solid fa-key "></i>
                       </div>    
                   
-                      <input class='input-perfil-contraseña '  type="password" name="password" id="name" placeholder="Contraseña">
+                      <input class='input-perfil-contraseña '  type="password" name="password" id="password" placeholder="Contraseña">
                   </div>
+
+                  <%if (locals.errors && errors.password){%>
+
+                    <div class="alarm">
+                      <%=errors.password.msg%>
+                    </div>
+                  <%}%>
           
                   <input type="submit" class="btn-ingresar" value="Ingresar">
                   <div class="form-remember">

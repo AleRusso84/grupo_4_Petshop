@@ -25,15 +25,16 @@ let storage=multer.diskStorage({
 
 let upload=multer({storage:storage});
 
-const validation=require('../middleware/validation')
+const validationRegister=require('../middleware/validationRegister')
+const validationLogin=require('../middleware/validationLogin')
 
 // login
 router.get("/login", userController.login);
-router.post("/login", guestRoute, userController.authenticate);
-router.post("/logout", userRoute, userController.logout);
+router.post("/login/users", userController.enviarLogin);
+// router.post("/logout", userController.logout);
 // register
 router.get("/register", guestRoute, userController.mostrarRegister);
-router.post("/register/user", upload.single("avatar"), validation, userController.saveRegister);
+router.post("/register/user", upload.single("avatar"), validationRegister, userController.saveRegister);
 // profile
 router.get("/profile", userRoute, userController.userProfile);
 //router.get("/editProfile", userRoute, userController.editProfile);
