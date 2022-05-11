@@ -28,18 +28,20 @@ const productsControllers={
     
     },
 
-    tienda:(req,res)=>{db.Product.findAll({order:[["name","DESC"]]})
+    tienda:(req,res)=>{db.Product.findAll()
     .then(products=>res.render('shop',{products}))
     
 },
 
 
-    create:function (req,res){
+create:function (req,res){
+    const mascota= db.CategoryMascota.findAll()
+    const product= db.CategoryProducts.findAll()
+    Promise.all([mascota,product])
+    .then(function([mascota,product]){
+       return res.render('productsCreate',{mascota,product})
 
-        db.Category.findAll()
-        .then(function(categorys){ 
-            return res.render('productsCreate',{categorys})})
-            .catch(error=>console.log(error))
+    })
 
         // let categories = db.Category.findAll()
 
@@ -59,10 +61,10 @@ const productsControllers={
             price: req.body.price,
             discount:req.body.discount,
             description:req.body.description,
-            category_id:req.body.category,
+            categoryMascotas_id:req.body.category,
             imagen:req.file.filename,
             stock:req.body.stock,
-            category_id:req.body.category1
+            categoryProductos_id:req.body.category1
            })
            .catch(error=>console.log(error))
 

@@ -26,12 +26,16 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       // allowNull: false,
     },
-
-    category_id: {
-    type: dataTypes.INTEGER,
-  //   allowNull: false,
-    }, 
+ 
     stock: {
+      type: dataTypes.INTEGER,
+      // allowNull: false,
+    },
+    categoryMascotas_id: {
+      type: dataTypes.INTEGER,
+      // allowNull: false,
+    },
+    categoryProductos_id: {
       type: dataTypes.INTEGER,
       // allowNull: false,
     }
@@ -48,10 +52,19 @@ module.exports = (sequelize, dataTypes) => {
 
    Product.associate = function (models) {
 
-     Product.belongsTo(models.Category, {
-       as: "categorys",
-       foreignKey: "category_id",
-     });
+    Product.belongsTo(models.CategoryMascota, {
+      as: "categorysMascotas1",
+      foreignKey: "categoryMascotas_id",
+    });
+
+    Product.belongsTo(models.CategoryProducts, {
+     as: "categorysProducts1",
+     foreignKey: "categoryProductos_id",
+   });
+
+
+
+
      Product.belongsToMany(models.User,{
        as:'users',
        through:'products_users',

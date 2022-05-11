@@ -58,7 +58,7 @@
                     <label for="category" class="form-label">Categoría de Mascotas:</label>
                     <select name="category"  class="form-input">
                         <option value="">Elegí</option>
-                        <%categorys.forEach(function(category){%>
+                        <%mascota.forEach(function(category){%>
                         <option value="<%=category.id%>"><%=category.nameMascota%></option>
                         <%})%>
                         </select> 
@@ -66,7 +66,7 @@
                         <label for="category1" class="form-label">Categoría de Producto:</label>
                         <select name="category1"  class="form-input">
                             <option value="">Elegí</option>
-                            <%categorys.forEach(function(category){%>
+                            <%product.forEach(function(category){%>
                             <option value="<%=category.id%>"><%=category.nameProduct%></option>
                             <%})%>
                             </select> 
