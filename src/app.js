@@ -14,7 +14,14 @@ const app = express();
 const homeRouter = require("./routes/homeRoutes")
 const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes');
+
+//---------------APIs
+const productApiRoutes=require('./routers/API/productApiRoutes');
+const userApiRoutes=require('./routers/API/userApiRoutes');
+const categoryApiRoutes=require('./routers/API/categoryApiRoutes');
+
 const { render } = require('ejs');
+const { appendFileSync } = require('fs');
 
 
 const port= 3030
@@ -50,6 +57,11 @@ app.set('views', path.join(__dirname,'./views'))
 app.use("/",homeRouter)
 app.use("/",productsRouter )
 app.use("/", userRoutes);
+
+// APIs
+app.use('/product',productApiRoutes);
+app.use ('/users', userApiRoutes);
+app.use('/category',categoryApiRoutes);
 
 // ************ catch 404 and forward to error handler ************
 app.use(function(req,res,next){ res.status(404).render("404-page"); next()})
