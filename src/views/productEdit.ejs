@@ -59,8 +59,8 @@
                     <label for="category" class="form-label">Categoría de Mascotas:</label>
                     <select name="category"  class="form-input">
                         <option value="">Elegí</option>
-                        <%category.forEach(function(category){%>
-                            <% if (category.id==products.category_id){%>
+                        <%categoryMascota.forEach(function(category){%>
+                            <% if (category.id==products.categoryMascotas_id){%>
                         <option value="<%=category.id%>" selected>
                             <%=category.nameMascota%>
                         </option>
@@ -76,8 +76,8 @@
                         <label for="category" class="form-label">Categoría de Producto:</label>
                     <select name="category1"  class="form-input">
                         <option value="">Elegí</option>
-                        <%category.forEach(function(category){%>
-                            <% if (category.id==products.category_id){%>
+                        <%categoryProduct.forEach(function(category){%>
+                            <% if (category.id==products.categoryProductos_id){%>
                         <option value="<%=category.id%>" selected>
                             <%=category.nameProduct%>
                         </option>

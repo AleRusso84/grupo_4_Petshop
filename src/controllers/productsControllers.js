@@ -168,38 +168,17 @@ create:function (req,res){
     edicion: function(req,res){
 
         let productsId= req.params.id;
-        let pushProducts= db.Product.findByPk(productsId,{include:["categorys"]})
-        let pushCategory= db.Category.findAll();
+        let pushProducts= db.Product.findByPk(productsId,{include:["categorysMascotas1"]})
+        let pushCategoryMascota= db.CategoryMascota.findAll();
+        let pushCategoryProduct= db.CategoryProducts.findAll()
         Promise
-        .all([pushProducts, pushCategory])
-        .then(([products, category]) => {
-            return res.render( 'productEdit', { products, category})
+        .all([pushProducts, pushCategoryMascota, pushCategoryProduct])
+        .then(([products, categoryMascota, categoryProduct]) => {
+            return res.render( 'productEdit', { products, categoryMascota, categoryProduct})
         })
         .catch(error => res.send(error)) 
         
     },
-
-            
-        // let categories = db.Category.findAll()
-        // let products = db.Product.findByPk(
-        //     req.params.id,
-        //     {include:
-        //         [
-        //             {association: 'category'}, 
-        //         ]
-        //     })
-
-        // Promise
-        // .all([categories, products])
-        // .then(
-        //     function(responses){
-        //         let category = responses[0];
-        //         let product = responses[1];
-        //         return res.render('productEdit',{category,product})
-        //     }
-        // )
-        // .catch(error=>console.log(error))       
-    
 
     update: function (req,res){
 
@@ -207,20 +186,20 @@ create:function (req,res){
         db.Product
         .update(
             {
-            name: req.body.name,
-            price: req.body.price,
-            discount:req.body.discount,
-            description:req.body.description,
-            category_id:req.body.category,
-            imagen:req.file.filename,
-            stock:req.body.stock,
-            category_id:req.body.category1
+                name: req.body.name,
+                price: req.body.price,
+                discount:req.body.discount,
+                description:req.body.description,
+                categoryMascotas_id:req.body.category,
+                imagen:req.file.filename,
+                stock:req.body.stock,
+                categoryProductos_id:req.body.category1
             },
             {
                 where: {id: productId}
             })
         .then(()=> {
-            return res.redirect('/shop')})            
+            return res.redirect('/products/' + productId)})            
         .catch(error => res.send(error))
 
 

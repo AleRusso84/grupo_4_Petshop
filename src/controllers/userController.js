@@ -35,7 +35,7 @@ const user = {
             res.cookie("recordameToken",token,{maxAge:1000 * 60 * 60 * 24 * 90,})
           }
           if (req.session.user.userCategory_id=1){
-            return res.redirect("/")
+            return res.redirect("/profile")
           }else{
             return res.redirect('/')
           }
@@ -140,9 +140,9 @@ const user = {
     //si existe el token en cookie existe en la db
     //Si existe, lo borramos
     try {
-      if (req.cookies.rememberToken) {
+      if (req.cookies.recordameToken) {
         await db.UserLog.destroy({
-          where: { token: req.cookies.rememberToken },
+          where: { token: req.cookies.recordameToken },
           force: true,
         });
       }
@@ -150,7 +150,7 @@ const user = {
       req.session.destroy();
 
       // Destruimos la cookie
-      res.clearCookie("rememberToken");
+      res.clearCookie("recordameToken");
 
       // Redirigimos a la home
       res.redirect("/");

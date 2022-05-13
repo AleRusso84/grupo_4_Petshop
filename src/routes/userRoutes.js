@@ -26,16 +26,18 @@ let upload=multer({storage:storage});
 
 const validationRegister=require('../middleware/validationRegister')
 const validationLogin=require('../middleware/validationLogin')
+const guestMiddleware=require("../middleware/guestMidleware")
+const authMiddleware=require("../middleware/authMidleware")
 
 // login
-router.get("/login", userController.login);
+router.get("/login", guestMiddleware, userController.login);
 router.post("/login/users", userController.enviarLogin);
-// router.post("/logout", userController.logout);
+router.post("/logout", userController.logout);
 // register
-router.get("/register", guestRoute, userController.mostrarRegister);
+router.get("/register", guestMiddleware, userController.mostrarRegister);
 router.post("/register/user", upload.single("avatar"), validationRegister, userController.saveRegister);
 // profile
-router.get("/profile", userRoute, userController.userProfile);
+router.get("/profile",userRoute, userController.userProfile);
 //router.get("/editProfile", userRoute, userController.editProfile);
 
 module.exports = router;
