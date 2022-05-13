@@ -10,18 +10,19 @@
           </div>
 
           <div class="cuenta-carrito">
-           
+           <% if (!locals.user){%>
             <a class="ingresar" href="/login">Ingresar</a>
               <a class="registro" href="/register">Registro</a>
-             
-              <a class="registro" href="/profile"> <i class="fas fa-user"></i></a>
-                
+              <a class="casa" href='/'> <i class="fas fa-home"></i></a>
+             <%}else{%>
+              <a class="registro" href="/profile"><i class="fas fa-user"></i>  Mi perfil</a>
+              <a class="carrito" href="/productCart"> <i class="fa-solid fa-cart-shopping"></i> Mis Compras</a>
                     <form action="/logout" method="POST">
-                          <a onclick="this.closest('form').submit();return false;"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> </a>
+                          <a onclick="this.closest('form').submit();return false;"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesion </a>
                         </form>
                  
-              <a class="carrito" href="/productCart"> <i class="fa-solid fa-cart-shopping"></i></a>
-              <a class="casa" href='/'> <i class="fas fa-home"></i></a>
+              
+              <%}%>
           </div>
 
       </div>

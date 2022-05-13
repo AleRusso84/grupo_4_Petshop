@@ -1,0 +1,34 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box ;
+}
+
+.contenedor-profile{
+    background: url(../images/gatitos.jpg);
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+       
+}
+
+.contenedor-profile2{
+    background: rgba(255, 255, 255, 1);
+    width: 80%;
+    height: 80%;
+    border-radius: 8px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+}
+.profile-imagen img{
+    width: 200px;
+    height: 200px;
+    margin: 30px;
+}
+
+.contenedor-profile3 h2{
+    margin: 50px 30px;
+}

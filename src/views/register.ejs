@@ -28,142 +28,133 @@
   
   
     <!-- Body Start-->
-    <body >
+    <body class="body-registro">
     
-        
+      <div class="body-registro1">
             
-      <div class="login-password">
-    
-          <div class="login-contenedor">
-              
-    
-              
-              <h2 class='login-titulo'>M<span class="login-span">arketPet</span></h2>
-    
-              <h2 class='login-titulo2'>B<span class="login-span">ienvenido!!</span></h2>
+      <form action="/register/user" method="POST" enctype="multipart/form-data">
+        <div class="registro-contenedor">
 
-              
-              <form action="/register/user" method="POST" enctype="multipart/form-data">
+        <div class="registro-contenedor2">  
+            
+            
+            <div class="registro-nombre">
+                <div class="registro-titulo">
+                  <h2 class='login-titulo'>M<span class="login-span">arketPet</span></h2>
     
-                  <label for='firstName' class="label-perfil-contraseña" >Ingrese su Nombre:</label><br>
-                  
-                  <div class="icon"> 
-                      <div class="perfil-login">
-                          <i class="fa-solid fa-user"></i>
-                      </div>    
-                      
-                      <input class="<%= locals.errors && errors.firstName ? 'invalido' : 'input-perfil-contraseña' %>" 
-                      type="text" 
-                      name="firstName" 
-                      value="<%= locals.oldData ? oldData.firstName : null %>"
-                      placeholder="Nombre"
-                      >
-                  </div>
-
-                  <%if (locals.errors && errors.firstName){%>
-
+                  <h2 class='login-titulo'>R<span class="login-span">egistrate</span></h2>
+                </div>
+        
+                
+                <div>
+                
+                
+                <label for='firstName' class="label-registro">Nombre Completo:</label>
+                <input class="<%= locals.errors && errors.firstName ? 'invalido' : 'input-registro' %>" 
+                type="text" 
+                name="firstName" 
+                value="<%= locals.oldData ? oldData.firstName : null %>"
+                placeholder="Nombre"
+                >
+                <%if (locals.errors && errors.firstName){%>
                     <div class="alarm">
                       <%=errors.firstName.msg%>
                     </div>
                   <%}%>
 
-
-
-                  <label for='apellido' class="label-perfil-contraseña" >Ingrese su Apellido:</label><br>
-
-                  <div class="icon"> 
-                      <div class="perfil-login">
-                          <i class="fa-solid fa-user"></i>
-                      </div>    
-                  
-                      <input 
-                      class="<%= locals.errors && errors.lastName ? 'invalido' : 'input-perfil-contraseña' %>"
-                      type="text" 
-                      for="lastName" 
-                      name="lastName" 
-                      id="lastName" 
-                      value="<%= locals.oldData ? oldData.lastName : null %>"
-                      placeholder="Apellido"
-                      >
-                  </div>
-
-                  <%if (locals.errors && errors.lastName){%>
-
+                <label for='lastName' class="label-registro">Apellido:</label>
+                <input 
+                class="<%= locals.errors && errors.lastName ? 'invalido' : 'input-registro' %>"
+                type="text" 
+                for="lastName" 
+                name="lastName" 
+                id="lastName" 
+                value="<%= locals.oldData ? oldData.lastName : null %>"
+                placeholder="Apellido">
+                <%if (locals.errors && errors.lastName){%>
                     <div class="alarm">
                       <%=errors.lastName.msg%>
                     </div>
                   <%}%>
-                  
-    
-                  <label for='email' class="label-perfil-contraseña" >Ingrese su E-mail:</label><br>
-                  
-                  <div class="icon"> 
-                      <div class="perfil-login">
-                          <i class="fa-solid fa-user"></i>
-                      </div>    
-                  
-                      <input 
-                      class="<%= locals.errors && errors.email ? 'invalido' : 'input-perfil-contraseña' %>"
-                      type="text" 
-                      for="email" 
-                      name="email" 
-                      value="<%= locals.oldData ? oldData.email : null %>"
-                      placeholder="E-mail">
-                  </div>
-                  
-                  <%if (locals.errors && errors.email){%>
 
+                <label for="phone" class="label-registro">Telefono/Celular:</label>
+                <input 
+                class="input-registro" 
+                type="number"
+                placeholder=""
+                name="phone"
+                for="phone">
+
+                <label for="adress" class="label-registro">Dirección:</label>
+                <input 
+                class="input-registro" 
+                type="text" 
+                placeholder="Dirección"
+                name="adress"
+                for="adress"
+                >
+                </div>
+            </div>
+
+
+            <div class="registro-correo">
+                <div>
+                    <div class="circular--landscape">
+                        <img src="/images/registroo.jpg"
+                        onclick="document.getElementById('avatar').click();" />
+                    </div>
+                    <input type="file" name="avatar" id="avatar" style="display:none;"> <br>
+                    
+                    <input
+                    type="button"
+                    class="btn-submit"
+                    value="Cargar Foto de Perfil"
+                    onclick="document.getElementById('avatar').click();"/>
+                </div>
+
+
+                <label for='email' class="label-registro"> Ingrese su Correo-Electronico:</label>
+                <input class="<%= locals.errors && errors.email ? 'invalido' : 'input-registro' %>"
+                type="text" 
+                for="email" 
+                name="email" 
+                value="<%= locals.oldData ? oldData.email : null %>"
+                placeholder="ejemplo@gmail.com">
+                <%if (locals.errors && errors.email){%>
                     <div class="alarm">
                       <%=errors.email.msg%>
                     </div>
                   <%}%>
-    
-    
-                  <label for='password' class="label-perfil-contraseña" >Ingrese su Contraseña:</label><br>
-                  
-                  
-                  <div class="icon"> 
-                      <div class= llave>
-                          <i class="fa-solid fa-key "></i>
-                      </div>    
-                  
-                      <input 
-                      class="<%= locals.errors && errors.password ? 'invalido' : 'input-perfil-contraseña' %>"
-                      type="password" 
-                      name="password" 
-                      id="password" 
-                      value="<%= locals.oldData ? oldData.password : null %>"
-                      placeholder="Contraseña">
-                  </div>
 
-                  <%if (locals.errors && errors.firstName){%>
 
+                <label for='password' class="label-registro">Contraseña:</label>   
+                <input 
+                class="<%= locals.errors && errors.password ? 'invalido' : 'input-registro' %>"
+                type="password" 
+                name="password" 
+                id="password" 
+                value="<%= locals.oldData ? oldData.password : null %>"
+                placeholder="Contraseña">
+                <%if (locals.errors && errors.firstName){%>
                     <div class="alarm">
                       <%=errors.password.msg%>
                     </div>
                   <%}%>
 
-                
+                <label for="" class="label-registro">Confirmar Contraseña: </label>    
+                <input class="input-registro" type="text" placeholder="">
+            </div>
+            
 
-                  <label for="imagen"> Ingrese una imagen</label>
-                  <input type="file" name="avatar" id="image" >
-          
-                  <input type="submit" class="btn-ingresar" value="Registrarme">
-    
-              </form>
-    
-              
-                  <div class="registrate-login"><a href="/login"><i class="fa-solid fa-user"></i>¿Ya tienes cuenta? Vamos al login</a></div> 
-              
-                  <div class="home-login"><a href="/"><i class="fa-solid fa-house-chimney"></i>Volver al Home</a></div>
-                  
-    
-              
-    
-    
-          </div>
-    
-      </div>
+            
+        </div>
+        <div class="contenedor-btn-registrarser">
+        <input type="submit" class="btn-registrarser" value="Registrarse">
+        </div>
+        </div>
+        
+    </form>
+    </div>
     
     
     
