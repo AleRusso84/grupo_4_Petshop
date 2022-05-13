@@ -1,6 +1,6 @@
 import React from 'react';
 import ContentRowCenter from './ContentRowCenter';
-import ContentRowMosaik from './ContentRowMarkPet';
+import ContentRowMarkPet from './ContentRowMarkPet';
 
 function ContentRowTop(){
     return(
@@ -11,8 +11,8 @@ function ContentRowTop(){
 						<h1 className="h3 mb-0 text-gray-800">API Connection</h1>
 					</div>
 				
-					{/*<!-- Content Row Mosaik-->*/}
-					<ContentRowMosaik />
+					{/*<!-- Content Row MarkPet-->*/}
+					<ContentRowMarkPet />
 					<ContentRowCenter />
 					
 	
