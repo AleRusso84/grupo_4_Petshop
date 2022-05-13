@@ -85,11 +85,18 @@
                 <div class="row myrow">
                    <div class="col-sm-12" data-aos="fade-up" data-aos-duration="1000">
                     <ul>
-                        <li class="mylist">
-                            <span class="myspan">Precio</span>
-                            <span class="myspan">:</span>
-                            <span class="myspan"><%= product.price %></span>
-                        </li>
+                      <li class="mylist">
+                        <span class="myspan">Precio Antes</span>
+                        <span class="myspan">:</span>
+                        <span class="myspan">
+                          <% var precio = product.price; %>
+                          <% var descuento = 1000; %>
+                          <% var total = [precio + descuento]; %>
+                          <% if (product.price) {
+                             %> 
+                          <p> <%= total %> </p>
+                          <% } %></span>
+                    </li>
                         <li class="mylist1">
                             <span class="myspan1">Ahora</span>&nbsp;&nbsp;
                             <span class="myspan1">:</span>&nbsp;&nbsp;
