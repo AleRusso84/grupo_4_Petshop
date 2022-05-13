@@ -6,7 +6,7 @@ function Footer(){
 			<footer className="sticky-footer bg-white">
 				<div className="container my-auto">
 					<div className="copyright text-center my-auto">
-						<span>Copyright &copy; Dashboard 2021</span>
+						<span>Todos los derechos reservados © Grupo 4</span>
 					</div>
 				</div>
 			</footer>
