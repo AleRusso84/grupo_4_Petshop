@@ -27,7 +27,7 @@ const productControllerApi ={
                 });
                 return  res.status(200).json({
                 total: variableCategory.length,
-                detail:`http://localhost:3003/`,
+                detail:`http://localhost:3030/`,
                 data: variableCategory,
                 status: 200
             })

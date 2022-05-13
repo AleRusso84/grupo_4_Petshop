@@ -19,13 +19,13 @@ const userControllerApi ={
                     delete user.dataValues.password;
                     delete user.dataValues.roles;
                     delete user.dataValues.roles_id;
-                    user.file =`http://localhost:3003/images/imagesPerfil/${user.dataValues.file}`;
+                    user.file =`http://localhost:3030/images/imagesPerfil/${user.dataValues.file}`;
                     return user.dataValues;
                 });
                 console.log(variableUsers);
             return  res.status(200).json({
                 total: variableUsers.length,
-                detail:`http://localhost:3003/nosotros`,
+                detail:`http://localhost:3030/nosotros`,
                 data: variableUsers,
                 status: 200
             })
@@ -42,9 +42,9 @@ const userControllerApi ={
                 delete user.dataValues.password;
                 delete user.dataValues.roles;
                 delete user.dataValues.roles_id;
-                user.file =`http://localhost:3003/images/imagesPerfil/${user.dataValues.file}`;
+                user.file =`http://localhost:3030/images/imagesPerfil/${user.dataValues.file}`;
             return  res.status(200).json({
-                detial:`http://localhost:3003/users/detail/${req.params.id}`,
+                detial:`http://localhost:3030/users/detail/${req.params.id}`,
                 data: user,
                 status: 200
             })

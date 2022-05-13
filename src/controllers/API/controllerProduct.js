@@ -38,12 +38,12 @@ const productControllerApi ={
                 
                 delete product.dataValues.category_id,
                 delete product.dataValues.size_id,
-                product.image =`http://localhost:3003/images/products/${product.dataValues.image}`;
+                product.image =`http://localhost:3030/images/products/${product.dataValues.image}`;
                 return product.dataValues;
                 });
                 return  res.status(200).json({
                 total: variableProduct.length,
-                detail:`http://localhost:3003/product/detail`,
+                detail:`http://localhost:3030/product/detail`,
                 countByCategory: `Pisos  ${arrayPisos.length}  , Griferias   ${arrayGriferias.length} , Sanitarios ${arraySanitarios.length}`,
                 data: variableProduct,
                 status: 200
@@ -60,9 +60,9 @@ const productControllerApi ={
             .then(product=>{
                 delete product.dataValues.category_id
                 delete product.dataValues.size_id
-                product.image =`http://localhost:3003/images/products/${product.dataValues.image}`;
+                product.image =`http://localhost:3030/images/products/${product.dataValues.image}`;
             return  res.status(200).json({
-                detail:`http://localhost:3003/product/detail/${req.params.id}`,
+                detail:`http://localhost:3030/product/detail/${req.params.id}`,
                 data: product,
                 status: 200
             })
