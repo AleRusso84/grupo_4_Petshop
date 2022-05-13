@@ -31,7 +31,10 @@
   }
   
   .item-details > .item-price {
-    margin: 30px;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   /* ? SHOPPING CART */
