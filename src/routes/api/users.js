@@ -8,7 +8,7 @@ router.get('/', userAPIController.list);
 //Detalle del actor
 router.get('/:id', userAPIController.detail);
 //En que peliculas trabajo el actor con id tal
-router.get('/:id/movies', userAPIController.actorMovies);
+router.get('/:id/user', userAPIController.userCategory);
 
 //Agregar un actor
 router.post('/create', userAPIController.create);
