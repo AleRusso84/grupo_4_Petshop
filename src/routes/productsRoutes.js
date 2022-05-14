@@ -23,6 +23,44 @@ let upload=multer({storage:storage});
 router.get('/productCart', productsControllers.productCart)
 router.get('/shop', productsControllers.tienda)
 
+// Mascota Perro
+router.get('/shop/perros', productsControllers.tiendaPerros)
+router.get('/shop/perros/Alimentos', productsControllers.tiendaPerrosAlimentos)
+router.get('/shop/perros/JuguetesyAccesorios', productsControllers.tiendaPerrosJuguetesyAccesorios)
+router.get('/shop/perros/HigieneyEstetica', productsControllers.tiendaPerrosHigieneyEstetica)
+router.get('/shop/perros/Salud', productsControllers.tiendaPerrosSalud)
+
+// Mascota Gatos
+router.get('/shop/gatos', productsControllers.tiendaGatos)
+router.get('/shop/gatos/Alimentos', productsControllers.tiendaGatosAlimentos)
+router.get('/shop/gatos/JuguetesyAccesorios', productsControllers.tiendaGatosJuguetesyAccesorios)
+router.get('/shop/gatos/HigieneyEstetica', productsControllers.tiendaGatosHigieneyEstetica)
+router.get('/shop/gatos/Salud', productsControllers.tiendaGatosSalud)
+
+// Mascotas Aves
+
+router.get('/shop/gatos', productsControllers.tiendaGatos)
+router.get('/shop/gatos/Alimentos', productsControllers.tiendaGatosAlimentos)
+router.get('/shop/gatos/JuguetesyAccesorios', productsControllers.tiendaGatosJuguetesyAccesorios)
+router.get('/shop/gatos/HigieneyEstetica', productsControllers.tiendaGatosHigieneyEstetica)
+router.get('/shop/gatos/Salud', productsControllers.tiendaGatosSalud)
+
+// Mascotas Aves
+
+router.get('/shop/Aves', productsControllers.tiendaAves)
+router.get('/shop/Aves/Alimentos', productsControllers.tiendaAvesAlimentos)
+router.get('/shop/Aves/JuguetesyAccesorios', productsControllers.tiendaAvesJuguetesyAccesorios)
+
+// Mascotas Peces
+
+router.get('/shop/Peces', productsControllers.tiendaPeces)
+router.get('/shop/Peces/Alimentos', productsControllers.tiendaPecesAlimentos)
+router.get('/shop/Peces/JuguetesyAccesorios', productsControllers.tiendaPecesJuguetesyAccesorios)
+
+// Ofertas
+router.get('/shop/Ofertas', productsControllers.Oferta)
+
+
 // Formulario de creacion y guardado
 router.get('/products/create',productsControllers.create)
 router.post('/products',upload.single('image'),productsControllers.store)

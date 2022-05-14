@@ -28,13 +28,111 @@ const productsControllers={
     
     },
 
+    // Shop
+
     tienda:(req,res)=>{db.Product.findAll()
     .then(products=>res.render('shop',{products}))
+    },
+
+// Mascotas Perros
+    tiendaPerros:(req,res)=>{db.Product.findAll({where:{categoryMascotas_id:1}})
+        .then(products=>res.render('shop',{products}))   
+    },
     
-},
+    tiendaPerrosAlimentos:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:1}]}
+        })
+    .then(products=>res.render('shop',{products}))},
 
 
-create:function (req,res){
+    tiendaPerrosJuguetesyAccesorios:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:2}]}
+        })
+        .then(products=>res.render('shop',{products}))},
+
+    tiendaPerrosHigieneyEstetica:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:3}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+    
+    tiendaPerrosSalud:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:4}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+
+// Mascotas Gatos
+
+    tiendaGatos:(req,res)=>{db.Product.findAll({where:{categoryMascotas_id:2}})
+        .then(products=>res.render('shop',{products}))   
+    },
+    
+    tiendaGatosAlimentos:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:2},{categoryProductos_id:1}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+
+
+    tiendaGatosJuguetesyAccesorios:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:2},{categoryProductos_id:2}]}
+        })
+        .then(products=>res.render('shop',{products}))},
+
+    tiendaGatosHigieneyEstetica:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:2},{categoryProductos_id:3}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+    
+    tiendaGatosSalud:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:2},{categoryProductos_id:4}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+
+    // Mascotas aves
+    tiendaAves:(req,res)=>{db.Product.findAll({where:{categoryMascotas_id:3}})
+        .then(products=>res.render('shop',{products}))   
+    },
+    
+    tiendaAvesAlimentos:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:3},{categoryProductos_id:1}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+
+
+    tiendaAvesJuguetesyAccesorios:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:3},{categoryProductos_id:2}]}
+        })
+        .then(products=>res.render('shop',{products}))},
+
+    // Mascotas Peces
+    tiendaPeces:(req,res)=>{db.Product.findAll({where:{categoryMascotas_id:4}})
+        .then(products=>res.render('shop',{products}))   
+    },
+    
+    tiendaPecesAlimentos:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:4},{categoryProductos_id:1}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+
+
+    tiendaPecesJuguetesyAccesorios:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:4},{categoryProductos_id:2}]}
+        })
+        .then(products=>res.render('shop',{products}))},
+
+
+    // oferta
+
+    Oferta:(req,res)=>{db.Product.findAll({
+        where: {
+            discount: {
+                [Op.ne]:null
+          }
+        }
+      })
+        .then(products=>res.render('shop',{products}))},
+
+
+    create:function (req,res){
     const mascota= db.CategoryMascota.findAll()
     const product= db.CategoryProducts.findAll()
     Promise.all([mascota,product])
