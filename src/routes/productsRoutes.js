@@ -23,6 +23,21 @@ let upload=multer({storage:storage});
 router.get('/productCart', productsControllers.productCart)
 router.get('/shop', productsControllers.tienda)
 
+// Mascotas perros
+
+router.get('/shop/perros', productsControllers.tiendaPerros)
+router.get('/shop/perros/Alimentos', productsControllers.tiendaPerrosAlimentos)
+router.get('/shop/perros/JuguetesyAccesorios', productsControllers.tiendaPerrosJuguetesyAccesorios)
+router.get('/shop/perros/HigieneyEstetica"', productsControllers.tiendaPerrosHigieneyEstetica)
+
+
+
+
+router.get('/shop/aves', productsControllers.tienda)
+router.get('/shop/peces',productsControllers.tienda)
+router.get('/shop/gatos',productsControllers.tienda)
+
+
 // Formulario de creacion y guardado
 router.get('/products/create',productsControllers.create)
 router.post('/products',upload.single('image'),productsControllers.store)

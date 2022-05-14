@@ -10,19 +10,19 @@
           </div>
 
           <div class="cuenta-carrito">
-           <% if (!locals.user){%>
-            <a class="ingresar" href="/login">Ingresar</a>
+            <% if (!user) { %>
+            <a class="ingresar" href="/login">Ingresar </a>
               <a class="registro" href="/register">Registro</a>
-              <a class="casa" href='/'> <i class="fas fa-home"></i></a>
-             <%}else{%>
-              <a class="registro" href="/profile"><i class="fas fa-user"></i>  Mi perfil</a>
-              <a class="carrito" href="/productCart"> <i class="fa-solid fa-cart-shopping"></i> Mis Compras</a>
+             <% } %>
+             <% if (user) { %>
+              <a class="registro" href="/profile"> <i class="fas fa-user"></i></a>
+                
                     <form action="/logout" method="POST">
                           <a onclick="this.closest('form').submit();return false;"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> Cerrar Sesion </a>
                         </form>
-                 
-              
-              <%}%>
+             <% } %>    
+              <a class="carrito" href="/productCart"> <i class="fa-solid fa-cart-shopping"></i></a>
+              <a class="casa" href='/'> <i class="fas fa-home"></i></a>
           </div>
 
       </div>
@@ -53,8 +53,8 @@
               <div class="categorias">
                   <button class="btn-regresar"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
                   <h3 class="subtitulo">Categorias</h3>
-                  <a href="#" data-categoria="perros">Perros <i class="fa-solid fa-angle-right"></i></a>
-                  <a href="#" data-categoria="gatos">Gatos <i class="fa-solid fa-angle-right"></i></a>
+                  <a href="/shop/perros" data-categoria="perros">Perros <i class="fa-solid fa-angle-right"></i></a>
+                  <a href="/shop/gatos" data-categoria="gatos">Gatos <i class="fa-solid fa-angle-right"></i></a>
                   <a href="#" data-categoria="aves">Aves <i class="fa-solid fa-angle-right"></i></a>
                   <a href="#" data-categoria="peces">Peces <i class="fa-solid fa-angle-right"></i></a>
               </div>
@@ -65,10 +65,10 @@
                       <div class="enlaces-subcategorias">
                           <button class="btn-regresar"><i class="fa-solid fa-arrow-left"></i> Regresar</button>
                           <h3 class="subtitulo">Perros</h3>
-                          <a href="#">Alimentos <i class="fa-solid fa-paw"></i></a>
-                          <a href="#">Juguetes y Accesorios <i class="fa-solid fa-paw"></i></a>
-                          <a href="#">Higiene y Estetica <i class="fa-solid fa-paw"></i></a>
-                          <a href="#">Salud <i class="fa-solid fa-paw"></i></a>
+                          <a href="/shop/perros/Alimentos">Alimentos <i class="fa-solid fa-paw"></i></a>
+                          <a href="/shop/perros/JuguetesyAccesorios">Juguetes y Accesorios <i class="fa-solid fa-paw"></i></a>
+                          <a href="/shop/perros/HigieneyEstetica">Higiene y Estetica <i class="fa-solid fa-paw"></i></a>
+                          <a href="/shop/perros/Salud">Salud <i class="fa-solid fa-paw"></i></a>
                       </div>
 
                       <div class="banner-subcategoria">

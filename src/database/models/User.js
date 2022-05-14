@@ -47,11 +47,11 @@ module.exports = (sequelize, dataTypes) => {
 
 const User = sequelize.define(alias, cols, config);
 
-User.associate =  (models) => {
+User.associate =  function(models){
     User.belongsTo(models.UserCategory, {
         as: "UserCategory",
         foreignKey: "userCategory_id"
-    })
+    });
 
     
     User.hasMany(models.UserLog, {

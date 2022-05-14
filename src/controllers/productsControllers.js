@@ -33,6 +33,26 @@ const productsControllers={
     
 },
 
+    tiendaPerros:(req,res)=>{db.Product.findAll({where:{categoryMascotas_id:1}})
+        .then(products=>res.render('shop',{products}))   
+    },
+    
+    tiendaPerrosAlimentos:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:1}]}
+        })
+    .then(products=>res.render('shop',{products}))},
+
+
+    tiendaPerrosJuguetesyAccesorios:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:2}]}
+        })
+        .then(products=>res.render('perrosJuguetes',{products}))},
+
+    tiendaPerrosHigieneyEstetica:(req,res)=>{db.Product.findAll({
+        where:{[Op.and]:[{categoryMascotas_id:1},{categoryProductos_id:3}]}
+        })
+    .then(products=>res.render('perrosHigiene',{products}))},
+
 
 create:function (req,res){
     const mascota= db.CategoryMascota.findAll()
