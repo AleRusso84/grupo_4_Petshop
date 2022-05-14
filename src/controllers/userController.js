@@ -181,7 +181,7 @@ const user = {
             password: req.body.password,
             phone: req.body.phone,
             adress: req.body.adress,
-            userCategory_id: 1,
+            userCategory_id: 2,
             profileImage:req.file ? req.file.filename : 'registroo.jpg',
       
             
