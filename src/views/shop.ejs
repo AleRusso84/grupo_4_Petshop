@@ -1,168 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head Start-->
+  <%- include("./partials/head") %>
+<!-- Head End-->
+  <style>.container {padding-right: 20px;padding-left: 20px;}</style>
+
+  
+<!-- Body Start-->
 <body>
-    <!-- Header Start-->
-    <%- include("header") %>
-    <!-- Header End-->
-  <!-- Jumbotron -->
-  <div class="banner">
-    <div class="container">
-      <div>
-          <h1>Shop </h1>
-      </div>
+  <!-- Header Start-->
+  <%- include("./partials/header") %>
+  <!-- Header End-->
+<!-- Jumbotron -->
+<div class="banner">
+  <div class="container">
+    <div>
+        <h1>Shop </h1>
     </div>
   </div>
-  <!-- Jumbotron End -->
-  <!-- prueba de codigo prestado -->
-  <div class="contedor-productos">
-  
-    <% products.forEach(function(product){ 
-      %>
-      <a href="/products/<%=product.id%>">
-  
-    <div class="productos-contenedor">
-            <div class='imagen-producto'>
-                <div class="imagen">
-                <img  class="imagen-producto1" src="/images/productos/<%=product.imagen%>">
-                </div>
-  
-                <div class="icono2">
-                    <i class="fa-solid fa-paw fa-10x icono"></i>
-                </div>
-            </div>
-            
-  
-  
-        <div class="titulo-descripcion">
-  
-            <div class="titulo">
-  
-                <h1><%=product.name%></h1>
-  
-            </div>
-        
-            <div class="descripcion">
-  
-                <p><%=product.description%></p>
-        
-            </div>
-  
-        </div>
-  
-        <div class="producto-carrito-precio">
-  
-            <div class="productos-precio">
-                <h1>
-                    $<%=product.price%>
-                </h1>
-  
-            </div>
-  
-            
-            <div class="producto-carrito">
-                <div class="producto-icono">
-  
-                    <i class="fa-solid fa-cart-shopping"></i>
-  
-                </div>
-            </div>
-  
-        </div>
-  
-    
-  
-    </div>
-    </a>
-  
-    <%})%>
-  
-  
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <!-- <main>
-    <section class="last-visit">
-        <h3>Basado en tu última visita</h3>
-        <div class="productos">
-          <% products.forEach(function(product){%>
-          <article class="sombra-articulos">
-            <div class="tamaño-imagen">
-            <a href="/products/<%=product.id%>"><img src="/images/productos/<%=product.imagen%>" class="product_img" alt="Responsive image"></a> 
-          </div>  
-            <div class="main-article">
-                  <i class="fas fa-truck"></i>
-                 <p class="price"><span><%=product.price%></span> Only</p>
-                  <p class="discount"><%=product.discount%></p>
-                  <h3 class="description"><a href="productDetail"><%=product.name%></a></h3>
-                  <p class="description"><%=product.description %></p>
+</div>
+<!-- Jumbotron End -->
+<!-- prueba de codigo prestado -->
+<div class="contedor-productos">
+
+  <% products.forEach(function(product){ 
+    %>
+    <a href="/products/<%=product.id%>">
+
+  <div class="productos-contenedor">
+          <div class='imagen-producto'>
+              <div class="imagen">
+              <img  class="imagen-producto1" src="images/productos/<%=product.imagen%>">
               </div>
-            </article>
-            <%})%>
-          </div> 
-    </section>
-  </main> -->
+
+              <div class="icono2">
+                  <i class="fa-solid fa-paw fa-10x icono"></i>
+              </div>
+          </div>
+          
+
+
+      <div class="titulo-descripcion">
+
+          <div class="titulo">
+
+              <h1><%=product.name%></h1>
+
+          </div>
+      
+          <div class="descripcion">
+
+              <p><%=product.description%></p>
+      
+          </div>
+
+      </div>
+
+      <div class="producto-carrito-precio">
+
+          <div class="productos-precio">
+              <h1>
+                  $<%=product.price%>
+              </h1>
+
+          </div>
+
+          
+          <div class="producto-carrito">
+              <div class="producto-icono">
+
+                  <i class="fa-solid fa-cart-shopping"></i>
+
+              </div>
+          </div>
+
+      </div>
+
   
-  <!-- Contact Section -->
-  <section id="contact" class="contact">
-    <div class="container">
-     <div class="row">
-      <div class="inner-content">
-       <div class="col-sm-6"  data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
-        <h2 class="left">Contacto</h2>
-         <form action="https://formspree.io/f/xeqnvjzr"
-         method="POST">
-         <div class="row">
-           <div class="col-sm-6 form-group">
-             <input class="form-control" name="nombre" placeholder="Nombre" type="text" required>
-           </div>
-           <div class="col-sm-6 form-group">
-             <input class="form-control" name="_replyto" placeholder="Email" type="email" required>
+
+  </div>
+  </a>
+
+  <%})%>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <main>
+  <section class="last-visit">
+      <h3>Basado en tu última visita</h3>
+      <div class="productos">
+        <% products.forEach(function(product){%>
+        <article class="sombra-articulos">
+          <div class="tamaño-imagen">
+          <a href="/products/<%=product.id%>"><img src="/images/productos/<%=product.imagen%>" class="product_img" alt="Responsive image"></a> 
+        </div>  
+          <div class="main-article">
+                <i class="fas fa-truck"></i>
+               <p class="price"><span><%=product.price%></span> Only</p>
+                <p class="discount"><%=product.discount%></p>
+                <h3 class="description"><a href="productDetail"><%=product.name%></a></h3>
+                <p class="description"><%=product.description %></p>
+            </div>
+          </article>
+          <%})%>
+        </div> 
+  </section>
+</main> -->
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+   <div class="row">
+    <div class="inner-content">
+     <div class="col-sm-6"  data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+      <h2 class="left">Contacto</h2>
+       <form action="https://formspree.io/f/xeqnvjzr"
+       method="POST">
+       <div class="row">
+         <div class="col-sm-6 form-group">
+           <input class="form-control" name="nombre" placeholder="Nombre" type="text" required>
+         </div>
+         <div class="col-sm-6 form-group">
+           <input class="form-control" name="_replyto" placeholder="Email" type="email" required>
+         </div>
+       </div>
+       <textarea class="form-control" name="message" placeholder="Comentario" rows="8"></textarea><br>
+       <div class="row">
+         <div class="col-sm-12 form-group">
+           <button class="btn btn-default pull-left" type="submit">Enviar</button>
+         </div>
+       </div> 
+       </form>
+     </div>
+     <div class="col-sm-5 address"  data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+       <h2>¿Como podemos ayudarte?</h2>
+       <p>Dejanos tu duda o inquietud y a la brevedad nuestro equipo la procesara y te brindara una solucion via E-mail <br> Atentamente Grupo 4</p>
+       <ul class="social-icon">
+          <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+       </ul>
+     </div>
+   </div>
+   </div>
+     </div>
+ 
+     <!--footer-->
+  <%- include("./partials/footer") %>
+  <!--footer end-->
+  >
+</section>
+<!-- Contact Section End -->
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- js -->
+<script src="/js/animate.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/menu.js"></script>
+<script src="/js/carrito.js"></script>
+</body>
+<!-- Body Ended -->
+
+</html>
+<!-- CODIGO ANTIGUO 
+
+<div class="banner">
+  <div class="container">
+    <div>
+        <h1>Shop</h1>
+    </div>
+  </div>
+</div>
+
+
+<section id="product">
+  <div class="container">
+   <div class="inner-content">
+    <h2>Productos Destacados</h2>
+     <div class="row" data-aos="fade-up" data-aos-duration="500">
+      <% products.forEach(function(product){ 
+      %><div claas="caja-milagrosa">
+       <div class="caja-individual">
+         <div class="thumbnail">
+          <figure class="image one">
+              <a href="/products/<%=product.id%>"><img src="/images/productos/<%=product.imagen%>" class="img-responsive" alt="Responsive image"></a>
+          </figure>
+           <div class="caption">
+             <h3><a href="productDetail"><%=product.name%></a></h3>
+             <p><%=product.description %></p>
+            <div class="box">
+               <p><span><%=product.price%></span> Only</p>
+               <span class="cart"><a class="fa fa-shopping-cart" href="productCart.ejs" aria-hidden="true"></a> </span>
+            </div>
+              </div>
            </div>
          </div>
-         <textarea class="form-control" name="message" placeholder="Comentario" rows="8"></textarea><br>
-         <div class="row">
-           <div class="col-sm-12 form-group">
-             <button class="btn btn-default pull-left" type="submit">Enviar</button>
-           </div>
-         </div> 
-         </form>
        </div>
-       <div class="col-sm-5 address"  data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
-         <h2>¿Como podemos ayudarte?</h2>
-         <p>Dejanos tu duda o inquietud y a la brevedad nuestro equipo la procesara y te brindara una solucion via E-mail <br> Atentamente Grupo 4</p>
-         <ul class="social-icon">
-            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
-         </ul>
-       </div>
+       <%})%>
+       
+       
+       
+       >
+     </div>
+    
+
+     <div class="products-display">
+        <a href="#" class="previous">Previous</a>
+        <a href="#" class="next">Next</a>
      </div>
      </div>
+     
+  </div>
+  
+</section>
+
+
+
+<section id="contact" class="contact">
+  <div class="container">
+   <div class="row">
+    <div class="inner-content">
+     <div class="col-sm-6"  data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+      <h2 class="left">Contacto</h2>
+       <form>
+       <div class="row">
+         <div class="col-sm-6 form-group">
+           <input class="form-control" name="nombre" placeholder="Nombre" type="text" required>
+         </div>
+         <div class="col-sm-6 form-group">
+           <input class="form-control" name="email" placeholder="Email" type="email" required>
+         </div>
        </div>
+       <textarea class="form-control" name="comentario" placeholder="Comentario" rows="8"></textarea><br>
+       <div class="row">
+SHOPS         
+
+
+ <div class="col-sm-12 form-group">
+           <button class="btn btn-default pull-left" type="submit">Enviar</button>
+         </div>
+       </div> 
+       </form>
+     </div>
+     <div class="col-sm-5 address"  data-aos="fade-left" data-aos-offset="300" data-aos-easing="ease-in-sine" data-aos-duration="1000">
+       <h2>¿Como podemos ayudarte?</h2>
+       <p>Dejanos tu duda o inquietud y a la brevedad nuestro equipo la procesara y te brindara una solucion via E-mail <br> Atentamente Grupo 4</p>
+       <ul class="social-icon">
+          <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a></li>
+       </ul>
+     </div>
+   </div>
+   </div>
+     </div>
+ 
+ <%- include("./partials/footer") %>
+ >
+ </section>
    
-       <!--footer-->
-    <%- include("footer") %>
-    <!--footer end-->
-    >
-  </section>
-  <!-- Contact Section End -->
-  
-  <!-- jQuery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <!-- js -->
-  <script src="/js/animate.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/custom.js"></script>
-  <script src="/js/menu.js"></script>
-  <script src="/js/carrito.js"></script>
-  </body>
-  <!-- Body Ended -->
-  
-  </html>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   
+    <script src="/js/animate.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/menu.js"></script>
+    </body>
+
+</html>
+<!-- CODIGO ANTIGUO -->
