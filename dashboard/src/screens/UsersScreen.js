@@ -22,7 +22,7 @@ class UsersScreen extends Component {
   }
 
   async componentDidMount() {
-    const response = await fetch("http://localhost:3030/api/users");
+    const response = await fetch("api/users");
     const responseJSON = await response.json();
     const users = responseJSON.data;
 
@@ -42,7 +42,7 @@ class UsersScreen extends Component {
               <Header />
               <div className="container-fluid">
                 <div className="d-sm-flex align-items-center justify-content-between mb-4">
-                  <h1 className="h3 mb-0 text-gray-800">Registered Users</h1>
+                  <h1 className="h3 mb-0 text-gray-800">Usuarios registrados</h1>
                 </div>
                 <div>
                   <table className="table">
@@ -59,8 +59,8 @@ class UsersScreen extends Component {
                       {this.state.userList.map((user) => (
                         <UsersTable
                           id={user.id}
-                          user={user.user}
-                          name={user.name}
+                          user={user.firstname}
+                          name={user.lastname}
                           email={user.email}
                           address={user.address}
                         />

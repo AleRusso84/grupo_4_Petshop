@@ -15,18 +15,21 @@ class ProductsScreen extends Component {
           description: "",
           price: "",
           discount: "",
-          image: "",
-          product_category: {
+          imagen: "",
+          stock: "",
+          categoryMascotas_id: {
             name: "",
           },
-          detail: "",
+          categoryProductos_id: {
+            name: "",
+          },
         },
       ],
     };
   }
 
   async componentDidMount() {
-    const response = await fetch("http://localhost:3030/api/products");
+    const response = await fetch("api/products");
     const responseJSON = await response.json();
     const products = responseJSON.data;
     console.log(products);
@@ -69,8 +72,8 @@ class ProductsScreen extends Component {
                           description={product.description}
                           price={product.price}
                           discount={product.discount}
-                          category={product.categoryProductos_id.name}
-                          image={product.image}
+                          // category={product.categoryProductos_id.name}
+                          image={product.imagen}
                         />
                       ))}
                     </tbody>

@@ -1,13 +1,13 @@
 const db = require("../../database/models");
 
-productsController = {
+const productsApiController = {
     list: async (req, res) => {
         const products = await db.Product.findAll({
             order: [["id", "ASC"]],
-            include: [{ association: "CategoryProducts" }],
+            include: [{ association: "categorysProducts1" }],
         });
 
-        const categoryProducts = async (catId) => {
+        const categoryproductos = async (catId) => {
             const products = await db.Product.findAll({
                 where: {
                     categoryId: catId,
@@ -17,16 +17,16 @@ productsController = {
         };
 
         const count = await db.Product.count();
-        const consoleCount = await categoryProducts(1);
-        const gamesCount = await categoryProducts(2);
-        const accesoriesCount = await categoryProducts(3);
-        const retroCount = await categoryProducts(4);
+        const perros = await categoryproductos(1);
+        const gatos = await categoryproductos(2);
+        const aves = await categoryproductos(3);
+        const peces = await categoryproductos(4);
 
         const countByCategory = {
-            consoles: consoleCount.length,
-            games: gamesCount.length,
-            accesories: accesoriesCount.length,
-            retro: retroCount.length,
+            perros: perros.length,
+            gatos: gatos.length,
+            aves: aves.length,
+            peces: peces.length,
         };
 
         products.forEach((product) =>
@@ -45,13 +45,13 @@ productsController = {
     },
     find: async (req, res) => {
         const products = await db.Product.findByPk(req.params.id, {
-            include: [{ association: "product_category" }],
+            include: [{ association: "categorysProducts1" }],
         });
 
         if (products !== null) {
             products.setDataValue(
-                "product-image",
-                "images/products/" + products.image
+                "product-",
+                "images/productos/" + products.image
             );
         }
 
@@ -84,22 +84,6 @@ productsController = {
             totalPrice,
         });
     },
+}
 
-    // store: (req, res, next) => {
-    //     db.Product.create({
-    //         id: null,
-    //         name: req.body.name,
-    //         description: req.body.description,
-    //         price: Number(req.body.price),
-    //         discount: Number(req.body.discount),
-    //         featured: Number(req.body.featured),
-    //         image: req.files[0].filename,
-    //         categoryId: req.body.category,
-    //     });
-
-    // res.json({
-    //     status: 200
-    // });
-};
-
-module.exports = productsController;
+module.exports = productsApiController;

@@ -1,6 +1,6 @@
 const db = require("../../database/models");
 
-usersController = {
+const usersController = {
     list: async (req, res) => {
         const users = await db.User.findAll({
             attributes: ["id", "user", "name", "email", "address"],
@@ -19,27 +19,27 @@ usersController = {
             data: users,
         });
     },
-    find: async (req, res) => {
-        const users = await db.User.findByPk(req.params.id, {
-            attributes: ["id", "user", "name", "email", "address", "avatar"],
-        });
+    // find: async (req, res) => {
+    //     const users = await db.User.findByPk(req.params.id, {
+    //         attributes: ["id", "user", "name", "email", "address", "avatar"],
+    //     });
 
-        if (users !== null) {
-            users.setDataValue("profile-image", "images/users/" + users.avatar);
-        }
+    //     if (users !== null) {
+    //         users.setDataValue("profileImage", "images/users/" + users.avatar);
+    //     }
 
-        res.json(users);
-    },
-    count: async (req, res) => {
-        const count = await db.User.count();
+    //     res.json(users);
+    // },
+    // count: async (req, res) => {
+    //     const count = await db.User.count();
 
-        res.json({
-            meta: {
-                count,
-            },
-            count,
-        });
-    },
+    //     res.json({
+    //         meta: {
+    //             count,
+    //         },
+    //         count,
+    //     });
+    // },
 };
 
 module.exports = usersController;

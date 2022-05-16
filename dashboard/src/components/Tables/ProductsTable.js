@@ -9,7 +9,7 @@ const ProductsTable = (props) => {
       <td>{props.category}</td>
       <td>
         <img
-          src={`http://localhost:3030/images/products/${props.image}`}
+          src={`images/products/${props.image}`}
           style={{ width: "100px" }}
           alt={props.name}
         />

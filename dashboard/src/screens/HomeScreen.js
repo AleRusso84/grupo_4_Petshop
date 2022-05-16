@@ -12,19 +12,19 @@ class HomeScreen extends Component {
       test: "",
       smallCardsValues: [
         {
-          title: "Products in Data Base",
+          title: "Productos en DB",
           value: "n/a",
           color: "primary",
           icon: "fa-clipboard-list",
         },
         {
-          title: "Amount in products",
+          title: "Total de productos",
           value: "n/a",
           color: "success",
           icon: "fa-dollar-sign",
         },
         {
-          title: "Users quantity",
+          title: "Cantidad de usuarios",
           value: "n/a",
           color: "warning",
           icon: "fa-user-check",
@@ -65,23 +65,23 @@ class HomeScreen extends Component {
     return countResponse.totalPrice;
   }
 
-  async getProductsCategories() {
-    const countResponse = await this.queryProductsAPI("");
-    const productsCategories = countResponse.meta.countByCategory;
-    const consolesCount = `Consoles: ${productsCategories.consoles} `;
-    const gamesCount = `Games: ${productsCategories.games} `;
-    const accesoriesCount = `Accesories: ${productsCategories.accesories} `;
-    const retroCount = `Retro: ${productsCategories.retro} `;
-    const totalCountArray = [
-      consolesCount,
-      gamesCount,
-      accesoriesCount,
-      retroCount,
-    ];
-    const productCategoryList = totalCountArray.map((item) => <li>{item}</li>);
+  // async getProductsCategories() {
+  //   const countResponse = await this.queryProductsAPI("");
+  //   const productsCategories = countResponse.meta.countByCategory;
+  //   const consolesCount = `Consoles: ${productsCategories.consoles} `;
+  //   const gamesCount = `Games: ${productsCategories.games} `;
+  //   const accesoriesCount = `Accesories: ${productsCategories.accesories} `;
+  //   const retroCount = `Retro: ${productsCategories.retro} `;
+  //   const totalCountArray = [
+  //     consolesCount,
+  //     gamesCount,
+  //     accesoriesCount,
+  //     retroCount,
+  //   ];
+  //   const productCategoryList = totalCountArray.map((item) => <li>{item}</li>);
 
-    return productCategoryList;
-  }
+  //   return productCategoryList;
+  // }
 
   async getLastProduct() {
     const countResponse = await this.queryProductsAPI("");
@@ -102,7 +102,7 @@ class HomeScreen extends Component {
   async getLastProductImage() {
     const countResponse = await this.queryProductsAPI("");
     const lastProduct = countResponse.data[countResponse.data.length - 1];
-    const lastProductImage = `http://localhost:3030/images/products/${lastProduct.image}`;
+    const lastProductImage = `images/products/${lastProduct.image}`;
     return lastProductImage;
   }
 
@@ -135,11 +135,11 @@ class HomeScreen extends Component {
     ];
 
     const bigCardsValues = [
-      {
-        title: "Productos por categoría",
-        value: await this.getProductsCategories(),
-        image: "",
-      },
+      // {
+      //   title: "Productos por categoría",
+      //   value: await this.getProductsCategories(),
+      //   image: "",
+      // },
       {
         title: "Último producto cargado",
         value: await this.getLastProduct(),
