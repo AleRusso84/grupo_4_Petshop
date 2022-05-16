@@ -4,7 +4,7 @@ const productsApiController = {
     list: async (req, res) => {
         const products = await db.Product.findAll({
             order: [["id", "ASC"]],
-            include: [{ association: "categorysProducts1" }],
+            include: [{ association: "categorysMascotas1" }],
         });
 
         const categoryproductos = async (catId) => {
@@ -17,16 +17,16 @@ const productsApiController = {
         };
 
         const count = await db.Product.count();
-        const perros = await categoryproductos(1);
-        const gatos = await categoryproductos(2);
-        const aves = await categoryproductos(3);
-        const peces = await categoryproductos(4);
+        const perrosCount = await categoryproductos(1);
+        const gatosCount = await categoryproductos(2);
+        const avesCount = await categoryproductos(3);
+        const pecesCount = await categoryproductos(4);
 
         const countByCategory = {
-            perros: perros.length,
-            gatos: gatos.length,
-            aves: aves.length,
-            peces: peces.length,
+            perros: perrosCount.length,
+            gatos: gatosCount.length,
+            aves: avesCount.length,
+            peces: pecesCount.length,
         };
 
         products.forEach((product) =>
@@ -45,7 +45,7 @@ const productsApiController = {
     },
     find: async (req, res) => {
         const products = await db.Product.findByPk(req.params.id, {
-            include: [{ association: "categorysProducts1" }],
+            include: [{ association: "categorysMascotas1" }],
         });
 
         if (products !== null) {

@@ -65,23 +65,23 @@ class HomeScreen extends Component {
     return countResponse.totalPrice;
   }
 
-  // async getProductsCategories() {
-  //   const countResponse = await this.queryProductsAPI("");
-  //   const productsCategories = countResponse.meta.countByCategory;
-  //   const consolesCount = `Consoles: ${productsCategories.consoles} `;
-  //   const gamesCount = `Games: ${productsCategories.games} `;
-  //   const accesoriesCount = `Accesories: ${productsCategories.accesories} `;
-  //   const retroCount = `Retro: ${productsCategories.retro} `;
-  //   const totalCountArray = [
-  //     consolesCount,
-  //     gamesCount,
-  //     accesoriesCount,
-  //     retroCount,
-  //   ];
-  //   const productCategoryList = totalCountArray.map((item) => <li>{item}</li>);
+  async getProductsCategories() {
+    const countResponse = await this.queryProductsAPI("");
+    const productsCategories = countResponse.meta.countByCategory;
+    const perrosCount = `Perros: ${productsCategories.perros} `;
+    const gatosCount = `Gatos: ${productsCategories.gatos} `;
+    const avesCount = `Aves: ${productsCategories.aves} `;
+    const pecesCount = `Peces: ${productsCategories.peces} `;
+    const totalCountArray = [
+      perrosCount,
+      gatosCount,
+      avesCount,
+      pecesCount,
+    ];
+    const productCategoryList = totalCountArray.map((item) => <li>{item}</li>);
 
-  //   return productCategoryList;
-  // }
+    return productCategoryList;
+  }
 
   async getLastProduct() {
     const countResponse = await this.queryProductsAPI("");
@@ -135,11 +135,11 @@ class HomeScreen extends Component {
     ];
 
     const bigCardsValues = [
-      // {
-      //   title: "Productos por categoría",
-      //   value: await this.getProductsCategories(),
-      //   image: "",
-      // },
+      {
+        title: "Productos por categoría",
+        value: await this.getProductsCategories(),
+        image: "",
+      },
       {
         title: "Último producto cargado",
         value: await this.getLastProduct(),
