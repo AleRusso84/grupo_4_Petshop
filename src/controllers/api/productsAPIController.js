@@ -1,89 +1,62 @@
-const db = require("../../database/models");
+const path = require('path');
+const db = require('../../database/models');
+const sequelize = db.sequelize;
+const { Op } = require("sequelize");
+const moment = require('moment');
 
-const productsApiController = {
-    list: async (req, res) => {
-        const products = await db.Product.findAll({
-            order: [["id", "ASC"]],
-            include: [{ association: "categorysMascotas1" }],
-        });
 
-        const categoryproductos = async (catId) => {
-            const products = await db.Product.findAll({
-                where: {
-                    categoryId: catId,
-                },
-            });
-            return products;
-        };
+//Aqui tienen otra forma de llamar a cada uno de los modelos
+const Movies = db.Movie;
+const Genres = db.Genre;
+const Actors = db.Actor;
 
-        const count = await db.Product.count();
-        const perrosCount = await categoryproductos(1);
-        const gatosCount = await categoryproductos(2);
-        const avesCount = await categoryproductos(3);
-        const pecesCount = await categoryproductos(4);
 
-        const countByCategory = {
-            perros: perrosCount.length,
-            gatos: gatosCount.length,
-            aves: avesCount.length,
-            peces: pecesCount.length,
-        };
-
-        products.forEach((product) =>
-            product.setDataValue("detail", "api/products/" + product.id)
-        );
-
-        res.json({
-            meta: {
-                status: 200,
-                count,
-                countByCategory,
-                url: "/api/products",
-            },
-            data: products,
-        });
+const productsAPIController = {
+    list: (req,res) => {
+        db.Product
+        .findAll()
+        .then(products =>{
+            return res.json({
+                total: products.length,
+                data: products,
+                status: 200
+            })
+        })
     },
-    find: async (req, res) => {
-        const products = await db.Product.findByPk(req.params.id, {
-            include: [{ association: "categorysMascotas1" }],
-        });
+    show: (req,res)=>{
+        db.Product
+           .findByPk(req.params.id)
+           .then(product=>{
+               return res.status(200).json({
+                   data: product,
+                   status:200
+               })
 
-        if (products !== null) {
-            products.setDataValue(
-                "product-",
-                "images/productos/" + products.image
-            );
-        }
+           })
 
-        res.json(products);
     },
-
-    count: async (req, res) => {
-        const count = await db.Product.count();
-
-        res.json({
-            meta: {
-                count,
-            },
-            count,
-        });
+    store: (req,res)=> {
+        db.Product
+           .create(req.body)
+           .then(product => {
+               return res.status(200).json({ 
+                   data: product,
+                   status: 200
+               })
+           })
     },
-
-    totalPrice: async (req, res) => {
-        const products = await db.Product.findAll({});
-        let totalPrice = 0;
-
-        for (let i = 0; i < products.length; i++) {
-            totalPrice += products[i].price;
-        }
-
-        res.json({
-            meta: {
-                totalPrice,
-            },
-            totalPrice,
-        });
-    },
+    delete:(req,res)=>{
+        db.Product
+           .destroy({
+               where: {
+                   id: req.params.id
+               }
+           })
+            .then((response)=>{
+                return res.json(response)
+            })
+    }
 }
 
-module.exports = productsApiController;
+
+module.exports = productsAPIController;
