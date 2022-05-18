@@ -2,10 +2,20 @@ const {body} = require('express-validator');
 const path = require('path');
 
 const validations = [
-    body('name').notEmpty().withMessage('No puede estar vacio').bail()
+    // Nombre del producto
+    body('name').notEmpty().withMessage('Este campo no puede estar vacio').bail()
     .isLength({min: 5}).withMessage('Debe tener minimo 5 caracteres'),
-    // body('size_id').notEmpty().withMessage('Seleccione una opcion'),
-    // body('category_id').notEmpty().withMessage('Seleccione una opcion'),
+
+    // Categorias
+    body('category').notEmpty().withMessage('Seleccione una opcion'),
+    
+    body('category1').notEmpty().withMessage('Seleccione una opcion'),
+
+    // Descripcion
+    body('description').notEmpty().withMessage('Este campo no puede estar vacio').bail()
+    .isLength({min:20}).withMessage('Debe tener minimo 20 caracteres'),
+    
+    // Imagen
     body('image').custom((value, { req }) => {
         let file = req.file;
         let acceptedExtensions = ['.jpg', '.png', '.webp'];

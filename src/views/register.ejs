@@ -100,7 +100,7 @@
             <div class="registro-correo">
                 <div>
                     <div class="circular--landscape">
-                        <img src="/images/registroo.jpg"
+                        <img src="/images/users/registroo.jpg"
                         onclick="document.getElementById('avatar').click();" />
                     </div>
                     <input type="file" name="avatar" id="avatar" style="display:none;"> <br>
@@ -135,14 +135,27 @@
                 id="password" 
                 value="<%= locals.oldData ? oldData.password : null %>"
                 placeholder="Contraseña">
-                <%if (locals.errors && errors.firstName){%>
+                <%if (locals.errors && errors.password){%>
                     <div class="alarm">
                       <%=errors.password.msg%>
                     </div>
                   <%}%>
 
-                <label for="" class="label-registro">Confirmar Contraseña: </label>    
-                <input class="input-registro" type="text" placeholder="">
+                <label for="passwordconfirm" class="label-registro">Confirmar Contraseña: </label>    
+                <input class="input-registro" 
+                type="password" 
+                id="passwordconfirm"  
+                name="passwordconfirm"
+                value="<%= locals.oldData ? oldData.passwordconfirm : null %>"
+                
+                placeholder="">
+                <%if (locals.errors && errors.passwordconfirm){%>
+                  <div class="alarm">
+                    <%=errors.passwordconfirm.msg%>
+                  </div>
+                <%}%>
+                
+                
             </div>
             
 

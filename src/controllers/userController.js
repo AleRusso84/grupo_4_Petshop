@@ -34,7 +34,7 @@ const user = {
 
             res.cookie("recordameToken",token,{maxAge:1000 * 60 * 60 * 24 * 90,})
           }
-          if (req.session.user.userCategory_id=1){
+          if (req.session.user.userCategory_id==2){
             return res.redirect("/profile")
           }else{
             return res.redirect('/')
@@ -181,7 +181,7 @@ const user = {
             password: req.body.password,
             phone: req.body.phone,
             adress: req.body.adress,
-            userCategory_id: 2,
+            userCategory_id: 1,
             profileImage:req.file ? req.file.filename : 'registroo.jpg',
       
             
