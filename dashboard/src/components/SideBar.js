@@ -7,6 +7,7 @@ import LastMovieInDb from './LastMovieInDb';
 import ContentRowMovies from './ContentRowMovies';
 import Error404 from './Error404';
 import Movie from './Movie';
+import User from './User';
 
 function SideBar(){
     return(
@@ -70,6 +71,14 @@ function SideBar(){
                     </Link>
                 </li>
 
+                {/* tabla */}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/tableU">
+                        <i className="fas fa-fw fa-film"></i>
+                        <span>Tabla de usuarios</span>
+                    </Link>
+                </li>
+
                 {/*<!-- Divider -->*/}
                 <hr className="sidebar-divider d-none d-md-block"/>
             </ul>
@@ -81,6 +90,7 @@ function SideBar(){
                 <Route path='/LastMovieInDb' element={<LastMovieInDb />} />
                 <Route path='/ContentRowMovies' element={<ContentRowMovies />} />
                 <Route path='/table' element={<Movie />} />
+                <Route path='/tableU' element={<User />} />
                 <Route path='*' element={<Error404 />} />
             </Routes>
             
