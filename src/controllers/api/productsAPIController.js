@@ -1,14 +1,4 @@
-const path = require('path');
 const db = require('../../database/models');
-const sequelize = db.sequelize;
-const { Op } = require("sequelize");
-const moment = require('moment');
-
-
-//Aqui tienen otra forma de llamar a cada uno de los modelos
-const Movies = db.Movie;
-const Genres = db.Genre;
-const Actors = db.Actor;
 
 
 const productsAPIController = {
@@ -22,6 +12,26 @@ const productsAPIController = {
                 status: 200
             })
         })
+    },
+    LastProduct: async (req, res) => {
+        try {
+            const products = await db.Product.findAll({
+            });
+
+            let lastProd = products.reduce((max, product) => max.id > product.id ? max : product);
+
+            let response = {
+                meta: {
+                    status: 200,
+                    url: "api/products/lastProduct",
+                },
+                data: lastProd,
+            };
+
+            res.json(response);
+        }   catch (error) {
+            console.log(error);
+        }
     },
     show: (req,res)=>{
         db.Product

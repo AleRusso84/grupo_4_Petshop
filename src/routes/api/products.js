@@ -5,7 +5,7 @@ const productsAPIController = require('../../controllers/api/productsAPIControll
 //Rutas
 router.get('/',productsAPIController.list);
 
-//router.get('/lastProduct', productsAPIController.lastProduct);
+router.get('/lastProduct', productsAPIController.LastProduct);
 
 router.get('/:id',productsAPIController.show);
 
@@ -14,4 +14,3 @@ router.post('/',productsAPIController.store);
 router.delete('/:id',productsAPIController.delete);
 
 module.exports = router;
-

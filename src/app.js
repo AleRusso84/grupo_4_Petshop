@@ -17,9 +17,9 @@ const userRoutes= require('./routes/userRoutes');
 
 //---------------APIs
 const apiProductsRouter = require('./routes/api/products')
- const apiGenresRouter = require('./routes/api/genres')
+const apiGenresRouter = require('./routes/api/genres')
 const apiUsersRouter = require('./routes/api/users')
-const lastProductApiRouter = require('./routes/api/lastProduct')
+
 
 const { render } = require('ejs');
 const { appendFileSync } = require('fs');
@@ -63,7 +63,7 @@ app.use("/", userRoutes);
 app.use('/api/products',apiProductsRouter);
 app.use('/api/users',apiUsersRouter);
 app.use('/api/genres',apiGenresRouter);
-app.use('/api/lastProduct',lastProductApiRouter )
+
 // ************ catch 404 and forward to error handler ************
 app.use(function(req,res,next){ res.status(404).render("404-page"); next()})
 //app.use((req, res, next) => next(createError(404)));
