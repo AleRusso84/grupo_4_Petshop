@@ -16,9 +16,10 @@ const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes');
 
 //---------------APIs
-const apiProductsRouter = require('./routes/api/products');
-const apiUsersRouter = require('./routes/api/users')
+const apiProductsRouter = require('./routes/api/products')
 const apiGenresRouter = require('./routes/api/genres')
+const apiUsersRouter = require('./routes/api/users')
+
 
 const { render } = require('ejs');
 const { appendFileSync } = require('fs');
@@ -31,10 +32,6 @@ app.use(express.static(path.join(__dirname, '../public')));  // Necesario para l
 app.use(express.urlencoded({ extended: false }));
 app.use(logger('dev'))
 app.use(express.json())
-//app.use((req,res,next)=>{
-  //res.status(404).render("404-page");
-  //next()
-//})
 
 // ---------Sesiones y cookies
 app.use(session({

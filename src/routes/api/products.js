@@ -14,4 +14,3 @@ router.post('/',productsAPIController.store);
 router.delete('/:id',productsAPIController.delete);
 
 module.exports = router;
-
