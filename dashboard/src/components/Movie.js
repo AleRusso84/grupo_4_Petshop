@@ -15,7 +15,7 @@ class Movie extends Component{
     //Compomentes Ciclo de vida - Montar - Actualizar - Desmontar
     //Montaje
     componentDidMount(){
-        fetch('/api/products')
+        fetch('/api/products/')
         .then(respuesta =>{
             return respuesta.json()
         })
