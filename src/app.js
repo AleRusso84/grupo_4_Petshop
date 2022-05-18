@@ -16,8 +16,7 @@ const productsRouter= require('./routes/productsRoutes')
 const userRoutes= require('./routes/userRoutes');
 
 //---------------APIs
-const apiProductsRouter = require('./routes/api/products')
-const apiGenresRouter = require('./routes/api/genres')
+const apiProductsRouter = require('./routes/api/products');
 const apiUsersRouter = require('./routes/api/users')
 
 
@@ -62,7 +61,6 @@ app.use("/", userRoutes);
 // APIs
 app.use('/api/products',apiProductsRouter);
 app.use('/api/users',apiUsersRouter);
-app.use('/api/genres',apiGenresRouter);
 
 // ************ catch 404 and forward to error handler ************
 app.use(function(req,res,next){ res.status(404).render("404-page"); next()})

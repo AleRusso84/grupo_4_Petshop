@@ -38,12 +38,12 @@ class ContentRowMovies extends Component {
     };
   }
   componentDidMount() {
-    fetch("/api/genres")
+    fetch("/api/")
       .then((respuesta) => {
         return respuesta.json();
       })
-      .then((totales) => {
-        this.setState({ Total: totales.data });
+      .then((totalesC) => {
+        this.setState({ Total: totalesC.data });
       })
       .catch((error) => console.log(error));
 
@@ -53,7 +53,7 @@ class ContentRowMovies extends Component {
       })
       .then((totalesU) => {
         this.setState({ totalesUsuarios: totalesU.data });
-        //console.log(totalesU.prueba);
+
       })
       .catch((error) => console.log(error));
     fetch("api/products")
