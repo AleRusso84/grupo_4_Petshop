@@ -33,8 +33,8 @@ const productsAPIController = {
                })
 
            })
-
-    },
+        },
+       
     store: (req,res)=> {
         db.Product
            .create(req.body)

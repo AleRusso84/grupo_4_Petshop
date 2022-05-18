@@ -38,7 +38,7 @@ class ContentRowMovies extends Component {
     };
   }
   componentDidMount() {
-    fetch("api/")
+    fetch("api/genres")
       .then((respuesta) => {
         return respuesta.json();
       })
@@ -56,7 +56,7 @@ class ContentRowMovies extends Component {
         //console.log(totalesU.prueba);
       })
       .catch((error) => console.log(error));
-    fetch("api/products")
+    fetch("api/products/")
       .then((respuesta) => {
         console.log(respuesta);
         return respuesta.json();
