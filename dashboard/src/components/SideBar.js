@@ -42,7 +42,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/GenresInDb">
                         <i className="fas fa-fw fa-folder"></i>
-                        <span>Genres</span>
+                        <span>Categorias</span>
                     </Link>
                 </li>
 
@@ -66,7 +66,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link" to="/table">
                         <i className="fas fa-fw fa-film"></i>
-                        <span>Tabla de peliculas</span>
+                        <span>Tabla de productos</span>
                     </Link>
                 </li>
 

@@ -18,7 +18,7 @@ let amount = {
 
 let user = {
     color:   "warning",
-    titulo: "Total de ...",
+    titulo: "Total de categorias",
     valor: 10,
     icono: "fas fa-chart-bar",
     
@@ -38,11 +38,7 @@ class ContentRowMovies extends Component {
     };
   }
   componentDidMount() {
-<<<<<<< HEAD
-    fetch("/api/")
-=======
     fetch("api/genres")
->>>>>>> 23a47b59ebe3d392ccaa3fbf2cac7223e5ced084
       .then((respuesta) => {
         return respuesta.json();
       })
