@@ -42,11 +42,7 @@ function SideBar(){
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/GenresInDb">
                         <i className="fas fa-fw fa-folder"></i>
-<<<<<<< HEAD
-                        <span>Categorias</span>
-=======
                         <span>Tipo de productos</span>
->>>>>>> 8c27daa3f8da713b1093cdd50c946ac84eb12d67
                     </Link>
                 </li>
 

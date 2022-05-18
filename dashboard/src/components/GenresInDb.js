@@ -41,11 +41,7 @@ class GenresInDb extends Component {
                     <div className="col-lg-6 mb-4">						
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
-<<<<<<< HEAD
-                                <h6 onMouseOver={ this.fondo }   className="m-0 font-weight-bold text-gray-800">Categorias de productos</h6>
-=======
                                 <h6 onMouseOver={ this.fondo }   className="m-0 font-weight-bold text-gray-800">Tipos de productos en la DB</h6>
->>>>>>> 8c27daa3f8da713b1093cdd50c946ac84eb12d67
                             </div>
                             <div className="card-body fondoCaja">
                                 <div className="row">
