@@ -1,5 +1,5 @@
 import React from "react";
-import imagen from '../assets/images/error404.jpg'
+import imagen from '../assets/images/404.png'
 
 function Error404(){
     return(
