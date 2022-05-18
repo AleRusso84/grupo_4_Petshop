@@ -38,7 +38,17 @@
                     
                     
                     <label for='name' class="form-label" >Nombre del producto:</label>
-                    <input class='form-input'  type="text" name="name" id="name" placeholder="Ej:Collar para perro"><br>
+                    <input 
+                    class="<%= locals.errors && errors.name ? 'invalido' : 'form-input' %>"
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    placeholder="Ej:Collar para perro"><br>
+                    <%if (locals.errors && errors.name){%>
+                        <div class="alarm">
+                          <%=errors.name.msg%>
+                        </div>
+                      <%}%>
 
                     <label for="description" class="form-label">Descripcion</label>
                     <textarea name="description" id="description" class="form-input"></textarea>

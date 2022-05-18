@@ -18,6 +18,8 @@ let storage=multer.diskStorage({
 
 let upload=multer({storage:storage});
 
+const validationProducts=require("../middleware/validationProducts")
+
 
 
 router.get('/productCart', productsControllers.productCart)
@@ -62,8 +64,8 @@ router.get('/shop/Ofertas', productsControllers.Oferta)
 
 
 // Formulario de creacion y guardado
-router.get('/products/create',productsControllers.create)
-router.post('/products',upload.single('image'),productsControllers.store)
+router.get('/products/create',validationProducts,productsControllers.create)
+router.post('/products',upload.single('image'),validationProducts,productsControllers.store)
 
 // // Detalle del Producto
 router.get('/products/:id',productsControllers.productDetalle)

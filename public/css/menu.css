@@ -2,6 +2,74 @@ header{
     margin-bottom: -20px;
 }
 /* Seccion del logo */
+
+.barra-administrador{
+    background-color: rgb(90, 87, 87) ;
+    display: flex;
+    justify-content: space-around;
+}
+
+.barra-administrador a{
+    text-decoration: none;
+    color: white;
+    font-size: 15px;
+
+}
+
+.barra-administrador-sub{
+    
+    width: 25%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.barra-administrador .barra-administrador-sub:hover{
+    background-color: orange;
+}
+
+.contenedor-logo-administrador{
+    display: flex;
+    justify-content:space-between;
+    background:black;
+    padding: 10px;
+
+}
+
+.logo-administrador{
+    font-size: 50px;
+    font-weight: normal;
+    display: flex;
+}
+
+.logo-administrador a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.Administrador-color{
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+.contenedor-logo-administrador .cuenta-carrito a{
+    margin: 15px;
+    text-decoration: none;
+    color:white;
+    font-size: 20px;
+}
+
+.contenedor-logo-administrador .cuenta-carrito .casa:hover{
+    color: orange;
+    border-bottom: 4px solid orange;
+}
+
+
+/* Usuario */
+
 .contenedor-logo{
     display: flex;
     justify-content:space-between;
@@ -10,18 +78,25 @@ header{
 
 }
 
-
 .logo {
     font-size: 50px;
     font-weight: normal;
+    display: flex;
 }
 
 .logo a{
     text-decoration: none;
     color: black;
+
 }
 
-.contenedor-logo .logo .pet{
+.logo-administrador a{
+    text-decoration: none;
+    color:white;
+
+}
+
+.pet{
     color: orange;
 }
 
@@ -77,6 +152,11 @@ main article{
     margin-bottom: 20px;
 }
 
+.menu-administrador{
+    background:white;
+    margin-bottom: 20px;
+}
+
 .menu .contenedor-botones-menu{
     /* display: flex; */
     display: none;
@@ -113,8 +193,6 @@ main article{
     padding: 15px;
     display: flex;
     font-size: 18px;
-
-    
 }
 
 .menu .btn-mascotas i{
@@ -126,6 +204,13 @@ main article{
     width: 20%;
     display: flex;
     justify-content: center;
+}
+.menu-administrador{
+    border-bottom: solid 1px black;
+}
+.menu-administrador .btn-mascotas:hover a{
+    
+    color: white;
 }
 
 .menu .btn-servicios,.ofertas,.shop,.nosotros{
@@ -142,7 +227,18 @@ main article{
     align-items:center;
 }
 
+.menu-administrador .contenedor-enlaces-nav .ofertas:hover,.nosotros:hover,.shop:hover,.btn-servicios:hover{
+    background:orange ;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    color: white;
+    
+}
 
+.menu-administrador .contenedor-enlaces-nav a:hover{
+    color: white;
+}
 
 .menu .contenedor-enlaces-nav .ofertas:hover,.nosotros:hover,.shop:hover,.btn-servicios:hover{
     background:orange ;
@@ -154,6 +250,15 @@ main article{
 
 .menu .contenedor-enlaces-nav .btn-mascotas,.nosotros,.btn-servicios,.ofertas,.shop{
     padding: 20px;
+
+}
+
+.menu .contenedor-enlaces-nav a{
+    color: white;
+}
+
+.menu-administrador .contenedor-enlaces-nav a{
+    color: black;
 }
 
 
@@ -166,6 +271,8 @@ main article{
     color: white;
     font-size: 18px;
 }
+
+
 
 
 /* Grid */
