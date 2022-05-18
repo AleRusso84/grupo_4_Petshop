@@ -38,7 +38,7 @@ class ContentRowMovies extends Component {
     };
   }
   componentDidMount() {
-    fetch("api/")
+    fetch("/api/genres")
       .then((respuesta) => {
         return respuesta.json();
       })
