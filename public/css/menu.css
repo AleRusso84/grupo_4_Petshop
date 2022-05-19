@@ -430,10 +430,13 @@ main article{
         flex-direction: column;
         background-color:white;
         padding: 10px;
-    
+    }
 
-
-}
+    .contenedor-logo-administrador{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
 }
 
 
