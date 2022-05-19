@@ -424,9 +424,20 @@ main article{
 
 /* media querys */
 
+@media(max-width:475px){
+    .contenedor-logo{
+        display: flex;
+        flex-direction: column;
+        background-color:white;
+        padding: 10px;
+    
+
+
+}
+}
+
 
 @media (max-width:760px) {
-    
     .menu .contenedor{
         width:90%;
     }

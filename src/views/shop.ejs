@@ -12,7 +12,17 @@
   <%- include("./partials/header") %>
   <!-- Header End-->
 <!-- Jumbotron -->
+
+  <%if (!products.categoryMascotas_id==1){%>
+
+<div class="banner-perro">
+  <%}else{%>
 <div class="banner">
+  <%}%>
+
+  
+  
+  
   <div class="container">
     <div>
         <h1>Shop </h1>
@@ -27,7 +37,7 @@
     %>
     
 
-  <div class="productos-contenedor">
+  <div class="<%= user && user.userCategory_id==2? 'productos-contenedor-administrador' : 'productos-contenedor' %>">
     <a href="/products/<%=product.id%>">
           <div class='imagen-producto'>
               <div class="imagen">
@@ -44,7 +54,7 @@
           
 
 
-      <div class="titulo-descripcion">
+      <div class="<%= user && user.userCategory_id==2? 'titulo-descripcion-administrador' : 'titulo-descripcion' %>">
 
           <div class="titulo">
 
@@ -60,12 +70,14 @@
 
       </div>
 
-      <div class="producto-carrito-precio">
+      <div class="<%= user && user.userCategory_id==2? 'producto-carrito-precio-administrador' : 'producto-carrito-precio' %>">
 
           <div class="productos-precio">
               <h1>
                   $<%=product.price%>
               </h1>
+
+             
 
           </div>
 
@@ -80,10 +92,21 @@
 
       </div>
 
+      <% if (user && user.userCategory_id==2) { %>
+
+      <div class='borrar-editar'>
+ 
+      <a class="editar-shop" href="/products/<%=product.id%>/edit">Editar</a>
+        
+      <a class="borrar-shop" href="">Borrar</a>
+        
+      </div>
+      <%}%>
+
   
 
   </div>
-  </a>
+  
 
   <%})%>
 

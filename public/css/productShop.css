@@ -40,6 +40,13 @@
     
 }
 
+.productos-contenedor:hover{
+    box-shadow:  0px 0px 15px rgb(187, 121, 0);
+    transition: 0.5s;
+}
+
+
+
 
 
 .productos-contenedor {
@@ -149,3 +156,118 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+
+
+/* Administrador */
+
+.productos-contenedor-administrador .producto-carrito-precio-administrador .productos-precio h1{
+
+    font-size: 20px;
+
+}
+
+.productos-contenedor-administrador:hover{
+    box-shadow:  0px 0px 15px rgb(187, 121, 0);
+    transition: 0.5s;
+}
+
+.productos-contenedor-administrador{
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    
+    width: 250px;
+    height: 570px;
+
+    margin: 15px;
+
+}
+
+.titulo-descripcion-administrador{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 150px;
+}
+
+.titulo-descripcion-administrador .titulo h1{
+    font-size: 15px;
+    text-align: center;
+}
+
+.titulo-descripcion-administrador .descripcion p{
+    text-align: center;
+
+    font-size: 12px;
+}
+
+.titulo-descripcion-administrador a:hover{
+    color: orange;
+
+}
+
+.titulo-descripcion a:hover{
+    color: orange;
+}
+
+.producto-carrito-precio-administrador{
+    display: flex;
+    justify-content: space-between;
+    border-top: gray solid 2px;
+    height: 50px;
+    
+}
+
+.borrar-editar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    
+
+}
+
+.editar-shop{
+    background-color:orange;
+    padding: 8px 0;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.borrar-shop{
+    background-color:black;
+    padding: 8px 0;
+    margin-top: 8px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+
+
+.productos-contenedor-administrador .borrar-editar{
+    display: flex;
+    align-items: flex-end;
+}
+
+.borrar-editar a{
+    text-decoration: none;
+    color: white;
+}
+
+.editar-shop:hover{
+    box-shadow:  0px 0px 10px rgb(6, 187, 0);
+    background-color: green;
+    transition: 0.8s;
+}
+
+.borrar-shop:hover{
+    box-shadow:  0px 0px 10px red;
+    background-color:rgb(182, 3, 3);
+    transition: 0.8s;
+}
+
