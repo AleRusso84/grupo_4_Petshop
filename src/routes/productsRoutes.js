@@ -1,7 +1,8 @@
 const express = require("express")
 const router = express.Router()
-const multer=require('multer')
+const multer= require('multer')
 const path=require('path')
+const { inventario } = require("../controllers/productsControllers")
 
 const productsControllers=require('../controllers/productsControllers')
 
@@ -64,7 +65,7 @@ router.get('/shop/Ofertas', productsControllers.Oferta)
 
 
 // Formulario de creacion y guardado
-router.get('/products/create',validationProducts,productsControllers.create)
+router.get('/products/create',productsControllers.create)
 router.post('/products',upload.single('image'),validationProducts,productsControllers.store)
 
 // // Detalle del Producto
@@ -77,6 +78,10 @@ router.put('/products/:id',upload.single('image'),productsControllers.update)
 
 //Borrar Producto
 router.post("/products/:id/destroy", productsControllers.destroy)
+
+
+// Inventario
+router.get("/inventario",productsControllers.inventario)
 
 // router.get('/products',productsControllers.product)
 router.get('/services',productsControllers.servicios)

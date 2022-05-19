@@ -1,36 +1,28 @@
-const {body} = require('express-validator');
-const path = require('path');
+const { body }= require('express-validator');
+const db = require('../database/models');
 
 const validations = [
-    // Nombre del producto
-    body('name').notEmpty().withMessage('Este campo no puede estar vacio').bail()
-    .isLength({min: 5}).withMessage('Debe tener minimo 5 caracteres'),
+    // Nombre
+    body('name').notEmpty().withMessage("Este campo debe estar completo").bail()
+    .isLength({min:5}).withMessage("El nombre debe tener al menos 5 caracteres"),
 
-    // Categorias
-    body('category').notEmpty().withMessage('Seleccione una opcion'),
-    
-    body('category1').notEmpty().withMessage('Seleccione una opcion'),
+    // Precio
+    body('price').notEmpty().withMessage("Este campo debe estar completo"),
+
+    // Stock
+    body('stock').notEmpty().withMessage("Este campo debe estar completo"),
+
+    // Categoria Mascota
+    body('category').notEmpty().withMessage("Debes elegir una categoria"),
+
+    // Categoria Mascota
+    body('category1').notEmpty().withMessage("Debes elegir una categoria"),
 
     // Descripcion
-    body('description').notEmpty().withMessage('Este campo no puede estar vacio').bail()
-    .isLength({min:20}).withMessage('Debe tener minimo 20 caracteres'),
-    
-    // Imagen
-    body('image').custom((value, { req }) => {
-        let file = req.file;
-        let acceptedExtensions = ['.jpg', '.png', '.webp'];
-        
-        if (file) {
-            let fileExtension = path.extname(file.originalname);
-            if (!acceptedExtensions.includes(fileExtension)) {
-            throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-            }
-        } 
-            
-        
-        
-        return true;
-    })
+    body('description').notEmpty().withMessage("Este campo debe estar completo").bail()
+    .isLength({min:20}).withMessage("El nombre debe tener al menos 20 caracteres"),
+
 ]
+    
 
 module.exports =validations;

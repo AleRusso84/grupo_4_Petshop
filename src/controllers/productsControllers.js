@@ -159,7 +159,17 @@ const productsControllers={
     .then(function([mascota,product]){
        return res.render('productsCreate',{mascota,product})
 
-    })
+    })},
+
+    inventario:function (req,res){
+        const products=db.Product.findAll()
+        const mascota= db.CategoryMascota.findAll()
+        const product= db.CategoryProducts.findAll()
+        Promise.all([mascota,product,products])
+        .then(function([mascota,product,products]){
+           return res.render('inventario',{mascota,product,products})
+    
+        })},
 
         // let categories = db.Category.findAll()
 
@@ -171,22 +181,36 @@ const productsControllers={
         //         return res.render('productsCreate',{category})
         //     })
         //     .catch(error=>console.log(error))
-    },
+    
 
+    
     store:function(req,res){
+
+        const resultValidation = validationResult(req);
+        
+      if(resultValidation.errors.length > 0){
+        const mascota= db.CategoryMascota.findAll()
+        const product= db.CategoryProducts.findAll()
+        Promise.all([mascota,product])
+        .then(function([mascota,product]){
+       return res.render('productsCreate',{mascota,product,errors:resultValidation.mapped()})
+
+    })
+       } else{
            db.Product.create({
             name: req.body.name,
             price: req.body.price,
             discount:req.body.discount,
             description:req.body.description,
             categoryMascotas_id:req.body.category,
-            imagen:req.file.filename,
+            imagen:req.file ? req.file.filename : 'registroo.jpg',
             stock:req.body.stock,
             categoryProductos_id:req.body.category1
            })
            .catch(error=>console.log(error))
 
-           res.redirect('/shop')
+           return res.redirect('/shop')
+        }
 
     },
 
