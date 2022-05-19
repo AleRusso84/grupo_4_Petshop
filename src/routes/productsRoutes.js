@@ -21,6 +21,8 @@ let upload=multer({storage:storage});
 
 const validationProducts=require("../middleware/validationProducts")
 
+const rutaAdmin=require("../middleware/adminRuta")
+
 
 
 router.get('/productCart', productsControllers.productCart)
@@ -65,7 +67,7 @@ router.get('/shop/Ofertas', productsControllers.Oferta)
 
 
 // Formulario de creacion y guardado
-router.get('/products/create',productsControllers.create)
+router.get('/products/create',rutaAdmin,productsControllers.create)
 router.post('/products',upload.single('image'),validationProducts,productsControllers.store)
 
 // // Detalle del Producto
@@ -77,11 +79,11 @@ router.get('/products/:id/edit', productsControllers.edicion)
 router.put('/products/:id',upload.single('image'),productsControllers.update)
 
 //Borrar Producto
-router.post("/products/:id/destroy", productsControllers.destroy)
+router.post("/products/:id/destroy",rutaAdmin, productsControllers.destroy)
 
 
 // Inventario
-router.get("/inventario",productsControllers.inventario)
+router.get("/inventario",rutaAdmin,productsControllers.inventario)
 
 // router.get('/products',productsControllers.product)
 router.get('/services',productsControllers.servicios)

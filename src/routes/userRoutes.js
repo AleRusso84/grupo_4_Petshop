@@ -28,6 +28,7 @@ const validationRegister=require('../middleware/validationRegister')
 const validationLogin=require('../middleware/validationLogin')
 const guestMiddleware=require("../middleware/guestMidleware")
 const authMiddleware=require("../middleware/authMidleware")
+const rutaAdmin=require("../middleware/adminRuta")
 
 // login
 router.get("/login", guestMiddleware, userController.login);
@@ -40,10 +41,10 @@ router.post("/register/user", upload.single("avatar"), validationRegister, userC
 router.get("/profile",userRoute, userController.userProfile);
 //router.get("/editProfile", userRoute, userController.editProfile);
 
-router.get("/users/:id/edit",userController.editarUsuario)
-router.put('/users/:id',upload.single('avatar'),userController.updateUsers)
+router.get("/users/:id/edit",rutaAdmin,userController.editarUsuario)
+router.put('/users/:id',rutaAdmin,upload.single('avatar'),userController.updateUsers)
 
-router.get("/verUsuarios",userController.usuariosLogiados)
+router.get("/verUsuarios",rutaAdmin,userController.usuariosLogiados)
 
-router.get('/Users/:id',userController.usuarioDetalle)
+router.get('/Users/:id',rutaAdmin,userController.usuarioDetalle)
 module.exports = router;
