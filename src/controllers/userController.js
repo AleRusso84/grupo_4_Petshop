@@ -203,6 +203,62 @@ const user = {
   editProfile: (req, res) => {
     res.render("editProfile");
   },
+  usuariosLogiados:function (req,res){
+    const users=db.User.findAll()
+    const category= db.UserCategory.findAll()
+   
+    Promise.all([users,category])
+    .then(function([users,category]){
+       return res.render('verUsuarios',{users,category})
+
+    })},
+
+    editarUsuario:function(req,res){
+
+      let usersId= req.params.id;
+      let pushUsers= db.User.findByPk(usersId)
+      let pushUserCategory= db.UserCategory.findAll();
+    
+      Promise
+      .all([pushUsers,pushUserCategory])
+      .then(([users, categoryMascota]) => {
+          return res.render( 'editarUsuarios', { users, categoryMascota})
+      })
+      .catch(error => res.send(error)) 
+      
+  },
+  updateUsers: function (req,res){
+
+    let productId = req.params.id;
+    db.User
+    .update(
+        {
+          firstname: req.body.firstName,
+          lastname: req.body.lastName,
+          email: req.body.email,
+          password: req.body.password,
+          phone: req.body.phone,
+          adress: req.body.adress,
+          userCategory_id: 1,
+          profileImage:req.file ? req.file.filename : 'registroo.jpg',
+        },
+        {
+            where: {id: productId}
+        })
+    .then(()=> {
+        return res.redirect('/Users/' + productId)})            
+    .catch(error => res.send(error))},
+    
+    usuarioDetalle: (req,res)=>{
+      db.User.findByPk(req.params.id)
+             
+         .then(users=>{
+             res.render('detalleUsuario',{users:users})
+         } )      
+         .catch(error=>console.log(error));
+ 
+ }
+
 };
 
 module.exports = user;

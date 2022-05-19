@@ -40,4 +40,10 @@ router.post("/register/user", upload.single("avatar"), validationRegister, userC
 router.get("/profile",userRoute, userController.userProfile);
 //router.get("/editProfile", userRoute, userController.editProfile);
 
+router.get("/users/:id/edit",userController.editarUsuario)
+router.put('/users/:id',upload.single('avatar'),userController.updateUsers)
+
+router.get("/verUsuarios",userController.usuariosLogiados)
+
+router.get('/Users/:id',userController.usuarioDetalle)
 module.exports = router;
