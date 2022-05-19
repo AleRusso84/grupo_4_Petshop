@@ -1586,7 +1586,10 @@ footer .footer-logo {float: none;}
 .blog a {font-size: 20px;color: #ffffff;}
 }
 @media (max-width: 375px) and (min-width: 320px){
-.client .col {padding-left: 22px;padding-right: 14px;}
+.video{
+    width: 90vw;
+}
+    .client .col {padding-left: 22px;padding-right: 14px;}
 .quote {padding-right: 157px;}
 .carousel-indicators {top: 224px;}
 #quote-carousel h3 {font-size: 32px;padding-bottom: 30px;}
