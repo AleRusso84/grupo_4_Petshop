@@ -127,3 +127,15 @@
     padding: 10px 40px;
     border-radius: 20px;
 }
+.contenedor-inventario2{
+    display: block;
+    flex-direction: column;
+    margin-right: 1px;
+    gap: 1rem;
+
+}
+.barrainventario{
+    display: grid;
+    gap: 1rem;
+    grid-auto-rows: 5rem;
+}

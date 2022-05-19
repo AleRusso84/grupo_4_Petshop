@@ -431,14 +431,16 @@ main article{
         background-color:white;
         padding: 10px;
     }
-
+.logo-administrador{
+    flex-direction: column;
+    justify-content: center;
+}
     .contenedor-logo-administrador{
         display: flex;
         flex-direction: column;
         padding: 10px;
     }
 }
-
 
 @media (max-width:760px) {
     .menu .contenedor{
