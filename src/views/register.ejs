@@ -55,6 +55,7 @@
                 name="firstName" 
                 value="<%= locals.oldData ? oldData.firstName : null %>"
                 placeholder="Nombre"
+                id="firstName"
                 >
                 <%if (locals.errors && errors.firstName){%>
                     <div class="alarm">
@@ -115,6 +116,7 @@
 
                 <label for='email' class="label-registro"> Ingrese su Correo-Electronico:</label>
                 <input class="<%= locals.errors && errors.email ? 'invalido' : 'input-registro' %>"
+                id="email"
                 type="text" 
                 for="email" 
                 name="email" 
@@ -172,6 +174,7 @@
     
     
     <script src="https://kit.fontawesome.com/b1ee9d91d2.js" crossorigin="anonymous"></script>
+    <script src="/js/valdaciondeformulario.js"></script>
     
     
     
@@ -181,7 +184,7 @@
     
 
    
-</section>
+
 <!-- termina seccion contacto -->
    
     <!-- jQuery -->
