@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 18-05-2022 a las 03:58:24
+-- Tiempo de generación: 18-05-2022 a las 22:12:25
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -86,42 +86,42 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `price`, `discount`, `imagen`, `categoryMascotas_id`, `description`, `categoryProductos_id`, `stock`) VALUES
-(14, 'Rc Mini Adult', 2354, 10, 'producto-1652804970212.webp', 1, 'El  alimento Royal cannin Mini adult esta pensado para cuidar la salud de los adultos de 12 meses  a  8 años de edad que sean de talla pequeña hasta los 11kg   ', 1, 1234),
-(15, 'Rc Mini Puppy', 2845, 10, 'producto-1652803250569.png', 1, 'El alimento Royal cannin Mini adult esta pensado para cuidar la salud de los cachorros desde los 3 meses a  los 12 meses de edad que sean de talla pequeña ', 1, 123),
-(16, 'Rc Medium Adult', 2478, 10, 'producto-1652803357642.jpg', 1, 'El alimento Royal cannin Medium adult esta pensado para cuidar la salud de los adultos de 12 meses a 8 años de edad que sean de talla mediana hasta los 25kg  ', 1, 234),
-(17, 'Rc Medium Puppy ', 2860, 10, 'producto-1652803426708.png', 1, 'El alimento Royal cannin Medium Puppy esta pensado para cuidar la salud de los cachorros desde los 3  hasta los 12 meses que sean de talla mediana hasta los 25g ', 1, 343),
-(18, 'Rc Maxi Adult', 10890, 10, 'producto-1652803452433.jpg', 1, 'El alimento Royal cannin Maxi adult esta pensado para cuidar la salud de los adultos de 12 meses a 8 años de edad que sean de talla pequeña hasta los 50kg ', 1, 432),
-(19, 'Rc Kitten ', 2532, 10, 'producto-1652803652806.webp', 2, 'El alimento Royal canni kitten esta pensado para nuestros felinos bebes de 3 a 12 meses, brinda una nutricion completa para fortalecer al cachorro ', 1, 543),
-(20, 'Rc Fit 32', 2680, 10, 'producto-1652803706698.jpg', 2, 'El alimento Royal cannin fit 32 es ideal para los felinos activos, intrépidos activos. Del primer año de vida hasta los 7 años de edad ', 1, 532),
-(21, 'Rc Gatos castrados', 3420, 10, 'producto-1652803737349.png', 2, 'El alimento Royal cannin gatos castrados apunta a los felinos que ya fueron castrados, ayudando a regular el peso y el indice S/O para prevenir problemas urinarios  ', 1, 543),
-(23, 'Rc Pouch Kitten', 280, 10, 'producto-1652803892659.webp', 2, 'Alimento humedo para los mas exigentes! ', 1, 1345),
-(24, 'Rc Pouch Instictive ', 280, 10, 'producto-1652803924448.png', 2, 'Alimento humedo para los mas exigentes! ', 1, 54321),
-(25, 'Rc Pouch Beauty', 280, 10, 'producto-1652803980479.webp', 2, 'Alimento humedo para los mas exigentes! ', 1, 3223),
-(27, 'Rc Pouch Feel ', 300, 10, 'producto-1652804057732.png', 2, 'Alimento humedo para los mas exigentes! ', 1, 432),
-(28, 'Rc Pouch Smeel', 300, 10, 'producto-1652804079373.png', 2, 'Alimento humedo para los mas exigentes! ', 1, 32),
-(29, 'Rc Pouch Taste', 300, 10, 'producto-1652804094021.png', 2, 'Alimento humedo para los mas exigentes! ', 1, 432),
-(30, 'PP Adulto mediano', 3200, 10, 'producto-1652804139652.jpg', 1, 'El alimento Purina Pro Plan adulto mediano esta pensado para perros de 1 a 10 años de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida  ', 1, 322),
-(31, 'PP Adulto Pequeño ', 3120, 10, 'producto-1652804308005.jpg', 1, 'El alimento Purina Pro Plan adulto pequeño esta pensado para perros de 1 a 10 años de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida  ', 1, 432),
-(32, 'PP Cachorro mediano ', 8970, 10, 'producto-1652804329025.png', 1, 'El alimento Purina Pro Plan Cachorro mediano  esta pensado para perros de 3 a 12 meses de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida  ', 1, 432),
-(33, 'PP Cachorro Pequeño ', 3245, 10, 'producto-1652804346837.jpg', 1, 'El alimento Purina Pro Plan Cachorro Pequeño  esta pensado para perros de 3 a 12 meses de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida ', 1, 223),
-(34, 'PP Active Mind pequeño', 3421, 10, 'producto-1652804393538.jpg', 1, 'El alimento Purina Pro Plan Active Mind pequeño esta pensado para perros de mas de 7 años de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida cuidando las articulaciones ', 1, 345),
-(36, 'Old prince cordero y arroz small', 1390, 10, 'producto-1652804792854.png', 1, 'El alimento Old prince cordero y arros small basa su proteina en la carne de cordero conviertiendo al alimento en una opcion hipoalergenica de excelente calidad y bajo costo, ideal para perros de 1 a 8 años de edad de talla pequeña ', 1, 432),
-(37, 'Old prince cordero y arroz puppy', 1459, 10, 'producto-1652804812063.png', 1, 'El alimento Old prince cordero y arros puppy basa su proteina en la carne de cordero conviertiendo al alimento en una opcion hipoalergenica de excelente calidad y bajo costo, ideal para perros de 3 a 12 meses de edad  ', 1, 432),
-(38, 'Old prince Cerdo y legumbres', 1342, 10, 'producto-1652804831903.png', 1, 'El alimento Old Cerdo y legumbres basa su proteina en la carne de cerdo conviertiendo al alimento en una opcion hipoalergénica de excelente calidad y bajo costo, ideal para perros de 1 a 8 años de edad de talla mediano ', 1, 234),
-(39, 'Hueso Kong Extreme', 6780, 5, 'producto-1652577143166.webp', 1, 'Hueso Kong importado de USA. Este juguete es para las mordidas mas fuertes del reino animal, practicamente indestructible!', 2, 432),
-(40, 'Snack Monamie Churrasquito de Carne', 990, 0, 'producto-1652577554714.png', 1, 'Snack de excelente calidad, 100% carne vacuna sin conservantes ni aditivos ', 2, 3224),
-(41, 'Old prince cordero y arroz adulto', 2500, 10, 'producto-1652804891483.png', 1, 'El alimento Old prince cordero y arros puppy basa su proteina en la carne de cordero conviertiendo al alimento en una opcion hipoalergenica de excelente calidad y bajo costo, ideal para perros de 1 año a 12 años de edad ', 1, 1332),
-(42, 'Gladiator', 4500, 5, 'producto-1652805129206.jpg', 1, 'Peluche de excelente calidad recubierto por una coraza de goma ultra resistente  ', 2, 432),
-(43, 'Snoozy', 6500, 5, 'producto-1652805233844.jpg', 2, 'Alfombra de piso tipo plush con piso antideslizante super calentita', 2, 432),
-(44, 'Kong Suruyo Extreme', 6543, 5, 'producto-1652805321523.jpg', 1, 'Suruyo Kong importado de USA. Este juguete es para las mordidas mas fuertes del reino animal, practicamente indestructible!', 2, 543),
-(45, 'Piedras Gattos', 500, 5, 'producto-1652805409542.jpg', 2, 'Piedras aglutinantes de alta calidad, el contenido es de 4kg y se calcula que rinde 3 semanas con un gato adulto de aprox 5kg ', 3, 4322),
-(46, 'Tidy cats Piedras ', 1850, 5, 'producto-1652805545449.png', 2, 'Las Tidy cats son las mejores piedras aglutinantes del mercado, con un alto poder aglutinante, neutralizan el olor y rinden 1 mes de uso', 3, 5432),
-(47, 'Alta gama lavanda ', 730, 5, 'producto-1652805648497.jpg', 2, 'Piedras con aroma a lavanda, clasicas con 3,6kg de contenido por unidad', 3, 123),
-(48, 'Pecera completa', 14590, 5, 'producto-1652805980083.jpeg', 4, 'Pecera de 90cm de largo por 45cm de profundidad y 60 cm de alto, cuenta con decoracion de interior ', 2, 23),
-(49, 'Gold Fish', 346, 10, 'producto-1652806301461.png', 4, 'Alimento especialmente pensado para tus peces', 1, 323),
-(50, 'Gold Fish', 350, 5, 'producto-1652806350170.png', 4, 'Alimento especialmente pensado para tus peces', 1, 34),
-(51, 'Jaula para canarios', 13455, 5, 'producto-1652806443643.jpeg', 3, 'Jaula de 1,30mts de altura por 45cm de ancho por 45cm de largo', 2, 34),
-(52, 'FruitBlend', 560, 5, 'producto-1652806524417.jpeg', 3, 'Alimento para canarios especialmente diseñado para aquellos que viven en cautiverio ', 1, 32);
+(14, 'Rc Mini Adult', 2354, 10, 'producto-1652904478503.webp', 1, 'El  alimento Royal cannin Mini adult esta pensado para cuidar la salud de los adultos de 12 meses  a  8 años de edad que sean de talla pequeña hasta los 11kg     ', 1, 1234),
+(15, 'Rc Mini Puppy', 2845, 10, 'producto-1652898028395.png', 1, 'El alimento Royal cannin Mini adult esta pensado para cuidar la salud de los cachorros desde los 3 meses a  los 12 meses de edad que sean de talla pequeña  ', 1, 123),
+(16, 'Rc Medium Adult', 2478, 10, 'producto-1652902245331.jpg', 1, 'El alimento Royal cannin Medium adult esta pensado para cuidar la salud de los adultos de 12 meses a 8 años de edad que sean de talla mediana hasta los 25kg   ', 1, 234),
+(17, 'Rc Medium Puppy ', 2860, 10, 'producto-1652902323352.png', 1, 'El alimento Royal cannin Medium Puppy esta pensado para cuidar la salud de los cachorros desde los 3  hasta los 12 meses que sean de talla mediana hasta los 25g  ', 1, 343),
+(18, 'Rc Maxi Adult', 10890, 10, 'producto-1652902377898.jpg', 1, 'El alimento Royal cannin Maxi adult esta pensado para cuidar la salud de los adultos de 12 meses a 8 años de edad que sean de talla pequeña hasta los 50kg  ', 1, 432),
+(19, 'Rc Kitten ', 2532, 10, 'producto-1652902527588.webp', 2, 'El alimento Royal canni kitten esta pensado para nuestros felinos bebes de 3 a 12 meses, brinda una nutricion completa para fortalecer al cachorro  ', 1, 543),
+(20, 'Rc Fit 32', 2680, 10, 'producto-1652902554573.jpg', 2, 'El alimento Royal cannin fit 32 es ideal para los felinos activos, intrépidos activos. Del primer año de vida hasta los 7 años de edad  ', 1, 532),
+(21, 'Rc Gatos castrados', 3420, 10, 'producto-1652902580360.png', 2, 'El alimento Royal cannin gatos castrados apunta a los felinos que ya fueron castrados, ayudando a regular el peso y el indice S/O para prevenir problemas urinarios   ', 1, 543),
+(23, 'Rc Pouch Kitten', 280, 10, 'producto-1652902661153.webp', 2, 'Alimento humedo para los mas exigentes!  ', 1, 1345),
+(24, 'Rc Pouch Instictive ', 280, 10, 'producto-1652902705286.webp', 2, 'Alimento humedo para los mas exigentes!  ', 1, 54321),
+(25, 'Rc Pouch Beauty', 280, 10, 'producto-1652902858592.webp', 2, 'Alimento humedo para los mas exigentes!  ', 1, 3223),
+(27, 'Rc Pouch Feel ', 300, 10, 'producto-1652902948537.png', 2, 'Alimento humedo para los mas exigentes!  ', 1, 432),
+(28, 'Rc Pouch Smeel', 300, 10, 'producto-1652902988721.png', 2, 'Alimento humedo para los mas exigentes!  ', 1, 32),
+(29, 'Rc Pouch Taste', 300, 10, 'producto-1652903028822.png', 2, 'Alimento humedo para los mas exigentes!  ', 1, 432),
+(30, 'PP Adulto mediano', 3200, 10, 'producto-1652903104802.png', 1, 'El alimento Purina Pro Plan adulto mediano esta pensado para perros de 1 a 10 años de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida   ', 1, 322),
+(31, 'PP Adulto Pequeño ', 3120, 10, 'producto-1652903221555.jpg', 1, 'El alimento Purina Pro Plan adulto pequeño esta pensado para perros de 1 a 10 años de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida    ', 1, 432),
+(32, 'PP Cachorro mediano ', 8970, 10, 'producto-1652903199840.png', 1, 'El alimento Purina Pro Plan Cachorro mediano  esta pensado para perros de 3 a 12 meses de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida   ', 1, 432),
+(33, 'PP Cachorro Pequeño ', 3245, 10, 'producto-1652903537830.jpg', 1, 'El alimento Purina Pro Plan Cachorro Pequeño  esta pensado para perros de 3 a 12 meses de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida  ', 1, 223),
+(34, 'PP Active Mind pequeño', 3421, 10, 'producto-1652903567954.jpg', 1, 'El alimento Purina Pro Plan Active Mind pequeño esta pensado para perros de mas de 7 años de edad, ayuda a fortalecer masa muscular y desarrolla una mejor calidad de vida cuidando las articulaciones  ', 1, 345),
+(36, 'Old prince cordero y arroz small', 1390, 10, 'producto-1652903601685.png', 1, 'El alimento Old prince cordero y arros small basa su proteina en la carne de cordero conviertiendo al alimento en una opcion hipoalergenica de excelente calidad y bajo costo, ideal para perros de 1 a 8 años de edad de talla pequeña  ', 1, 432),
+(37, 'Old prince cordero y arroz puppy', 1459, 10, 'producto-1652903624159.png', 1, 'El alimento Old prince cordero y arros puppy basa su proteina en la carne de cordero conviertiendo al alimento en una opcion hipoalergenica de excelente calidad y bajo costo, ideal para perros de 3 a 12 meses de edad   ', 1, 432),
+(38, 'Old prince Cerdo y legumbres', 1342, 10, 'producto-1652903643363.png', 1, 'El alimento Old Cerdo y legumbres basa su proteina en la carne de cerdo conviertiendo al alimento en una opcion hipoalergénica de excelente calidad y bajo costo, ideal para perros de 1 a 8 años de edad de talla mediano  ', 1, 234),
+(39, 'Hueso Kong Extreme', 6780, 5, 'producto-1652903684089.webp', 1, 'Hueso Kong importado de USA. Este juguete es para las mordidas mas fuertes del reino animal, practicamente indestructible! ', 2, 432),
+(40, 'Snack Monamie Churrasquito de Carne', 990, 0, 'producto-1652903806725.png', 1, 'Snack de excelente calidad, 100% carne vacuna sin conservantes ni aditivos   ', 2, 3224),
+(41, 'Old prince cordero y arroz adulto', 2500, 10, 'producto-1652903851307.png', 1, 'El alimento Old prince cordero y arros puppy basa su proteina en la carne de cordero conviertiendo al alimento en una opcion hipoalergenica de excelente calidad y bajo costo, ideal para perros de 1 año a 12 años de edad  ', 1, 1332),
+(42, 'Gladiator', 4500, 5, 'producto-1652903918814.jpg', 1, 'Peluche de excelente calidad recubierto por una coraza de goma ultra resistente   ', 2, 432),
+(43, 'Snoozy', 6500, 5, 'producto-1652903956402.jpg', 2, 'Alfombra de piso tipo plush con piso antideslizante super calentita ', 2, 432),
+(44, 'Kong Suruyo Extreme', 6543, 5, 'producto-1652904068313.webp', 1, 'Suruyo Kong importado de USA. Este juguete es para las mordidas mas fuertes del reino animal, practicamente indestructible! ', 2, 543),
+(45, 'Piedras Gattos', 500, 5, 'producto-1652904096069.jpg', 2, 'Piedras aglutinantes de alta calidad, el contenido es de 4kg y se calcula que rinde 3 semanas con un gato adulto de aprox 5kg  ', 3, 4322),
+(46, 'Tidy cats Piedras ', 1850, 5, 'producto-1652904125515.png', 2, 'Las Tidy cats son las mejores piedras aglutinantes del mercado, con un alto poder aglutinante, neutralizan el olor y rinden 1 mes de uso ', 3, 5432),
+(47, 'Alta gama lavanda ', 730, 5, 'producto-1652904165795.jpg', 2, 'Piedras con aroma a lavanda, clasicas con 3,6kg de contenido por unidad ', 3, 123),
+(48, 'Pecera completa', 14590, 5, 'producto-1652904214965.jpeg', 4, 'Pecera de 90cm de largo por 45cm de profundidad y 60 cm de alto, cuenta con decoracion de interior  ', 2, 23),
+(49, 'Gold Fish', 346, 10, 'producto-1652904250469.png', 4, 'Alimento especialmente pensado para tus peces ', 1, 323),
+(50, 'Peluche Kong', 4380, 5, 'producto-1652904331069.webp', 1, 'Peluche de apego de plush para los cachorros ', 2, 34),
+(51, 'Jaula para canarios', 13455, 5, 'producto-1652904357349.jpeg', 3, 'Jaula de 1,30mts de altura por 45cm de ancho por 45cm de largo ', 2, 34),
+(52, 'FruitBlend', 560, 5, 'producto-1652904377249.jpeg', 3, 'Alimento para canarios especialmente diseñado para aquellos que viven en cautiverio  ', 1, 32);
 
 -- --------------------------------------------------------
 
@@ -166,6 +166,13 @@ CREATE TABLE `userlog` (
   `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `userlog`
+--
+
+INSERT INTO `userlog` (`id`, `token`, `user_id`) VALUES
+(1, 'TIHo1QuqZmwwbDn75iZDsd6N7efXv7u4OKn50EvyMLWzRY5v1Gp8B9MFZDjmtLPtRL5JCzldjcCJH5CHrjLynQ==', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -191,7 +198,8 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `firstname`, `lastname`, `email`, `profileImage`, `password`, `userCategory_id`, `phone`, `adress`) VALUES
 (1, 'Diego', 'escobar', 'pepe@gmail.com', 'usuario-1652237092330.webp', '$2a$10$wsocCrjbqk2zW4TX5C000.oyxCpZTncmE1Uyi/wdJEXS0JSuL.4B.', 1, NULL, NULL),
 (2, 'Diego', 'escobar', 'fernandezescobardiego@gmail.com', 'usuario-1652237160778.webp', '$2a$10$1TK.XrzQYTVGPmb4mpY.d.PVzDtIdEofYfILJIeffU.tgmUjooMdG', 1, NULL, NULL),
-(3, 'Diego', 'escobar', 'bonnie@gmail.com', 'usuario-1652404247614.webp', '$2a$10$yru8XryOhg4ARCw3c2m5Ruvh1I9f/GeLCENa4AZ/1tAWwhgtGVWW2', 1, NULL, NULL);
+(3, 'Diego', 'escobar', 'bonnie@gmail.com', 'usuario-1652404247614.webp', '$2a$10$yru8XryOhg4ARCw3c2m5Ruvh1I9f/GeLCENa4AZ/1tAWwhgtGVWW2', 1, NULL, NULL),
+(4, 'Diego', 'escobar', 'niza@gmail.com', 'registroo.jpg', '$2a$10$oH5rUhDW9pXFVt.wRYnoiexkRbAsVFK3dwiCgrwlgJNt37rOoPrMW', 2, 1151367272, '');
 
 --
 -- Índices para tablas volcadas
@@ -283,13 +291,13 @@ ALTER TABLE `usercategory`
 -- AUTO_INCREMENT de la tabla `userlog`
 --
 ALTER TABLE `userlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
